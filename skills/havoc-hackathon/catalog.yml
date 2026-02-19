@@ -1,0 +1,21 @@
+schema_version: "1"
+id: havoc-hackathon
+name: Havoc Hackathon
+description: >
+  Competitive multi-model orchestrator that pits AI models against each other
+  on any task — code, design, review, or analysis. Dispatches models in parallel,
+  scores with a blind tribunal (3 judge models, median consensus), tracks ELO
+  ratings across sessions, and declares winners with dramatic esports-style flair.
+  Say "run hackathon" and describe what you want built, reviewed, or improved.
+emoji: "🏟️"
+codename: The Arena
+category: specialist
+version: "1.0.0"
+tags: [hackathon, multi-model, competition, ai, elo, copilot-cli, orchestrator]
+platforms: [copilot-cli]
+input_format: free-text
+links:
+  agent_file: agents/havoc-hackathon.agent.md
+  skill_file: skills/havoc-hackathon/SKILL.md
+license: MIT
+owner: DUBSOpenHub
