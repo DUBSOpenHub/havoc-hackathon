@@ -28,7 +28,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 1 | `run hackathon — write a fizzbuzz function` | Opening ceremony with arena banner, contestants, rubric |
 | 2 | *(accept defaults or customize)* | 3 models dispatched in parallel with progress commentary |
 | 3 | *(wait for completion)* | All models finish, outputs normalized |
-| 4 | *(judging phase)* | Blind tribunal scores anonymized submissions |
+| 4 | *(judging phase)* | Sealed panel scores anonymized submissions |
 | 5 | *(results)* | Drumroll → winner reveal → ASCII podium → ELO update |
 
 ### Playbook 2: Review Mode

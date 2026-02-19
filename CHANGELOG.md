@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - 🏟️ Initial release
 - ⚡ Parallel multi-model dispatch via `task` tool
-- ⚖️ Blind tribunal judging with 3 judge models and median consensus
+- ⚖️ Sealed panel judging with 3 judge models and median consensus
 - 📈 ELO rating system with persistent leaderboard
 - 🧬 Intelligent merge with component-level cherry-picking
 - 🏆 Full ceremony: ASCII podium, dramatic reveals, color commentary

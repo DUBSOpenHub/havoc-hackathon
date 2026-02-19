@@ -52,7 +52,7 @@ You don't need to write code to help. Open an [Issue](https://github.com/DUBSOpe
 
 - 🎭 **Keep the MC energy** — this is a hackathon, not a board meeting!
 - ⚖️ **Fair play** — judging logic must stay unbiased
-- 🔒 **Blind judging** — never leak model identity to judges
+- 🔒 **Sealed judging** — never leak model identity to judges
 - 📋 **Evidence-based** — scoring must cite evidence
 - 🧪 **Test your changes** — run through the conversation flow
 - 🔄 **Keep SKILL.md in sync** — the skill file exists in two locations (`skills/havoc-hackathon/SKILL.md` and `.github/skills/havoc-hackathon/SKILL.md`). If you edit one, copy the changes to the other so they stay identical.

@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-> **Unleash AI models against each other on any task** — competitive multi-model orchestration with blind judging, ELO tracking, and maximum drama! ⚡
+> **Unleash AI models against each other on any task** — competitive multi-model orchestration with sealed judging, ELO tracking, and maximum drama! ⚡
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -10,12 +10,12 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task — code, design, review, branding — and it dispatches multiple AI models to compete head-to-head, scores them with a blind tribunal, and declares a winner with esports-level drama. 🎤🔥
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task — code, design, review, branding — and it dispatches multiple AI models to compete head-to-head, scores them with a sealed panel, and declares a winner with esports-level drama. 🎤🔥
 
 ### Key Features
 
 - 🏁 **Parallel model dispatch** — 3+ models race on the same task simultaneously
-- ⚖️ **Blind tribunal judging** — 3 judge models score anonymized submissions
+- ⚖️ **Sealed panel judging** — 3 judge models score anonymized submissions
 - 📈 **ELO rating system** — persistent leaderboard tracks model performance across sessions
 - 🧬 **Intelligent merge** — cherry-pick the best components from each submission
 - 🏆 **Full ceremony** — ASCII podiums, dramatic reveals, color commentary
@@ -87,7 +87,7 @@ cp havoc-hackathon/agents/havoc-hackathon.agent.md ~/.copilot/agents/
 
 1. **🎬 Opening Ceremony** — Arena banner, task summary, contestant lineup, scoring rubric
 2. **🏁 The Race** — Models dispatched in parallel with live progress commentary
-3. **⚖️ Blind Tribunal** — 3 judges score anonymized submissions on 5 criteria (1-10 each)
+3. **⚖️ Sealed Panel** — 3 judges score anonymized submissions on 5 criteria (1-10 each)
 4. **🏆 Winner Reveal** — Drumroll → fireworks → ASCII podium → detailed scoreboard
 5. **🧬 Smart Merge** — Cherry-pick the best pieces from each submission
 6. **📈 ELO Update** — Leaderboard changes with commentary

@@ -22,6 +22,6 @@ Closes #
 ## 📋 Checklist
 
 - [ ] MC energy is intact 🏟️
-- [ ] Blind judging logic preserved 🔒
+- [ ] Sealed judging logic preserved 🔒
 - [ ] CHANGELOG.md updated
 - [ ] SKILL.md synced in both locations ✅
