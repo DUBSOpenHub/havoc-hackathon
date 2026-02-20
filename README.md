@@ -18,11 +18,11 @@
 
 **Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches multiple AI models to race head-to-head, scores them with a sealed panel of judges, and declares a winner with full ceremony.
 
-### 💡 Why This Exists
+### 💬 The Problem
 
 I wanted a place to stress-test any idea  -  not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under sealed evaluation.
 
-### 🧬 Design Philosophy
+### ⚡ What Makes It Different
 
 Under the hood, this is a proper adversarial orchestration harness  -  not just a wrapper around model APIs:
 
@@ -33,7 +33,7 @@ Under the hood, this is a proper adversarial orchestration harness  -  not just 
 
 The result: instead of asking *one* AI and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* decide who won  -  all without any model knowing who it's up against. The podiums, the drumrolls, the dramatic reveals aren't decoration. They're the point.
 
-### Key Features
+### 🎯 Key Features
 
 - 🏁 **Parallel model dispatch**  -  3+ models race on the same task at the same time
 - ⚖️ **Sealed panel judging**  -  3 judges score anonymized submissions  -  no favoritism, no mercy
@@ -48,7 +48,7 @@ The result: instead of asking *one* AI and hoping it's good, you force *multiple
 
 ---
 
-## 📦 Installation
+## 📦 Install (30 seconds)
 
 ### Prerequisites
 
@@ -95,7 +95,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 ---
 
-## 🎮 Usage
+## 🎮 Run Your First Hackathon
 
 ### Run a Hackathon
 
@@ -204,7 +204,7 @@ GG WP! Scores logged. ELOs updated. 🫡
 
 ---
 
-## 🏗️ Architecture
+## 🔧 How It Works
 
 ```mermaid
 flowchart TD
@@ -231,7 +231,7 @@ flowchart TD
 
 ---
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
 havoc-hackathon/
@@ -266,7 +266,7 @@ havoc-hackathon/
 
 ---
 
-## 📊 Available Models
+## 🤖 Models
 
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
