@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-> A **CLI-native adversarial AI orchestration harness** designed to stress-test ideas through parallel multi-agent competition and blind adjudication. ⚡
+> **Pit AI models against each other. Score them blind. Crown a winner.** All from your terminal. ⚡
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -14,35 +14,35 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, design, review, branding  -  and it dispatches multiple AI models to compete head-to-head, scores them with a sealed panel, and declares a winner.
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches multiple AI models to race head-to-head, scores them with a sealed panel of judges, and declares a winner with full ceremony.
 
 ### 💡 Why This Exists
 
-I wanted a place to stress-test any idea  -  not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under blind evaluation.
+Ever ask an AI model for something and wonder "is this actually good, or just the first thing it came up with?" Same. Instead of trusting one model's answer, Havoc Hackathon lets you throw the question at three models at once, have a separate panel of judges score them blind, and see which answer actually wins. It's useful *and* it's a genuinely good time.
 
 ### 🧬 Design Philosophy
 
-Havoc Hackathon is an **adversarial orchestration harness**  -  not just a wrapper around model APIs. The design is intentional:
+Under the hood, this is a proper adversarial orchestration harness  -  not just a wrapper around model APIs:
 
-- **Why adversarial?**  -  A single model gives you one perspective. Pitting models against each other on the same task with identical prompts exposes blind spots, surfaces diverse approaches, and produces objectively better output through competitive pressure.
-- **Why blind adjudication?**  -  Judges never see which model produced which submission. Outputs are anonymized and randomly shuffled before scoring. Three independent judge models score each submission, and the final score is the **median consensus**  -  eliminating individual judge bias. This is the same principle behind double-blind peer review, applied to AI.
-- **Why parallel?**  -  All contestants are dispatched simultaneously via background agents. No model sees another's work. No sequential contamination. The competition is fair by construction.
-- **Why CLI-native?**  -  This isn't a web app or a notebook. It's built for the terminal, where developers already live. It leverages Copilot CLI's native `task` tool for parallel multi-agent dispatch, `sql` for persistent ELO tracking, and markdown rendering for the ceremony  -  zero external dependencies.
+- **Adversarial by design**  -  One model gives you one perspective. Three models competing on the same prompt exposes blind spots, surfaces wildly different approaches, and produces better output through competitive pressure.
+- **Blind judging**  -  Judges never see which model wrote what. Submissions are anonymized, shuffled, and scored independently by three judge models. The final score is the **median consensus**  -  same principle as double-blind peer review, applied to AI.
+- **Parallel, not sequential**  -  All contestants race simultaneously. No model sees another's work. No contamination. Fair by construction.
+- **CLI-native**  -  No web app, no notebook. Built for the terminal using Copilot CLI's native `task` tool for parallel dispatch, `sql` for ELO tracking, and markdown for the ceremony  -  zero external dependencies.
 
-The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won  -  all without any model knowing who it's up against. And yes, it's meant to be fun  -  the podiums, the drumrolls, the dramatic reveals aren't decoration. They're the point.
+The result: instead of asking *one* AI and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* decide who won  -  all without any model knowing who it's up against. The podiums, the drumrolls, the dramatic reveals aren't decoration. They're the point.
 
 ### Key Features
 
-- 🏁 **Parallel model dispatch**  -  3+ models race on the same task simultaneously
-- ⚖️ **Sealed panel judging**  -  3 judge models score anonymized submissions
-- 📈 **ELO rating system**  -  persistent leaderboard tracks model performance across sessions
-- 🧬 **Intelligent merge**  -  cherry-pick the best components from each submission
-- 🏆 **Full ceremony**  -  ASCII podiums, dramatic reveals, live play-by-play narration
-- 🔄 **Adaptive rubrics**  -  scoring criteria adjust based on task type and competition tightness
-- 🎙️ **Audience participation**  -  vote alongside the judges and compare your taste
-- 🔥 **Rematch mode**  -  tiebreaker round when scores are too close to call
-- 📼 **Replay export**  -  save the full hackathon as a shareable markdown highlight reel
-- 📊 **Post-match analytics**  -  model performance trends, win rates, and head-to-head records
+- 🏁 **Parallel model dispatch**  -  3+ models race on the same task at the same time
+- ⚖️ **Sealed panel judging**  -  3 judges score anonymized submissions  -  no favoritism, no mercy
+- 📈 **ELO rating system**  -  persistent leaderboard so you know which models actually deliver
+- 🧬 **Intelligent merge**  -  cherry-picks the best pieces from each submission into one output
+- 🏆 **Full ceremony**  -  ASCII podiums, drumrolls, fireworks, and play-by-play narration
+- 🔄 **Adaptive rubrics**  -  scoring criteria auto-adjust based on task type
+- 🎙️ **Audience participation**  -  vote alongside the judges and see if you agree
+- 🔥 **Rematch mode**  -  automatic tiebreaker when scores are too close to call
+- 📼 **Replay export**  -  save the whole thing as a shareable markdown highlight reel
+- 📊 **Post-match analytics**  -  performance trends, win rates, and head-to-head records
 
 ---
 
