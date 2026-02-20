@@ -28,6 +28,9 @@
 
 ---
 
+<img width="313" height="241" alt="Screenshot 2026-02-19 at 7 26 18 PM" src="https://github.com/user-attachments/assets/04c1488c-9c3b-4205-b0b5-be12b7e47d95" />
+
+
 ## 📦 Installation
 
 ### Prerequisites
