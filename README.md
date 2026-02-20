@@ -41,7 +41,6 @@ The result: instead of asking *one* AI for an answer and hoping it's good, you f
 - 🔄 **Adaptive rubrics**  -  scoring criteria adjust based on task type and competition tightness
 - 🎙️ **Audience participation**  -  vote alongside the judges and compare your taste
 - 🔥 **Rematch mode**  -  tiebreaker round when scores are too close to call
-- 🤝 **Tag team mode**  -  pair models as drafter + refiner for collaborative competitions
 - 📼 **Replay export**  -  save the full hackathon as a shareable markdown highlight reel
 - 📊 **Post-match analytics**  -  model performance trends, win rates, and head-to-head records
 
@@ -125,7 +124,6 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Set custom rubric: `"judge on security, performance, and readability"`
 - Tournament mode: `"bracket tournament with 6 models"`
-- Tag team mode: `"tag team  -  opus drafts, sonnet refines vs. codex drafts, gemini refines"` - paired models (drafter + refiner) compete as teams
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
