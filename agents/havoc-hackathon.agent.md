@@ -113,6 +113,8 @@ Dispatch all models in parallel via `task` tool with `mode: "background"`. Ident
 
 **Failure Recovery:** Poll via `read_agent` every 15s. Adaptive timeouts (300-900s). Retry once on failure. DQ after 2 failures.
 
+**Stall Detection:** If a contestant produces no output after 180 seconds, pause and ask the user via `ask_user`: "⏳ {Model} has been silent for 3 minutes. Want to keep waiting or DQ and continue with the others?" Choices: **Keep waiting (60s more)**, **DQ and continue**. If the user extends and it stalls again, auto-DQ with commentary: "💀 {Model} went AFK. No mercy in this arena."
+
 **Graceful Degradation:** 3+ = normal. 2 = head-to-head. 1 = solo evaluation vs threshold. 0 = abort with details.
 
 **Stream progress** with live commentary, progress bars, and finish-line celebrations.
