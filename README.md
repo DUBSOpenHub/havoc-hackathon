@@ -20,31 +20,16 @@
 
 ### 💬 The Problem
 
-I wanted a place to stress-test any idea  -  not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under sealed evaluation.
+You ask one AI model and hope for the best. But one model gives you one perspective with unknown quality  -  no baseline, no comparison, no way to know if the output is great or just okay. Havoc Hackathon lets you throw any idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under sealed evaluation.
 
 ### ⚡ What Makes It Different
 
-Under the hood, this is a proper adversarial orchestration harness  -  not just a wrapper around model APIs:
-
-- **Adversarial by design**  -  One model gives you one perspective. Three models competing on the same prompt exposes blind spots, surfaces wildly different approaches, and produces better output through competitive pressure.
-- **Sealed judging**  -  Judges never see which model wrote what. Submissions are anonymized, shuffled, and scored independently by three judge models. The final score is the **median consensus**  -  same principle as double-blind peer review, applied to AI.
-- **Parallel, not sequential**  -  All contestants race simultaneously. No model sees another's work. No contamination. Fair by construction.
-- **CLI-native**  -  No web app, no notebook. Built for the terminal using Copilot CLI's native `task` tool for parallel dispatch, `sql` for ELO tracking, and markdown for the ceremony  -  zero external dependencies.
-
-The result: instead of asking *one* AI and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* decide who won  -  all without any model knowing who it's up against. The podiums, the drumrolls, the dramatic reveals aren't decoration. They're the point.
-
-### 🎯 Key Features
-
-- 🏁 **Parallel model dispatch**  -  3+ models race on the same task at the same time
-- ⚖️ **Sealed panel judging**  -  3 judges score anonymized submissions  -  no favoritism, no mercy
-- 📈 **ELO rating system**  -  persistent leaderboard so you know which models actually deliver
-- 🧬 **Intelligent merge**  -  cherry-picks the best pieces from each submission into one output
-- 🏆 **Full ceremony**  -  ASCII podiums, drumrolls, fireworks, and play-by-play narration
-- ⚡ **Standard / Premium tiers**  -  defaults to standard models, opt into premium when you want the heavy hitters
-- 🔄 **Adaptive rubrics**  -  scoring criteria auto-adjust based on task type
-- 🔥 **Rematch mode**  -  automatic tiebreaker when scores are too close to call
-- 📼 **Replay export**  -  save the whole thing as a shareable markdown highlight reel
-- 📊 **Post-match analytics**  -  performance trends, win rates, and head-to-head records
+- **Sealed judging** – judges never see which model wrote what
+- **Self-correcting scores** – rubrics adapt when judges disagree
+- **Cross-provider judges** – no all-Claude or all-GPT panels
+- **Smart merge** – cherry-picks the best pieces from every submission
+- **Persistent leaderboard** – tracks which models actually deliver over time
+- **Two markdown files** – no servers, no API keys, no code
 
 ---
 
