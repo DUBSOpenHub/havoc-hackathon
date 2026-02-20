@@ -120,22 +120,12 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 6. **📈 ELO Update**  -  Leaderboard changes with commentary
 7. **🫡 Closing Ceremony**  -  Final stats, optional report export
 
-### Modes
-
-| Mode | What It Does |
-|------|-------------|
-| **Build** | Models write code independently, results compared |
-| **Review** | Models analyze the same code, findings ensembled |
-| **Design** | Models propose designs, judged on creativity + UX |
-| **Branding** | Models compete on copy, naming, messaging |
-| **Tag Team** | Paired models (drafter + refiner) compete as teams |
-
 ### Customize
 
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Set custom rubric: `"judge on security, performance, and readability"`
 - Tournament mode: `"bracket tournament with 6 models"`
-- Tag team mode: `"tag team  -  opus drafts, sonnet refines vs. codex drafts, gemini refines"`
+- Tag team mode: `"tag team  -  opus drafts, sonnet refines vs. codex drafts, gemini refines"` - paired models (drafter + refiner) compete as teams
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
