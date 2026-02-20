@@ -8,16 +8,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
 
-<table>
-<tr>
-<td><img src="docs/images/hackathon-opening-ceremony.png" alt="Opening ceremony with arena banner and contestant lineup" width="400"></td>
-<td><img src="docs/images/hackathon-winner-reveal.png" alt="Podium and detailed scoreboard" width="400"></td>
-</tr>
-<tr>
-<td><img src="docs/images/hackathon-judging-phase.png" alt="Sealed panel judging with anonymized submissions" width="400"></td>
-<td><img src="docs/images/hackathon-elo-update.png" alt="ELO leaderboard update" width="400"></td>
-</tr>
-</table>
+<img width="602" height="446" alt="Screenshot 2026-02-19 at 9 45 16 PM" src="https://github.com/user-attachments/assets/b9994328-5d2c-42f7-8203-aa9f2e59fb01" />
+
+<img width="562" height="305" alt="Screenshot 2026-02-19 at 7 28 05 PM" src="https://github.com/user-attachments/assets/e4d57efe-e9d0-47aa-952e-fa38a2ed65ff" />
+
+
 
 ---
 
