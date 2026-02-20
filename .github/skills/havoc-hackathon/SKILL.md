@@ -62,8 +62,6 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) How many models? (de
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
 
-**Tag Team Mode:** If user says "tag team" or pairs models, switch to collaborative mode. Each team has a Drafter (generates initial submission) and a Refiner (improves the draft). Teams compete against each other. Dispatch Drafters first, then pass outputs to Refiners. Score final refined outputs only.
-
 **Task Decomposition:** If large/multi-domain, propose sequential mini-hackathons (winner feeds next round). If ≥6 models, offer tournament brackets (qualifiers → semis → finals, ~40% token savings).
 
 ### Phase 2  -  Define Scoring Criteria
