@@ -183,7 +183,29 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
   ➡️  Codex (GPT-5.3)   1500  (±0)
   📉 Gemini 3 Pro      1468  (-32) ⬇️
 
-GG WP! Scores logged. ELOs updated. 🫡
+🧬 How would you like to apply the improvements?
+  > Smart merge ⭐ (apply high-confidence improvements) ← SELECTED
+  > Winner's improvements only
+  > Review each individually
+  > Discard all
+
+✅ Merged! Here's what changed:
+  Applied Claude Opus 4.6's quote with Codex's tighter phrasing
+
+╔══════════════════════════════════════════════════════════════════╗
+║                    🏟️  HACKATHON COMPLETE  🏟️                    ║
+╠══════════════════════════════════════════════════════════════════╣
+║  📋 Task:    Mass Effect motivational quote                     ║
+║  🏆 Winner:  Claude Opus 4.6 (43/50)                            ║
+║  🧬 Merged:  Smart merge — best of Opus + Codex phrasing        ║
+║  📈 ELO:     Opus climbs to 1532                                ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📼 Want the highlight reel?
+  > Save replay
+  > Skip
+
+GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be green. 💚 Until next time... 🫡
 ```
 
 </details>
@@ -210,8 +232,9 @@ flowchart TD
     J2 --> CONSENSUS
     J3 --> CONSENSUS
     CONSENSUS --> REVEAL["🏆 Winner Reveal"]
-    REVEAL --> ELO["📈 ELO Update"]
-    ELO --> MERGE["🧬 Smart Merge"]
+    REVEAL --> MERGE["🧬 Smart Merge"]
+    MERGE --> ELO["📈 ELO Update"]
+    ELO --> CLOSING["🏟️ Closing Ceremony"]
     SKILL --> SQL["🗄️ SQL<br/>ELO & history"]
 ```
 
