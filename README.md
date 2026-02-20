@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-> **Unleash AI models against each other on any task** — competitive multi-model orchestration with sealed judging, ELO tracking, and maximum drama! ⚡
+> A **CLI-native adversarial AI orchestration harness** designed to stress-test ideas through parallel multi-agent competition and blind adjudication. ⚡
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -11,6 +11,21 @@
 ## 🤔 What Is This?
 
 **Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task — code, design, review, branding — and it dispatches multiple AI models to compete head-to-head, scores them with a sealed panel, and declares a winner with esports-level drama. 🎤🔥
+
+### 💡 Why This Exists
+
+I wanted a place to stress-test any idea — not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under blind evaluation.
+
+### 🧬 Design Philosophy
+
+Havoc Hackathon is an **adversarial orchestration harness** — not just a wrapper around model APIs. The design is intentional:
+
+- **Why adversarial?** — A single model gives you one perspective. Pitting models against each other on the same task with identical prompts exposes blind spots, surfaces diverse approaches, and produces objectively better output through competitive pressure.
+- **Why blind adjudication?** — Judges never see which model produced which submission. Outputs are anonymized and randomly shuffled before scoring. Three independent judge models score each submission, and the final score is the **median consensus** — eliminating individual judge bias. This is the same principle behind double-blind peer review, applied to AI.
+- **Why parallel?** — All contestants are dispatched simultaneously via background agents. No model sees another's work. No sequential contamination. The competition is fair by construction.
+- **Why CLI-native?** — This isn't a web app or a notebook. It's built for the terminal, where developers already live. It leverages Copilot CLI's native `task` tool for parallel multi-agent dispatch, `sql` for persistent ELO tracking, and markdown rendering for the ceremony — zero external dependencies.
+
+The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won — all without any model knowing who it's up against.
 
 ### Key Features
 
