@@ -158,7 +158,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
   🟡 Gemini 3 Pro        ✅ 10s
 
 ⚖️ The panel convenes... 🔒 Submissions anonymized. No favoritism. No mercy.
-   👨‍⚖️ Judges: Claude Opus 4.5 · Claude Opus 4.6 Fast · Claude Opus 4.6 1M
+   👨‍⚖️ Judges: Claude Opus 4.5 · GPT-5.2 · Codex Max (GPT-5.1)
 
 🥁 ... 🥁🥁 ... 🥁🥁🥁
 
@@ -286,7 +286,7 @@ havoc-hackathon/
 **Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2
 **Default contestants (Premium 👑):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro
 **Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1
-**Default judges (Premium 👑):** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M)
+**Default judges (Premium 👑):** Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1)
 
 > 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
 
