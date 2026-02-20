@@ -122,21 +122,21 @@ Offer markdown report export. Close: `"GG WP! Scores logged. ELOs updated. Until
 
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
-| Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
-| Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
-| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
-| Claude Haiku 4.5 | `claude-haiku-4.5` | Fast |
 | Claude Opus 4.6 | `claude-opus-4.6` | Premium |
-| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
+| Claude Opus 4.6 (Fast) | `claude-opus-4.6-fast` | Premium |
+| Claude Opus 4.6 (1M) | `claude-opus-4.6-1m` | Premium |
+| Claude Opus 4.5 | `claude-opus-4.5` | Premium |
+| Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
+| Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
+| Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
-| GPT-5.1 | `gpt-5.1` | Standard |
+| Codex Max (GPT-5.1) | `gpt-5.1-codex-max` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
+| GPT-5.1 | `gpt-5.1` | Standard |
 | Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
-| GPT-4.1 | `gpt-4.1` | Fast |
-| GPT-5 mini | `gpt-5-mini` | Fast |
 
-**Default contestants:** Claude Sonnet 4.5, Codex (GPT-5.2), Gemini 3 Pro
-**Default judges:** Claude Opus 4.6, GPT-5.1, Claude Sonnet 4
+**Default contestants:** Claude Opus 4.6, Codex (GPT-5.3), Gemini 3 Pro
+**Default judges:** Claude Opus 4.5, GPT-5.2, Claude Sonnet 4.6
 
 ---
 
