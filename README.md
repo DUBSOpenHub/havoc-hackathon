@@ -37,21 +37,31 @@
 
 ### Add the Skill
 
-#### Option A: Personal Skill (works everywhere) ⭐ Recommended
-
-Clone the repo and copy the skill to your personal skills directory:
+#### Instant Install (no clone needed) ⚡
 
 ```bash
-git clone https://github.com/DUBSOpenHub/havoc-hackathon.git
-mkdir -p ~/.copilot/skills
-cp -r havoc-hackathon/skills/havoc-hackathon ~/.copilot/skills/
+mkdir -p ~/.copilot/skills/havoc-hackathon ~/.copilot/agents && \
+  curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/skills/havoc-hackathon/SKILL.md \
+    -o ~/.copilot/skills/havoc-hackathon/SKILL.md && \
+  curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/agents/havoc-hackathon.agent.md \
+    -o ~/.copilot/agents/havoc-hackathon.agent.md && \
+  echo "✅ Installed! Run /skills reload in Copilot CLI, then say: run hackathon"
 ```
 
-Then in a Copilot CLI session, run `/skills reload` to pick it up.
+#### Full Install (clone the repo)
 
-#### Option B: Project Skill (auto-discovered)
+```bash
+git clone https://github.com/DUBSOpenHub/havoc-hackathon.git && \
+  mkdir -p ~/.copilot/skills ~/.copilot/agents && \
+  cp -r havoc-hackathon/skills/havoc-hackathon ~/.copilot/skills/ && \
+  cp havoc-hackathon/agents/havoc-hackathon.agent.md ~/.copilot/agents/ && \
+  echo "✅ Havoc Hackathon installed! Run /skills reload in Copilot CLI."
+```
 
-Clone the repo and start Copilot CLI from inside it:
+<details>
+<summary>Other options</summary>
+
+**Auto-discovery (run from repo):**
 
 ```bash
 git clone https://github.com/DUBSOpenHub/havoc-hackathon.git
@@ -59,16 +69,9 @@ cd havoc-hackathon
 copilot
 ```
 
-The skill at `.github/skills/havoc-hackathon/` is automatically discovered.
+The skill at `.github/skills/havoc-hackathon/` is automatically discovered — no copy needed.
 
-#### Option C: Add the Agent Too
-
-For subprocess-based execution (via the `task` tool), also copy the agent:
-
-```bash
-mkdir -p ~/.copilot/agents
-cp havoc-hackathon/agents/havoc-hackathon.agent.md ~/.copilot/agents/
-```
+</details>
 
 ---
 
