@@ -85,8 +85,8 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) How many models? (de
 > "⚡ Model tier? Standard models work great for most tasks. Premium brings the heavy hitters."
 > Choices: **Standard (Recommended)**, **Premium**
 
-- **Standard tier** (default): Contestants = Claude Sonnet 4.6, Codex GPT-5.3, GPT-5.2. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
-- **Premium tier**: Contestants = Claude Opus 4.6, Codex Max GPT-5.1, Gemini 3 Pro. Judges = Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M).
+- **Standard tier** (default): Contestants = Claude Sonnet 4.6, Codex Max GPT-5.1, GPT-5.2. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
+- **Premium tier**: Contestants = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro. Judges = Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M).
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
 
@@ -199,8 +199,8 @@ Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
 
-**Default contestants (Standard):** Claude Sonnet 4.6, Codex (GPT-5.3), GPT-5.2 ← STANDARD ⚡
-**Default contestants (Premium):** Claude Opus 4.6, Codex Max (GPT-5.1), Gemini 3 Pro ← PREMIUM 👑
+**Default contestants (Standard):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2 ← STANDARD ⚡
+**Default contestants (Premium):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro ← PREMIUM 👑
 **Default judges (Standard):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1 ← STANDARD ⚡
 **Default judges (Premium):** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M) ← PREMIUM 👑
 

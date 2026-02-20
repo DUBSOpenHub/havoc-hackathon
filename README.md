@@ -284,8 +284,8 @@ havoc-hackathon/
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
 
-**Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex (GPT-5.3), GPT-5.2
-**Default contestants (Premium 👑):** Claude Opus 4.6, Codex Max (GPT-5.1), Gemini 3 Pro
+**Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2
+**Default contestants (Premium 👑):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro
 **Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1
 **Default judges (Premium 👑):** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M)
 
