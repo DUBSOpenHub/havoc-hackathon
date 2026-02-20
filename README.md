@@ -6,6 +6,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
 
+<p align="center">
+  <img src="docs/images/hackathon-winner-reveal.png" alt="Havoc Hackathon — podium and detailed scoreboard" width="700">
+</p>
+
 ---
 
 ## 🤔 What Is This?
@@ -42,9 +46,6 @@ The result: instead of asking *one* AI for an answer and hoping it's good, you f
 - 📊 **Post-match analytics** — model performance trends, win rates, and head-to-head records
 
 ---
-
-<img width="313" height="241" alt="Screenshot 2026-02-19 at 7 26 18 PM" src="https://github.com/user-attachments/assets/04c1488c-9c3b-4205-b0b5-be12b7e47d95" />
-
 
 ## 📦 Installation
 
@@ -136,6 +137,79 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered — n
 - Tournament mode: `"bracket tournament with 6 models"`
 - Tag team mode: `"tag team — opus drafts, sonnet refines vs. codex drafts, gemini refines"`
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
+
+<details>
+<summary><strong>📼 Example Run — Full Hackathon Transcript</strong></summary>
+
+```
+> run hackathon — write a Mass Effect themed motivational quote for open source developers
+
+╔══════════════════════════════════════════════════════════════════╗
+║              ⚡  H A V O C   H A C K A T H O N  ⚡              ║
+║                                                                  ║
+║  🏟️  THE ARENA IS READY. THE AI MODELS ARE READY TO COMPETE.  🏟️  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🎯 TASK: Write a Mass Effect themed motivational quote for open source developers
+
+👑 CONTESTANTS:
+  🔵 Claude Opus 4.6       (Premium)
+  🟢 Codex Max (GPT-5.1)   (Premium)
+  🟡 Gemini 3 Pro          (Premium)
+
+⚖️ RUBRIC: Clarity · Simplicity · Relevance · Inspiration · Memorability (each /10)
+
+3... 2... 1... GO! 🏁
+
+🏁 ALL MODELS CROSSED THE FINISH LINE!
+  🔵 Claude Opus 4.6     ✅ 4s ⚡
+  🟢 Codex Max           ✅ 3s ⚡ Speedrun!
+  🟡 Gemini 3 Pro        ✅ 10s
+
+⚖️ The panel convenes... 🔒 Submissions anonymized. No favoritism. No mercy.
+   👨‍⚖️ Judges: Claude Opus 4.5 · Claude Opus 4.6 Fast · Claude Opus 4.6 1M
+
+🥁 ... 🥁🥁 ... 🥁🥁🥁
+
+🎆🎆🎆 AND THE WINNER IS... 🎆🎆🎆
+
+╔══════════════════════════════════════════════════════════════════╗
+║   🏆  CHAMPION:  Claude Opus 4.6                                ║
+║   SCORE: 43/50  ·  CONSENSUS: STRONG  ·  ALL JUDGES AGREED     ║
+╚══════════════════════════════════════════════════════════════════╝
+
+🏅 THE PODIUM
+
+                    🥇
+                 ┌──────┐
+                 │CLAUDE│
+                 │ OPUS │
+                 │ 4.6  │
+          🥈     │  43  │     🥉
+       ┌──────┐ │      │ ┌──────┐
+       │CODEX │ │      │ │GEMINI│
+       │ MAX  │ │      │ │3 PRO │
+       │  37  │ │      │ │  35  │
+       └──────┘ └──────┘ └──────┘
+
+📊 DETAILED SCOREBOARD
+  Category      🥇 Claude Opus  🥈 Codex Max  🥉 Gemini 3 Pro
+  Clarity            9              8              7
+  Simplicity         8              7              5
+  Relevance          9              8              8
+  Inspiration        9              7              8
+  Memorability       8              7              7
+  TOTAL           43/50          37/50          35/50
+
+📈 ELO UPDATE
+  📈 Claude Opus 4.6   1532  (+32) ⬆️
+  ➡️  Codex Max         1500  (±0)
+  📉 Gemini 3 Pro      1468  (-32) ⬇️
+
+GG WP! Scores logged. ELOs updated. 🫡
+```
+
+</details>
 
 ---
 
