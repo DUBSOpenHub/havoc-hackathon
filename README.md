@@ -29,7 +29,7 @@ Havoc Hackathon is an **adversarial orchestration harness**  -  not just a wrapp
 - **Why parallel?**  -  All contestants are dispatched simultaneously via background agents. No model sees another's work. No sequential contamination. The competition is fair by construction.
 - **Why CLI-native?**  -  This isn't a web app or a notebook. It's built for the terminal, where developers already live. It leverages Copilot CLI's native `task` tool for parallel multi-agent dispatch, `sql` for persistent ELO tracking, and markdown rendering for the ceremony  -  zero external dependencies.
 
-The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won  -  all without any model knowing who it's up against.
+The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won  -  all without any model knowing who it's up against. And yes, it's meant to be fun  -  the podiums, the drumrolls, the dramatic reveals aren't decoration. They're the point.
 
 ### Key Features
 
