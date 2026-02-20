@@ -131,7 +131,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
-<summary><strong>📼 Example Run  -  Full Hackathon Transcript</strong></summary>
+<summary><strong>📼 Example Run  -  Full Hackathon Transcript (Premium Tier)</strong></summary>
 
 ```
 > run hackathon  -  write a Mass Effect themed motivational quote for open source developers

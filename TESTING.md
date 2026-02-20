@@ -110,6 +110,15 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | Start a new Copilot CLI session | ELO loaded from JSON file into SQL |
 | 3 | Run another hackathon | Previous ELO ratings shown in Phase 0 |
 
+### Playbook 12: Model Tier Selection
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | `run hackathon  -  write a haiku` | Prompted: "⚡ Model tier? Standard or Premium" |
+| 2 | Select "Standard" | Standard contestants and judges used, ⚡ badges shown |
+| 3 | `run hackathon with premium models  -  write a haiku` | No tier prompt, premium models used directly, 👑 badges shown |
+| 4 | `hackathon with opus and gemini  -  write a haiku` | No tier prompt, named models used directly |
+
 ---
 
 ## ✅ QA Checklist
@@ -131,6 +140,9 @@ Before submitting a PR, verify:
 - [ ] 📼 Replay export saves valid markdown file
 - [ ] 📊 Post-match analytics display after 2+ hackathons
 - [ ] 💾 ELO persists to ~/.copilot/hackathon-elo.json
+- [ ] ⚡ Tier selection prompt appears when no tier specified
+- [ ] 👑 Premium models used when explicitly requested
+- [ ] 🏷️ Tier badges (⚡/👑) shown in opening ceremony
 
 ---
 
@@ -169,5 +181,6 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Replay export | 9 | 🧪 |
 | Post-match analytics | 10 | 🧪 |
 | Persistent ELO (cross-session) | 11 | 🧪 |
+| Model tier selection | 12 | 🧪 |
 | Tournament bracket |  -  | 🧪 |
 | Adaptive rubrics |  -  | 🧪 |

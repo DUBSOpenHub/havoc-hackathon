@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Default tier changed from Premium to Standard  -  works for all Copilot subscription levels out of the box
 
+### Removed
+- 🗑️ **Tag team mode**  -  removed from SKILL.md and agent.md
+
 ## [1.1.0] - 2026-02-20
 
 ### Added
