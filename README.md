@@ -18,7 +18,7 @@
 
 ### 💡 Why This Exists
 
-Ever ask an AI model for something and wonder "is this actually good, or just the first thing it came up with?" Same. Instead of trusting one model's answer, Havoc Hackathon lets you throw the question at three models at once, have a separate panel of judges score them sealed, and see which answer actually wins. It's useful *and* it's a genuinely good time.
+I wanted a place to stress-test any idea  -  not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under sealed evaluation.
 
 ### 🧬 Design Philosophy
 
