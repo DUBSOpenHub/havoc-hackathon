@@ -1,0 +1,37 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check SKILL.md files are in sync
+        run: |
+          diff skills/havoc-hackathon/SKILL.md .github/skills/havoc-hackathon/SKILL.md || \
+            (echo "❌ SKILL.md files have drifted! Update both copies." && exit 1)
+          echo "✅ SKILL.md files are in sync"
+
+      - name: Validate catalog.yml syntax
+        run: |
+          python3 -c "import yaml; yaml.safe_load(open('skills/havoc-hackathon/catalog.yml'))" && \
+            echo "✅ catalog.yml is valid YAML"
+
+      - name: Check catalog.yml required fields
+        run: |
+          python3 -c "
+          import yaml
+          d = yaml.safe_load(open('skills/havoc-hackathon/catalog.yml'))
+          required = ['schema_version','id','name','description','emoji','codename','category']
+          missing = [f for f in required if f not in d]
+          if missing:
+              print(f'❌ Missing required fields: {missing}')
+              exit(1)
+          print('✅ All required catalog fields present')
+          "
