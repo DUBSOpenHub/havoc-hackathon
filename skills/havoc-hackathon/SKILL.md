@@ -52,6 +52,8 @@ Check `hackathon_model_elo` and `hackathon_model_perf` tables. Show ELO rankings
 
 Ask (or infer): 1) What's the task? 2) Where's the code? 3) How many models? (default 3) 4) Build or review mode?
 
+**Tag Team Mode:** If user says "tag team" or pairs models, switch to collaborative mode. Each team has a Drafter (generates initial submission) and a Refiner (improves the draft). Teams compete against each other. Dispatch Drafters first, then pass outputs to Refiners. Score final refined outputs only.
+
 **Task Decomposition:** If large/multi-domain, propose sequential mini-hackathons (winner feeds next round). If ≥6 models, offer tournament brackets (qualifiers → semis → finals, ~40% token savings).
 
 ### Phase 2 — Define Scoring Criteria
@@ -93,9 +95,13 @@ Dispatch all models in parallel via `task` tool with `mode: "background"`. Ident
 
 **Judge Model Fallback:** If default premium judges are unavailable, fall back to standard-tier models. Avoid using contestant models as their own judges. At minimum, use 3 distinct judge models to maintain consensus integrity.
 
+**Audience Participation:** After sealed panel scores are calculated but before the reveal, ask the user: "🎙️ Audience vote! Rate each submission 1-10 on overall quality." Store user scores in `hackathon_audience_scores`. Show user vs. panel alignment after the reveal: "You agreed with the judges on X but scored Y higher — interesting taste! 🧐". Track alignment over time in `hackathon_audience_alignment`.
+
 ### Phase 5 — Declare Winner
 
 Build suspense with drumroll → fireworks → spotlight box → ASCII podium → detailed scoreboard → comparison view (feature matrix or findings table) → strengths/weaknesses per contestant.
+
+**Rematch Mode:** If margin between 1st and 2nd is ≤ 2 points, offer: "🔥 That was CLOSE! Want a rematch with a tiebreaker criterion?" Let user pick a 6th scoring dimension (e.g., "elegance", "security", "creativity"). Re-judge only with the new criterion. Combine with original scores for final determination. Commentary: "The tiebreaker round! One criterion to rule them all... ⚔️"
 
 ### Phase 6 — Intelligent Merge
 
@@ -109,9 +115,15 @@ Component-level cherry-picking, not just whole branches:
 
 ELO formula (K=32) for each head-to-head pair. Update `hackathon_model_elo` and `hackathon_model_perf`. Display leaderboard changes with commentary.
 
+**Persistent Leaderboard:** After updating SQL tables, also save ELO data to `~/.copilot/hackathon-elo.json` for cross-session persistence. On Phase 0, check this file first and seed the SQL tables from it. Format: `{"models": {"model-id": {"elo": N, "wins": N, "losses": N, "total": N}}, "updated": "ISO-8601"}`. Use `bash` tool to read/write the file.
+
 ### Phase 8 — Closing Ceremony
 
-Offer markdown report export. Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
+**Replay Export:** Offer to save the full hackathon transcript as a shareable markdown file. Include: arena banner, task description, contestant lineup, all submissions (or summaries), judge scores with justifications, ASCII podium, ELO changes, and ensemble findings. Save to `hackathon-replay-{timestamp}.md` in the current directory. Commentary: "📼 Want the highlight reel? I'll save the full replay for posterity!"
+
+**Post-Match Analytics:** If `hackathon_model_perf` has data from 2+ hackathons, show trends: "📊 Claude Opus has won 3 of its last 4 reviews — dominant in analysis tasks!" Show per-model win rates by task type, average scores by category, and head-to-head records. Trigger with `show stats` or `show leaderboard` anytime. Include charts using ASCII bar graphs.
+
+Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
 
 ---
 
@@ -127,6 +139,8 @@ Offer markdown report export. Close: `"GG WP! Scores logged. ELOs updated. Until
 - `hackathon_consensus` — run_id, contestant, category, median_score, stddev
 - `hackathon_results` — run_id, task, contestant, model, cat scores, total, status, notes
 - `hackathon_tournament` — run_id, round, contestant, model, score, advanced
+- `hackathon_audience_scores` — run_id, contestant, user_score
+- `hackathon_audience_alignment` — run_id, contestant, panel_score, user_score, delta
 
 ---
 

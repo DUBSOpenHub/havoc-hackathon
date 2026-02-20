@@ -70,6 +70,55 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | Select "Smart merge" | Best components cherry-picked from each submission |
 | 3 | *(verify)* | Build passes, tests pass after merge |
 
+### Playbook 7: Audience Participation
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run a hackathon to completion | After judging, asked "🎙️ Audience vote!" |
+| 2 | Rate each submission 1-10 | Scores stored in `hackathon_audience_scores` |
+| 3 | *(results)* | Alignment comparison: "You agreed on X but scored Y higher" |
+
+### Playbook 8: Rematch Mode
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run a hackathon that finishes close (≤2 pts margin) | Offered "🔥 Want a rematch with a tiebreaker?" |
+| 2 | Accept and pick a 6th criterion | Re-judging on new criterion only |
+| 3 | *(results)* | Combined scores reveal final winner |
+
+### Playbook 9: Tag Team
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | `tag team hackathon — opus+sonnet vs codex+gemini — build a CLI tool` | Teams formed: drafter + refiner pairs |
+| 2 | *(drafting phase)* | Drafters dispatched first, outputs shown |
+| 3 | *(refining phase)* | Refiners receive drafts, improve them |
+| 4 | *(results)* | Final refined outputs judged, team scores shown |
+
+### Playbook 10: Replay Export
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Complete any hackathon | Offered "📼 Want the highlight reel?" |
+| 2 | Accept | Markdown file saved with full transcript |
+| 3 | *(verify)* | File contains banner, submissions, scores, podium |
+
+### Playbook 11: Post-Match Analytics
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run 2+ hackathons in one session | Performance data accumulated |
+| 2 | `show stats` or `show leaderboard` | Model trends, win rates, ASCII bar charts |
+| 3 | *(verify)* | Per-model breakdown by task type shown |
+
+### Playbook 12: Persistent ELO
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run a hackathon | ELO saved to `~/.copilot/hackathon-elo.json` |
+| 2 | Start a new Copilot CLI session | ELO loaded from JSON file into SQL |
+| 3 | Run another hackathon | Previous ELO ratings shown in Phase 0 |
+
 ---
 
 ## ✅ QA Checklist
@@ -86,6 +135,12 @@ Before submitting a PR, verify:
 - [ ] 🧬 Smart merge produces working code
 - [ ] 🎭 MC personality is consistent throughout
 - [ ] 🚦 Quality gates catch broken builds/tests
+- [ ] 🎙️ Audience vote prompt appears after judging
+- [ ] 🔥 Rematch offered when margin ≤ 2 points
+- [ ] 🤝 Tag team mode dispatches drafters then refiners
+- [ ] 📼 Replay export saves valid markdown file
+- [ ] 📊 Post-match analytics display after 2+ hackathons
+- [ ] 💾 ELO persists to ~/.copilot/hackathon-elo.json
 
 ---
 
@@ -119,5 +174,11 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Model failure & DQ | 4 | 🧪 |
 | ELO persistence | 5 | 🧪 |
 | Smart merge | 6 | 🧪 |
+| Audience participation | 7 | 🧪 |
+| Rematch mode | 8 | 🧪 |
+| Tag team mode | 9 | 🧪 |
+| Replay export | 10 | 🧪 |
+| Post-match analytics | 11 | 🧪 |
+| Persistent ELO (cross-session) | 12 | 🧪 |
 | Tournament bracket | — | 🧪 |
 | Adaptive rubrics | — | 🧪 |

@@ -20,6 +20,11 @@
 - 🧬 **Intelligent merge** — cherry-pick the best components from each submission
 - 🏆 **Full ceremony** — ASCII podiums, dramatic reveals, color commentary
 - 🔄 **Adaptive rubrics** — scoring criteria adjust based on task type and competition tightness
+- 🎙️ **Audience participation** — vote alongside the judges and compare your taste
+- 🔥 **Rematch mode** — tiebreaker round when scores are too close to call
+- 🤝 **Tag team mode** — pair models as drafter + refiner for collaborative competitions
+- 📼 **Replay export** — save the full hackathon as a shareable markdown highlight reel
+- 📊 **Post-match analytics** — model performance trends, win rates, and head-to-head records
 
 ---
 
@@ -101,12 +106,15 @@ cp havoc-hackathon/agents/havoc-hackathon.agent.md ~/.copilot/agents/
 | **Review** | Models analyze the same code, findings ensembled |
 | **Design** | Models propose designs, judged on creativity + UX |
 | **Branding** | Models compete on copy, naming, messaging |
+| **Tag Team** | Paired models (drafter + refiner) compete as teams |
 
 ### Customize
 
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Set custom rubric: `"judge on security, performance, and readability"`
 - Tournament mode: `"bracket tournament with 6 models"`
+- Tag team mode: `"tag team — opus drafts, sonnet refines vs. codex drafts, gemini refines"`
+- Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 ---
 
@@ -146,6 +154,8 @@ havoc-hackathon/
 │   ├── ISSUE_TEMPLATE/               ← 🐛 Bug & feature templates
 │   ├── PULL_REQUEST_TEMPLATE.md      ← 📝 PR checklist
 │   ├── dependabot.yml                ← 🤖 Automated dependency updates
+│   ├── workflows/
+│   │   └── validate.yml              ← ✅ CI: SKILL.md sync + YAML check
 │   └── skills/
 │       └── havoc-hackathon/
 │           └── SKILL.md              ← 🏟️ Auto-discovered skill
