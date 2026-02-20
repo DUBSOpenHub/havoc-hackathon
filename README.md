@@ -42,7 +42,6 @@ The result: instead of asking *one* AI and hoping it's good, you force *multiple
 - 🏆 **Full ceremony**  -  ASCII podiums, drumrolls, fireworks, and play-by-play narration
 - ⚡ **Standard / Premium tiers**  -  defaults to standard models, opt into premium when you want the heavy hitters
 - 🔄 **Adaptive rubrics**  -  scoring criteria auto-adjust based on task type
-- 🎙️ **Audience participation**  -  vote alongside the judges and see if you agree
 - 🔥 **Rematch mode**  -  automatic tiebreaker when scores are too close to call
 - 📼 **Replay export**  -  save the whole thing as a shareable markdown highlight reel
 - 📊 **Post-match analytics**  -  performance trends, win rates, and head-to-head records

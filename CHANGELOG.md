@@ -27,7 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-02-20
 
 ### Added
-- 🎙️ **Audience participation mode**  -  vote alongside the sealed panel and see alignment comparison
 - 🔥 **Rematch mode**  -  tiebreaker round with user-chosen 6th criterion when margin ≤ 2 points
 - 📼 **Replay export**  -  save full hackathon transcript as shareable markdown highlight reel
 - 📊 **Post-match analytics**  -  model performance trends, win rates by task type, ASCII charts
