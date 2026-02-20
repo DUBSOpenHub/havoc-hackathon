@@ -2,8 +2,6 @@
 
 **Pit AI models against each other. Score them sealed. Crown a winner. All built using the GitHub Copilot CLI. ⚡**
 
-A CLI-first adversarial AI orchestration pattern designed to stress-test ideas through parallel multi-agent competition and double-blind evaluation. Two markdown files with zero lines of code.
-
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
@@ -17,6 +15,8 @@ A CLI-first adversarial AI orchestration pattern designed to stress-test ideas t
 ## 🤔 What Is This?
 
 **Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches multiple AI models to race head-to-head, scores them with a sealed panel of judges, and declares a winner with full ceremony.
+
+A CLI-first adversarial AI orchestration pattern designed to stress-test ideas through parallel multi-agent competition and double-blind evaluation. Two markdown files with zero lines of code.
 
 ### 💬 The Problem
 
