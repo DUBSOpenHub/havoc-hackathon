@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-> **Pit AI models against each other. Score them sealed. Crown a winner.** All from your terminal. ⚡
+> **Pit AI models against each other. Score them sealed. Crown a winner.** All from the GitHub Copilot CLI. ⚡
 >
 > A CLI-native adversarial AI orchestration harness designed to stress-test ideas through parallel multi-agent competition and blind adjudication.
 
