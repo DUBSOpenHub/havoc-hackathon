@@ -6,7 +6,7 @@ When you ask one LLM to review code, write a function, or analyze a PR, you get 
 
 ## The Solution
 
-Havoc Hackathon implements **multi-model consensus with blind evaluation** — a pattern borrowed from academic peer review and applied to AI-assisted development.
+Havoc Hackathon implements **multi-model consensus with blind evaluation**  -  a pattern borrowed from academic peer review and applied to AI-assisted development.
 
 **Architecture:**
 
@@ -27,7 +27,7 @@ Every model has blind spots. GPT models tend toward verbosity. Claude models can
 
 ### 2. Blind judging eliminates brand bias
 
-Submissions are anonymized as Contestant-A/B/C before judging. Judge models score on evidence, not reputation. This matters — studies show humans (and models) rate outputs higher when they know the source. Sealed panels remove that.
+Submissions are anonymized as Contestant-A/B/C before judging. Judge models score on evidence, not reputation. This matters  -  studies show humans (and models) rate outputs higher when they know the source. Sealed panels remove that.
 
 ### 3. Median-of-3 consensus is statistically robust
 
@@ -39,7 +39,7 @@ After multiple hackathons, you build empirical data: "Claude Opus wins 70% of re
 
 ### 5. Component-level merging > winner-take-all
 
-The smart merge doesn't just pick the winner's output. It cherry-picks at the component level — maybe Model A had better error handling but Model B had a cleaner API design. You get the best of each.
+The smart merge doesn't just pick the winner's output. It cherry-picks at the component level  -  maybe Model A had better error handling but Model B had a cleaner API design. You get the best of each.
 
 ### 6. Zero infrastructure overhead
 
@@ -57,4 +57,4 @@ No API keys, no orchestration server, no Docker containers. It's two markdown fi
 
 ## What It's Not
 
-It's not a replacement for human review. It's a **force multiplier** — you get 3 drafts and a ranked comparison instead of 1 draft and a gut check. The human still decides what ships.
+It's not a replacement for human review. It's a **force multiplier**  -  you get 3 drafts and a ranked comparison instead of 1 draft and a gut check. The human still decides what ships.

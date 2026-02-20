@@ -13,7 +13,7 @@ A clear description of what went wrong.
 ## 🔄 Steps to reproduce
 
 1. Run `copilot`
-2. Say `run hackathon — ...`
+2. Say `run hackathon  -  ...`
 3. See error/unexpected behavior
 
 ## ✅ What should have happened?

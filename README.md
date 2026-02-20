@@ -7,43 +7,43 @@
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
 
 <p align="center">
-  <img src="docs/images/hackathon-winner-reveal.png" alt="Havoc Hackathon — podium and detailed scoreboard" width="700">
+  <img src="docs/images/hackathon-winner-reveal.png" alt="Havoc Hackathon  -  podium and detailed scoreboard" width="700">
 </p>
 
 ---
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task — code, design, review, branding — and it dispatches multiple AI models to compete head-to-head, scores them with a sealed panel, and declares a winner with esports-level drama. 🎤🔥
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, design, review, branding  -  and it dispatches multiple AI models to compete head-to-head, scores them with a sealed panel, and declares a winner with esports-level drama. 🎤🔥
 
 ### 💡 Why This Exists
 
-I wanted a place to stress-test any idea — not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under blind evaluation.
+I wanted a place to stress-test any idea  -  not just code, but copy, designs, architecture decisions, naming, anything. Instead of asking one model and hoping for the best, Havoc Hackathon lets you throw an idea into the arena and see how multiple AIs attack it independently, then find out which approach actually holds up under blind evaluation.
 
 ### 🧬 Design Philosophy
 
-Havoc Hackathon is an **adversarial orchestration harness** — not just a wrapper around model APIs. The design is intentional:
+Havoc Hackathon is an **adversarial orchestration harness**  -  not just a wrapper around model APIs. The design is intentional:
 
-- **Why adversarial?** — A single model gives you one perspective. Pitting models against each other on the same task with identical prompts exposes blind spots, surfaces diverse approaches, and produces objectively better output through competitive pressure.
-- **Why blind adjudication?** — Judges never see which model produced which submission. Outputs are anonymized and randomly shuffled before scoring. Three independent judge models score each submission, and the final score is the **median consensus** — eliminating individual judge bias. This is the same principle behind double-blind peer review, applied to AI.
-- **Why parallel?** — All contestants are dispatched simultaneously via background agents. No model sees another's work. No sequential contamination. The competition is fair by construction.
-- **Why CLI-native?** — This isn't a web app or a notebook. It's built for the terminal, where developers already live. It leverages Copilot CLI's native `task` tool for parallel multi-agent dispatch, `sql` for persistent ELO tracking, and markdown rendering for the ceremony — zero external dependencies.
+- **Why adversarial?**  -  A single model gives you one perspective. Pitting models against each other on the same task with identical prompts exposes blind spots, surfaces diverse approaches, and produces objectively better output through competitive pressure.
+- **Why blind adjudication?**  -  Judges never see which model produced which submission. Outputs are anonymized and randomly shuffled before scoring. Three independent judge models score each submission, and the final score is the **median consensus**  -  eliminating individual judge bias. This is the same principle behind double-blind peer review, applied to AI.
+- **Why parallel?**  -  All contestants are dispatched simultaneously via background agents. No model sees another's work. No sequential contamination. The competition is fair by construction.
+- **Why CLI-native?**  -  This isn't a web app or a notebook. It's built for the terminal, where developers already live. It leverages Copilot CLI's native `task` tool for parallel multi-agent dispatch, `sql` for persistent ELO tracking, and markdown rendering for the ceremony  -  zero external dependencies.
 
-The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won — all without any model knowing who it's up against.
+The result: instead of asking *one* AI for an answer and hoping it's good, you force *multiple* AIs to compete, then let a *separate panel* of AIs decide which one actually won  -  all without any model knowing who it's up against.
 
 ### Key Features
 
-- 🏁 **Parallel model dispatch** — 3+ models race on the same task simultaneously
-- ⚖️ **Sealed panel judging** — 3 judge models score anonymized submissions
-- 📈 **ELO rating system** — persistent leaderboard tracks model performance across sessions
-- 🧬 **Intelligent merge** — cherry-pick the best components from each submission
-- 🏆 **Full ceremony** — ASCII podiums, dramatic reveals, live play-by-play narration
-- 🔄 **Adaptive rubrics** — scoring criteria adjust based on task type and competition tightness
-- 🎙️ **Audience participation** — vote alongside the judges and compare your taste
-- 🔥 **Rematch mode** — tiebreaker round when scores are too close to call
-- 🤝 **Tag team mode** — pair models as drafter + refiner for collaborative competitions
-- 📼 **Replay export** — save the full hackathon as a shareable markdown highlight reel
-- 📊 **Post-match analytics** — model performance trends, win rates, and head-to-head records
+- 🏁 **Parallel model dispatch**  -  3+ models race on the same task simultaneously
+- ⚖️ **Sealed panel judging**  -  3 judge models score anonymized submissions
+- 📈 **ELO rating system**  -  persistent leaderboard tracks model performance across sessions
+- 🧬 **Intelligent merge**  -  cherry-pick the best components from each submission
+- 🏆 **Full ceremony**  -  ASCII podiums, dramatic reveals, live play-by-play narration
+- 🔄 **Adaptive rubrics**  -  scoring criteria adjust based on task type and competition tightness
+- 🎙️ **Audience participation**  -  vote alongside the judges and compare your taste
+- 🔥 **Rematch mode**  -  tiebreaker round when scores are too close to call
+- 🤝 **Tag team mode**  -  pair models as drafter + refiner for collaborative competitions
+- 📼 **Replay export**  -  save the full hackathon as a shareable markdown highlight reel
+- 📊 **Post-match analytics**  -  model performance trends, win rates, and head-to-head records
 
 ---
 
@@ -88,7 +88,7 @@ cd havoc-hackathon
 copilot
 ```
 
-The skill at `.github/skills/havoc-hackathon/` is automatically discovered — no copy needed.
+The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  no copy needed.
 
 </details>
 
@@ -99,26 +99,26 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered — n
 ### Run a Hackathon
 
 ```
-> run hackathon — build a REST API for a todo app
+> run hackathon  -  build a REST API for a todo app
 ```
 
 ```
-> run hackathon — review this PR for security issues
+> run hackathon  -  review this PR for security issues
 ```
 
 ```
-> run hackathon — design a landing page hero section
+> run hackathon  -  design a landing page hero section
 ```
 
 ### What Happens
 
-1. **🎬 Opening Ceremony** — Arena banner, task summary, contestant lineup, scoring rubric
-2. **🏁 The Race** — Models dispatched in parallel with live progress commentary
-3. **⚖️ Sealed Panel** — 3 judges score anonymized submissions on 5 criteria (1-10 each)
-4. **🏆 Winner Reveal** — Drumroll → fireworks → ASCII podium → detailed scoreboard
-5. **🧬 Smart Merge** — Cherry-pick the best pieces from each submission
-6. **📈 ELO Update** — Leaderboard changes with commentary
-7. **🫡 Closing Ceremony** — Final stats, optional report export
+1. **🎬 Opening Ceremony**  -  Arena banner, task summary, contestant lineup, scoring rubric
+2. **🏁 The Race**  -  Models dispatched in parallel with live progress commentary
+3. **⚖️ Sealed Panel**  -  3 judges score anonymized submissions on 5 criteria (1-10 each)
+4. **🏆 Winner Reveal**  -  Drumroll → fireworks → ASCII podium → detailed scoreboard
+5. **🧬 Smart Merge**  -  Cherry-pick the best pieces from each submission
+6. **📈 ELO Update**  -  Leaderboard changes with commentary
+7. **🫡 Closing Ceremony**  -  Final stats, optional report export
 
 ### Modes
 
@@ -135,14 +135,14 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered — n
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Set custom rubric: `"judge on security, performance, and readability"`
 - Tournament mode: `"bracket tournament with 6 models"`
-- Tag team mode: `"tag team — opus drafts, sonnet refines vs. codex drafts, gemini refines"`
+- Tag team mode: `"tag team  -  opus drafts, sonnet refines vs. codex drafts, gemini refines"`
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
-<summary><strong>📼 Example Run — Full Hackathon Transcript</strong></summary>
+<summary><strong>📼 Example Run  -  Full Hackathon Transcript</strong></summary>
 
 ```
-> run hackathon — write a Mass Effect themed motivational quote for open source developers
+> run hackathon  -  write a Mass Effect themed motivational quote for open source developers
 
 ╔══════════════════════════════════════════════════════════════════╗
 ║              ⚡  H A V O C   H A C K A T H O N  ⚡              ║
@@ -314,7 +314,7 @@ See [TESTING.md](TESTING.md) for conversation playbooks and QA checklists.
 
 ## 📄 License
 
-[MIT](LICENSE) — use it, share it, remix it! 🎶
+[MIT](LICENSE)  -  use it, share it, remix it! 🎶
 
 ---
 

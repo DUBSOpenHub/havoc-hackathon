@@ -2,7 +2,7 @@
 
 This document describes how to verify the Havoc Hackathon skill works correctly.
 
-Since this is a conversational AI skill (not traditional code), testing is done through **conversation playbooks** — scripted interactions that verify expected behavior.
+Since this is a conversational AI skill (not traditional code), testing is done through **conversation playbooks**  -  scripted interactions that verify expected behavior.
 
 ---
 
@@ -25,7 +25,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
-| 1 | `run hackathon — write a fizzbuzz function` | Opening ceremony with arena banner, contestants, rubric |
+| 1 | `run hackathon  -  write a fizzbuzz function` | Opening ceremony with arena banner, contestants, rubric |
 | 2 | *(accept defaults or customize)* | 3 models dispatched in parallel with progress commentary |
 | 3 | *(wait for completion)* | All models finish, outputs normalized |
 | 4 | *(judging phase)* | Sealed panel scores anonymized submissions |
@@ -35,7 +35,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
-| 1 | `run hackathon — review @src/app.js for security issues` | Detects review mode, adjusts rubric |
+| 1 | `run hackathon  -  review @src/app.js for security issues` | Detects review mode, adjusts rubric |
 | 2 | *(models complete)* | Each model produces structured findings |
 | 3 | *(results)* | Ensemble report showing consensus findings |
 
@@ -43,7 +43,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
-| 1 | `hackathon with opus and gemini — refactor this function` | Only 2 models dispatched (head-to-head mode) |
+| 1 | `hackathon with opus and gemini  -  refactor this function` | Only 2 models dispatched (head-to-head mode) |
 | 2 | *(results)* | Head-to-head comparison, no bracket/tournament |
 
 ### Playbook 4: Model Failure
@@ -90,7 +90,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
-| 1 | `tag team hackathon — opus+sonnet vs codex+gemini — build a CLI tool` | Teams formed: drafter + refiner pairs |
+| 1 | `tag team hackathon  -  opus+sonnet vs codex+gemini  -  build a CLI tool` | Teams formed: drafter + refiner pairs |
 | 2 | *(drafting phase)* | Drafters dispatched first, outputs shown |
 | 3 | *(refining phase)* | Refiners receive drafts, improve them |
 | 4 | *(results)* | Final refined outputs judged, team scores shown |
@@ -180,5 +180,5 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Replay export | 10 | 🧪 |
 | Post-match analytics | 11 | 🧪 |
 | Persistent ELO (cross-session) | 12 | 🧪 |
-| Tournament bracket | — | 🧪 |
-| Adaptive rubrics | — | 🧪 |
+| Tournament bracket |  -  | 🧪 |
+| Adaptive rubrics |  -  | 🧪 |

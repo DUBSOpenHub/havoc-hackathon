@@ -8,25 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2026-02-20
 
 ### Added
-- 🎙️ **Audience participation mode** — vote alongside the sealed panel and see alignment comparison
-- 🔥 **Rematch mode** — tiebreaker round with user-chosen 6th criterion when margin ≤ 2 points
-- 🤝 **Tag team mode** — pair models as drafter + refiner for collaborative team competitions
-- 📼 **Replay export** — save full hackathon transcript as shareable markdown highlight reel
-- 📊 **Post-match analytics** — model performance trends, win rates by task type, ASCII charts
-- 💾 **Persistent ELO** — leaderboard saved to `~/.copilot/hackathon-elo.json` across sessions
+- 🎙️ **Audience participation mode**  -  vote alongside the sealed panel and see alignment comparison
+- 🔥 **Rematch mode**  -  tiebreaker round with user-chosen 6th criterion when margin ≤ 2 points
+- 🤝 **Tag team mode**  -  pair models as drafter + refiner for collaborative team competitions
+- 📼 **Replay export**  -  save full hackathon transcript as shareable markdown highlight reel
+- 📊 **Post-match analytics**  -  model performance trends, win rates by task type, ASCII charts
+- 💾 **Persistent ELO**  -  leaderboard saved to `~/.copilot/hackathon-elo.json` across sessions
 - 🧪 Playbooks 7-12 in TESTING.md covering all new features
 - ✅ 7 new QA checklist items
 
 ## [1.0.1] - 2026-02-20
 
 ### Fixed
-- 🔧 Added missing `read_agent` and `list_agents` tools to agent.md — required for Phase 3 background task polling
+- 🔧 Added missing `read_agent` and `list_agents` tools to agent.md  -  required for Phase 3 background task polling
 - 🔧 Clarified `read_agent` polling in Phase 3 of SKILL.md (both locations)
 
 ### Added
-- 🚀 CI validation workflow (`.github/workflows/validate.yml`) — checks SKILL.md sync and catalog.yml validity on push/PR
-- ⚖️ Judge model fallback logic in SKILL.md Phase 4 — graceful degradation when premium judges are unavailable
-- 🛡️ Prompt injection mitigation section in SECURITY.md — documents anti-gaming protections and consensus safeguards
+- 🚀 CI validation workflow (`.github/workflows/validate.yml`)  -  checks SKILL.md sync and catalog.yml validity on push/PR
+- ⚖️ Judge model fallback logic in SKILL.md Phase 4  -  graceful degradation when premium judges are unavailable
+- 🛡️ Prompt injection mitigation section in SECURITY.md  -  documents anti-gaming protections and consensus safeguards
 
 ### Changed
 - 🔐 Updated SECURITY.md security features table to reflect current activation status

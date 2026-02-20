@@ -48,18 +48,18 @@ This repository has the following GitHub security features configured:
 
 Since this is a Copilot CLI skill (no runtime code, only markdown instructions), the primary security considerations are:
 
-- 🔑 **No secrets in skill files** — SKILL.md and agent.md should never contain API keys, tokens, or credentials
-- 📜 **Safe instructions** — Skill instructions should never instruct the agent to bypass security controls
-- 🔍 **Dependency awareness** — If dependencies are added in the future, keep them updated
+- 🔑 **No secrets in skill files**  -  SKILL.md and agent.md should never contain API keys, tokens, or credentials
+- 📜 **Safe instructions**  -  Skill instructions should never instruct the agent to bypass security controls
+- 🔍 **Dependency awareness**  -  If dependencies are added in the future, keep them updated
 
 ## 🛡️ Prompt Injection Mitigation
 
 Since this skill orchestrates multiple AI models and processes user-provided task descriptions, prompt injection is a relevant concern:
 
-- 🔒 **Sealed judging** — Judge models receive anonymized submissions with model fingerprints stripped, reducing the attack surface for identity-based manipulation
-- 🧹 **Input sanitization** — The SKILL.md includes anti-gaming protections: calibration anchors, keyword stuffing detection, test tampering scans, and prompt injection scans
-- 🚫 **No credential passthrough** — User input is used as task descriptions only; it is never interpolated into system-level commands or used to access external services
-- ⚖️ **Consensus scoring** — Even if one judge model is influenced by injected content, the median-of-3 consensus mechanism limits the impact on final scores
+- 🔒 **Sealed judging**  -  Judge models receive anonymized submissions with model fingerprints stripped, reducing the attack surface for identity-based manipulation
+- 🧹 **Input sanitization**  -  The SKILL.md includes anti-gaming protections: calibration anchors, keyword stuffing detection, test tampering scans, and prompt injection scans
+- 🚫 **No credential passthrough**  -  User input is used as task descriptions only; it is never interpolated into system-level commands or used to access external services
+- ⚖️ **Consensus scoring**  -  Even if one judge model is influenced by injected content, the median-of-3 consensus mechanism limits the impact on final scores
 
 ## 📄 License
 
