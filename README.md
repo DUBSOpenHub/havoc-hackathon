@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-> **Pit AI models against each other. Score them blind. Crown a winner.** All from your terminal. ⚡
+> **Pit AI models against each other. Score them sealed. Crown a winner.** All from your terminal. ⚡
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -18,14 +18,14 @@
 
 ### 💡 Why This Exists
 
-Ever ask an AI model for something and wonder "is this actually good, or just the first thing it came up with?" Same. Instead of trusting one model's answer, Havoc Hackathon lets you throw the question at three models at once, have a separate panel of judges score them blind, and see which answer actually wins. It's useful *and* it's a genuinely good time.
+Ever ask an AI model for something and wonder "is this actually good, or just the first thing it came up with?" Same. Instead of trusting one model's answer, Havoc Hackathon lets you throw the question at three models at once, have a separate panel of judges score them sealed, and see which answer actually wins. It's useful *and* it's a genuinely good time.
 
 ### 🧬 Design Philosophy
 
 Under the hood, this is a proper adversarial orchestration harness  -  not just a wrapper around model APIs:
 
 - **Adversarial by design**  -  One model gives you one perspective. Three models competing on the same prompt exposes blind spots, surfaces wildly different approaches, and produces better output through competitive pressure.
-- **Blind judging**  -  Judges never see which model wrote what. Submissions are anonymized, shuffled, and scored independently by three judge models. The final score is the **median consensus**  -  same principle as double-blind peer review, applied to AI.
+- **Sealed judging**  -  Judges never see which model wrote what. Submissions are anonymized, shuffled, and scored independently by three judge models. The final score is the **median consensus**  -  same principle as double-blind peer review, applied to AI.
 - **Parallel, not sequential**  -  All contestants race simultaneously. No model sees another's work. No contamination. Fair by construction.
 - **CLI-native**  -  No web app, no notebook. Built for the terminal using Copilot CLI's native `task` tool for parallel dispatch, `sql` for ELO tracking, and markdown for the ceremony  -  zero external dependencies.
 

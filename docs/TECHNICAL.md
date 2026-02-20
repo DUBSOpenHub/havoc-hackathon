@@ -6,14 +6,14 @@ When you ask one LLM to review code, write a function, or analyze a PR, you get 
 
 ## The Solution
 
-Havoc Hackathon implements **multi-model consensus with blind evaluation**  -  a pattern borrowed from academic peer review and applied to AI-assisted development.
+Havoc Hackathon implements **multi-model consensus with sealed evaluation**  -  a pattern borrowed from academic peer review and applied to AI-assisted development.
 
 **Architecture:**
 
 ```
 User prompt → Identical dispatch to N models (parallel)
            → Outputs normalized + anonymized
-           → M judge models score blindly (sealed panel)
+           → M judge models score sealed (no model attribution)
            → Median consensus scoring (reduces judge bias)
            → Winner + ensemble merge of best components
            → ELO update for long-term model tracking
@@ -25,7 +25,7 @@ User prompt → Identical dispatch to N models (parallel)
 
 Every model has blind spots. GPT models tend toward verbosity. Claude models can over-qualify. Gemini handles structured data differently. By running 3+ models on the same task, you get **coverage across failure modes**. If two models catch a bug and one misses it, the ensemble surfaces it.
 
-### 2. Blind judging eliminates brand bias
+### 2. Sealed judging eliminates brand bias
 
 Submissions are anonymized as Contestant-A/B/C before judging. Judge models score on evidence, not reputation. This matters  -  studies show humans (and models) rate outputs higher when they know the source. Sealed panels remove that.
 
@@ -50,7 +50,7 @@ No API keys, no orchestration server, no Docker containers. It's two markdown fi
 | Use Case | Why It Helps |
 |----------|-------------|
 | **Code review** | 3 models find different bugs; ensemble report shows consensus findings |
-| **Architecture decisions** | Compare 3 different approaches side-by-side with blind scoring |
+| **Architecture decisions** | Compare 3 different approaches side-by-side with sealed scoring |
 | **Refactoring** | Multiple implementations scored on correctness, clarity, maintainability |
 | **Security audits** | Models have different vulnerability detection strengths |
 | **Writing (docs, ADRs)** | Reduces single-model tone/style bias |
