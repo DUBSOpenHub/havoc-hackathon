@@ -86,7 +86,7 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) How many models? (de
 > Choices: **Standard (Recommended)**, **Premium**
 
 - **Standard tier** (default): Contestants = Claude Sonnet 4.6, Codex Max GPT-5.1, GPT-5.2. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
-- **Premium tier**: Contestants = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro. Judges = Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M).
+- **Premium tier**: Contestants = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro. Judges = Claude Opus 4.5, GPT-5.2, Codex Max GPT-5.1.
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
 
@@ -131,9 +131,7 @@ Dispatch all models in parallel via `task` tool with `mode: "background"`. Ident
 
 **Judge prompt:** Impartial evaluation with anchors (1-2 poor → 9-10 exceptional). Output JSON with score + reason per category.
 
-**Judge Model Fallback:** If default premium judges are unavailable, fall back to standard-tier models. Avoid using contestant models as their own judges. At minimum, use 3 distinct judge models to maintain consensus integrity.
-
-**Audience Participation:** After sealed panel scores are calculated but before the reveal, ask the user: "🎙️ Audience vote! Rate each submission 1-10 on overall quality." Store user scores in `hackathon_audience_scores`. Show user vs. panel alignment after the reveal: "You agreed with the judges on X but scored Y higher  -  interesting taste! 🧐". Track alignment over time in `hackathon_audience_alignment`.
+**Judge Model Fallback:** If default premium judges are unavailable, fall back to standard-tier models. Avoid using contestant models as their own judges. Never fill the entire judge panel with models from the same provider  -  always include at least 2 different providers to prevent same-family bias. At minimum, use 3 distinct judge models to maintain consensus integrity.
 
 ### Phase 5  -  Declare Winner
 
@@ -177,8 +175,7 @@ Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
 - `hackathon_consensus`  -  run_id, contestant, category, median_score, stddev
 - `hackathon_results`  -  run_id, task, contestant, model, cat scores, total, status, notes
 - `hackathon_tournament`  -  run_id, round, contestant, model, score, advanced
-- `hackathon_audience_scores`  -  run_id, contestant, user_score
-- `hackathon_audience_alignment`  -  run_id, contestant, panel_score, user_score, delta
+
 
 ---
 
@@ -202,7 +199,7 @@ Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
 **Default contestants (Standard):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2 ← STANDARD ⚡
 **Default contestants (Premium):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro ← PREMIUM 👑
 **Default judges (Standard):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1 ← STANDARD ⚡
-**Default judges (Premium):** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M) ← PREMIUM 👑
+**Default judges (Premium):** Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1) ← PREMIUM 👑
 
 ---
 
