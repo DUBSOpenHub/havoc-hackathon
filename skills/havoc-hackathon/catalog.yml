@@ -2,11 +2,8 @@ schema_version: "1"
 id: havoc-hackathon
 name: Havoc Hackathon
 description: >
-  Competitive multi-model orchestrator that pits AI models against each other
-  on any task — code, design, review, or analysis. Dispatches models in parallel,
-  scores with a sealed panel (3 judge models, median consensus), tracks ELO
-  ratings across sessions, and declares winners with dramatic esports-style flair.
-  Say "run hackathon" and describe what you want built, reviewed, or improved.
+  Pit AI models against each other on any task — code, design, review, or
+  analysis. Just say "run hackathon".
 emoji: "🏟️"
 codename: The Arena
 category: specialist
