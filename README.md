@@ -244,6 +244,9 @@ havoc-hackathon/
 │           └── SKILL.md              ← 🏟️ Auto-discovered skill
 ├── agents/
 │   └── havoc-hackathon.agent.md      ← 🤖 Agent config (for task tool)
+├── docs/
+│   ├── TECHNICAL.md                  ← 🔬 Technical deep-dive
+│   └── images/                       ← 📷 Screenshots
 ├── skills/
 │   └── havoc-hackathon/
 │       ├── SKILL.md                  ← 🏟️ Canonical skill source

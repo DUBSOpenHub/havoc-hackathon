@@ -86,16 +86,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | Accept and pick a 6th criterion | Re-judging on new criterion only |
 | 3 | *(results)* | Combined scores reveal final winner |
 
-### Playbook 9: Tag Team
-
-| Step | You Say | Expected Behavior |
-|------|---------|-------------------|
-| 1 | `tag team hackathon  -  opus+sonnet vs codex+gemini  -  build a CLI tool` | Teams formed: drafter + refiner pairs |
-| 2 | *(drafting phase)* | Drafters dispatched first, outputs shown |
-| 3 | *(refining phase)* | Refiners receive drafts, improve them |
-| 4 | *(results)* | Final refined outputs judged, team scores shown |
-
-### Playbook 10: Replay Export
+### Playbook 9: Replay Export
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
@@ -103,7 +94,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | Accept | Markdown file saved with full transcript |
 | 3 | *(verify)* | File contains banner, submissions, scores, podium |
 
-### Playbook 11: Post-Match Analytics
+### Playbook 10: Post-Match Analytics
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
@@ -111,7 +102,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | `show stats` or `show leaderboard` | Model trends, win rates, ASCII bar charts |
 | 3 | *(verify)* | Per-model breakdown by task type shown |
 
-### Playbook 12: Persistent ELO
+### Playbook 11: Persistent ELO
 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
@@ -137,7 +128,6 @@ Before submitting a PR, verify:
 - [ ] 🚦 Quality gates catch broken builds/tests
 - [ ] 🎙️ Audience vote prompt appears after judging
 - [ ] 🔥 Rematch offered when margin ≤ 2 points
-- [ ] 🤝 Tag team mode dispatches drafters then refiners
 - [ ] 📼 Replay export saves valid markdown file
 - [ ] 📊 Post-match analytics display after 2+ hackathons
 - [ ] 💾 ELO persists to ~/.copilot/hackathon-elo.json
@@ -176,9 +166,8 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Smart merge | 6 | 🧪 |
 | Audience participation | 7 | 🧪 |
 | Rematch mode | 8 | 🧪 |
-| Tag team mode | 9 | 🧪 |
-| Replay export | 10 | 🧪 |
-| Post-match analytics | 11 | 🧪 |
-| Persistent ELO (cross-session) | 12 | 🧪 |
+| Replay export | 9 | 🧪 |
+| Post-match analytics | 10 | 🧪 |
+| Persistent ELO (cross-session) | 11 | 🧪 |
 | Tournament bracket |  -  | 🧪 |
 | Adaptive rubrics |  -  | 🧪 |

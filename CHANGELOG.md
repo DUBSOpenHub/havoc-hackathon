@@ -10,12 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - 🎙️ **Audience participation mode**  -  vote alongside the sealed panel and see alignment comparison
 - 🔥 **Rematch mode**  -  tiebreaker round with user-chosen 6th criterion when margin ≤ 2 points
-- 🤝 **Tag team mode**  -  pair models as drafter + refiner for collaborative team competitions
 - 📼 **Replay export**  -  save full hackathon transcript as shareable markdown highlight reel
 - 📊 **Post-match analytics**  -  model performance trends, win rates by task type, ASCII charts
 - 💾 **Persistent ELO**  -  leaderboard saved to `~/.copilot/hackathon-elo.json` across sessions
-- 🧪 Playbooks 7-12 in TESTING.md covering all new features
-- ✅ 7 new QA checklist items
+- 🧪 Playbooks 7-11 in TESTING.md covering all new features
+- ✅ 6 new QA checklist items
 
 ## [1.0.1] - 2026-02-20
 

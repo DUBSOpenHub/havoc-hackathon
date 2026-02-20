@@ -2,13 +2,13 @@ schema_version: "1"
 id: havoc-hackathon
 name: Havoc Hackathon
 description: >
-  Pit AI models against each other on any task — code, design, review, or
+  Pit AI models against each other on any task - code, design, review, or
   analysis. Just say "run hackathon".
 emoji: "🏟️"
 codename: The Arena
 category: specialist
 version: "1.1.0"
-tags: [hackathon, multi-model, competition, ai, elo, copilot-cli, orchestrator, tag-team, replay, analytics]
+tags: [hackathon, multi-model, competition, ai, elo, copilot-cli, orchestrator, replay, analytics]
 platforms: [copilot-cli]
 input_format: free-text
 links:
