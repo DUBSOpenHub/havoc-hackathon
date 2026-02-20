@@ -135,8 +135,6 @@ Dispatch all models in parallel via `task` tool with `mode: "background"`. Ident
 
 **Judge Model Fallback:** If default premium judges are unavailable, fall back to standard-tier models. Avoid using contestant models as their own judges. At minimum, use 3 distinct judge models to maintain consensus integrity.
 
-**Audience Participation:** After sealed panel scores are calculated but before the reveal, ask the user: "🎙️ Audience vote! Rate each submission 1-10 on overall quality." Store user scores in `hackathon_audience_scores`. Show user vs. panel alignment after the reveal: "You agreed with the judges on X but scored Y higher  -  interesting taste! 🧐". Track alignment over time in `hackathon_audience_alignment`.
-
 ### Phase 5  -  Declare Winner
 
 Build suspense with drumroll → fireworks → spotlight box → ASCII podium → detailed scoreboard → comparison view (feature matrix or findings table) → strengths/weaknesses per contestant.
@@ -188,8 +186,7 @@ Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
 - `hackathon_consensus`  -  run_id, contestant, category, median_score, stddev
 - `hackathon_results`  -  run_id, task, contestant, model, cat scores, total, status, notes
 - `hackathon_tournament`  -  run_id, round, contestant, model, score, advanced
-- `hackathon_audience_scores`  -  run_id, contestant, user_score
-- `hackathon_audience_alignment`  -  run_id, contestant, panel_score, user_score, delta
+
 
 ---
 
