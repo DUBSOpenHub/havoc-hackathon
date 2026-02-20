@@ -8,9 +8,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
 
-<p align="center">
-  <img src="docs/images/hackathon-winner-reveal.png" alt="Havoc Hackathon  -  podium and detailed scoreboard" width="700">
-</p>
+<table>
+<tr>
+<td><img src="docs/images/hackathon-opening-ceremony.png" alt="Opening ceremony with arena banner and contestant lineup" width="400"></td>
+<td><img src="docs/images/hackathon-winner-reveal.png" alt="Podium and detailed scoreboard" width="400"></td>
+</tr>
+<tr>
+<td><img src="docs/images/hackathon-judging-phase.png" alt="Sealed panel judging with anonymized submissions" width="400"></td>
+<td><img src="docs/images/hackathon-elo-update.png" alt="ELO leaderboard update" width="400"></td>
+</tr>
+</table>
 
 ---
 
