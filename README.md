@@ -24,12 +24,13 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
-- **Sealed judging** – judges never see which model wrote what
-- **Self-correcting scores** – rubrics adapt when judges disagree
-- **Cross-provider judges** – no all-Claude or all-GPT panels
-- **Smart merge** – cherry-picks the best pieces from every submission
-- **Persistent leaderboard** – tracks which models actually deliver over time
-- **Two markdown files** – no servers, no API keys, no code
+- 🔒 **Sealed judging** – judges never see which model wrote what
+- 🔄 **Self-correcting scores** – rubrics adapt when judges disagree
+- ⚖️ **Cross-provider judges** – no all-Claude or all-GPT panels
+- 🧬 **Smart merge** – cherry-picks the best pieces from every submission
+- 📈 **Persistent leaderboard** – tracks which models actually deliver over time
+- 🏆 **Full ceremony** – podiums, drumrolls, and dramatic reveals in your terminal
+- 📄 **Two markdown files** – no servers, no API keys, no code
 
 ---
 
