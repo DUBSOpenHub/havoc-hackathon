@@ -275,8 +275,8 @@ havoc-hackathon/
 | Claude Opus 4.6 (Fast) | `claude-opus-4.6-fast` | Premium |
 | Claude Opus 4.6 (1M) | `claude-opus-4.6-1m` | Premium |
 | Claude Opus 4.5 | `claude-opus-4.5` | Premium |
-| Codex Max (GPT-5.1) | `gpt-5.1-codex-max` | Premium |
-| Gemini 3 Pro | `gemini-3-pro-preview` | Premium |
+| Codex Max (GPT-5.1) | `gpt-5.1-codex-max` | Standard |
+| Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
