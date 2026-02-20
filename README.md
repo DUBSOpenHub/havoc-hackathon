@@ -2,7 +2,7 @@
 
 > **Pit AI models against each other. Score them sealed. Crown a winner.** All from the GitHub Copilot CLI. ⚡
 >
-> A CLI-native adversarial AI orchestration harness designed to stress-test ideas through parallel multi-agent competition and blind adjudication.
+> A CLI-native adversarial AI orchestration harness designed to stress-test ideas through parallel multi-agent competition and blind adjudication. It's just two markdown files with zero code.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
