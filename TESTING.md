@@ -111,6 +111,16 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 3 | `run hackathon with premium models  -  write a haiku` | No tier prompt, premium models used directly, 👑 badges shown |
 | 4 | `hackathon with opus and gemini  -  write a haiku` | No tier prompt, named models used directly |
 
+### Playbook 12: Stall Detection
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run a hackathon on a complex task | Models dispatched, progress monitored |
+| 2 | *(model stalls for 180s)* | Prompted: "⏳ {Model} has been silent for 3 minutes. Want to keep waiting or DQ?" |
+| 3 | Select "Keep waiting (60s more)" | Timer extended by 60 seconds |
+| 4 | *(model stalls again)* | Auto-DQ with commentary: "💀 {Model} went AFK. No mercy in this arena." |
+| 5 | *(alternative: select "DQ and continue")* | Model DQ'd immediately, hackathon continues with remaining contestants |
+
 ---
 
 ## ✅ QA Checklist
@@ -134,6 +144,8 @@ Before submitting a PR, verify:
 - [ ] ⚡ Tier selection prompt appears when no tier specified
 - [ ] 👑 Premium models used when explicitly requested
 - [ ] 🏷️ Tier badges (⚡/👑) shown in opening ceremony
+- [ ] ⏳ Stall detection prompts user after 180s of no output
+- [ ] 💀 Auto-DQ on second stall after user-granted extension
 
 ---
 
@@ -172,5 +184,6 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Post-match analytics | 9 | 🧪 |
 | Persistent ELO (cross-session) | 10 | 🧪 |
 | Model tier selection | 11 | 🧪 |
+| Stall detection | 12 | 🧪 |
 | Tournament bracket |  -  | 🧪 |
 | Adaptive rubrics |  -  | 🧪 |

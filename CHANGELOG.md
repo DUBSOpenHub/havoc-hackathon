@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - ⚡ **Model tier selection**  -  prompts user to choose Standard or Premium models before each hackathon
-- Standard tier defaults: Claude Sonnet 4.6, Codex GPT-5.3, GPT-5.2 (contestants) + Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1 (judges)
+- Standard tier defaults: Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2 (contestants) + Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1 (judges)
 - Premium tier opt-in via `"run hackathon with premium models"` or explicit model names
 - Tier badges (⚡ STANDARD / 👑 PREMIUM) shown in opening ceremony
 

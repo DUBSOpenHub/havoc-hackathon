@@ -131,7 +131,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 👑 CONTESTANTS:
   🔵 Claude Opus 4.6       (Premium)
-  🟢 Codex Max (GPT-5.1)   (Premium)
+  🟢 Codex (GPT-5.3)       (Premium)
   🟡 Gemini 3 Pro          (Premium)
 
 ⚖️ RUBRIC: Clarity · Simplicity · Relevance · Inspiration · Memorability (each /10)
@@ -140,7 +140,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 🏁 ALL MODELS CROSSED THE FINISH LINE!
   🔵 Claude Opus 4.6     ✅ 4s ⚡
-  🟢 Codex Max           ✅ 3s ⚡ Speedrun!
+  🟢 Codex (GPT-5.3)     ✅ 3s ⚡ Speedrun!
   🟡 Gemini 3 Pro        ✅ 10s
 
 ⚖️ The panel convenes... 🔒 Submissions anonymized. No favoritism. No mercy.
@@ -165,12 +165,12 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
           🥈     │  43  │     🥉
        ┌──────┐ │      │ ┌──────┐
        │CODEX │ │      │ │GEMINI│
-       │ MAX  │ │      │ │3 PRO │
+       │ 5.3  │ │      │ │3 PRO │
        │  37  │ │      │ │  35  │
        └──────┘ └──────┘ └──────┘
 
 📊 DETAILED SCOREBOARD
-  Category      🥇 Claude Opus  🥈 Codex Max  🥉 Gemini 3 Pro
+  Category      🥇 Claude Opus  🥈 Codex 5.3  🥉 Gemini 3 Pro
   Clarity            9              8              7
   Simplicity         8              7              5
   Relevance          9              8              8
@@ -180,7 +180,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 📈 ELO UPDATE
   📈 Claude Opus 4.6   1532  (+32) ⬆️
-  ➡️  Codex Max         1500  (±0)
+  ➡️  Codex (GPT-5.3)   1500  (±0)
   📉 Gemini 3 Pro      1468  (-32) ⬇️
 
 GG WP! Scores logged. ELOs updated. 🫡
