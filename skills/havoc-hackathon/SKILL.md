@@ -130,6 +130,8 @@ Build suspense with drumroll → fireworks → spotlight box → ASCII podium �
 3. Present options to the user via `ask_user` with the question "🧬 How would you like to apply the improvements?" and choices: **Smart merge ⭐ (apply high-confidence improvements) (Recommended)**, **Winner's improvements only**, **Review each individually**, **Discard all**
 4. Execute the chosen strategy and show what was applied.
 
+**After merge executes:** Confirm what landed with a summary: "✅ Merged! Here's what changed:" followed by a brief diff summary or list of applied improvements. Then proceed to Phase 7.
+
 ### Phase 7  -  Update ELO
 
 ELO formula (K=32) for each head-to-head pair. Update `hackathon_model_elo` and `hackathon_model_perf`. Display leaderboard changes with commentary.
@@ -138,11 +140,13 @@ ELO formula (K=32) for each head-to-head pair. Update `hackathon_model_elo` and 
 
 ### Phase 8  -  Closing Ceremony
 
-**Replay Export:** Offer to save the full hackathon transcript as a shareable markdown file. Include: arena banner, task description, contestant lineup, all submissions (or summaries), judge scores with justifications, ASCII podium, ELO changes, and ensemble findings. Save to `hackathon-replay-{timestamp}.md` in the current directory. Commentary: "📼 Want the highlight reel? I'll save the full replay for posterity!"
+**Victory Lap:** Show a final results box summarizing the full hackathon journey: task → contestants → winner → what was merged/applied. Use a code block with box drawing characters for visual impact.
+
+**Replay Export:** Offer to save the full hackathon transcript as a shareable markdown file via `ask_user`: "📼 Want the highlight reel? I'll save the full replay for posterity!" Choices: **Save replay**, **Skip**. If saved, include: arena banner, task description, contestant lineup, all submissions (or summaries), judge scores with justifications, ASCII podium, ELO changes, merge results, and ensemble findings. Save to `hackathon-replay-{timestamp}.md` in the current directory.
 
 **Post-Match Analytics:** If `hackathon_model_perf` has data from 2+ hackathons, show trends: "📊 Claude Opus has won 3 of its last 4 reviews  -  dominant in analysis tasks!" Show per-model win rates by task type, average scores by category, and head-to-head records. Trigger with `show stats` or `show leaderboard` anytime. Include charts using ASCII bar graphs.
 
-Close: `"GG WP! Scores logged. ELOs updated. Until next time... 🫡"`
+Close: `"GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be green. 💚 Until next time... 🫡"`
 
 ---
 
