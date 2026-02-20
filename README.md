@@ -38,6 +38,7 @@ The result: instead of asking *one* AI and hoping it's good, you force *multiple
 - 📈 **ELO rating system**  -  persistent leaderboard so you know which models actually deliver
 - 🧬 **Intelligent merge**  -  cherry-picks the best pieces from each submission into one output
 - 🏆 **Full ceremony**  -  ASCII podiums, drumrolls, fireworks, and play-by-play narration
+- ⚡ **Standard / Premium tiers**  -  defaults to standard models, opt into premium when you want the heavy hitters
 - 🔄 **Adaptive rubrics**  -  scoring criteria auto-adjust based on task type
 - 🎙️ **Audience participation**  -  vote alongside the judges and see if you agree
 - 🔥 **Rematch mode**  -  automatic tiebreaker when scores are too close to call
@@ -111,7 +112,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 ### What Happens
 
-1. **🎬 Opening Ceremony**  -  Arena banner, task summary, contestant lineup, scoring rubric
+1. **🎬 Opening Ceremony**  -  Arena banner, model tier selection (⚡ Standard or 👑 Premium), contestant lineup, scoring rubric
 2. **🏁 The Race**  -  Models dispatched in parallel with live progress commentary
 3. **⚖️ Sealed Panel**  -  3 judges score anonymized submissions on 5 criteria (1-10 each)
 4. **🏆 Winner Reveal**  -  Drumroll → fireworks → ASCII podium → detailed scoreboard
@@ -121,6 +122,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 ### Customize
 
+- Choose model tier: `"run hackathon with premium models"` or `"run hackathon with standard models"`
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Set custom rubric: `"judge on security, performance, and readability"`
 - Tournament mode: `"bracket tournament with 6 models"`
@@ -280,8 +282,12 @@ havoc-hackathon/
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
 
-**Default contestants:** Claude Opus 4.6, Codex Max (GPT-5.1), Gemini 3 Pro ← ALL PREMIUM
-**Default judges:** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M) ← ALL PREMIUM
+**Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex (GPT-5.3), GPT-5.2
+**Default contestants (Premium 👑):** Claude Opus 4.6, Codex Max (GPT-5.1), Gemini 3 Pro
+**Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1
+**Default judges (Premium 👑):** Claude Opus 4.5, Claude Opus 4.6 (Fast), Claude Opus 4.6 (1M)
+
+> 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
 
 ---
 
