@@ -18,7 +18,7 @@
 - ⚖️ **Sealed panel judging** — 3 judge models score anonymized submissions
 - 📈 **ELO rating system** — persistent leaderboard tracks model performance across sessions
 - 🧬 **Intelligent merge** — cherry-pick the best components from each submission
-- 🏆 **Full ceremony** — ASCII podiums, dramatic reveals, color commentary
+- 🏆 **Full ceremony** — ASCII podiums, dramatic reveals, live play-by-play narration
 - 🔄 **Adaptive rubrics** — scoring criteria adjust based on task type and competition tightness
 - 🎙️ **Audience participation** — vote alongside the judges and compare your taste
 - 🔥 **Rematch mode** — tiebreaker round when scores are too close to call
