@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2026-02-21
+
+### Fixed
+- 🔧 **Results display before merge prompt**  -  Phase 5 now has explicit numbered checklist of mandatory display items (scoreboard, comparison view, strengths/weaknesses). Phase 6 adds a "Results Gate" requiring results to be displayed before calling `ask_user` for merge options. Removed "proceed immediately" language that caused models to rush past showing results.
+
 ## [1.3.0] - 2026-02-20
 
 ### Added
