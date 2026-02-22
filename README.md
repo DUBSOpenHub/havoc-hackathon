@@ -18,9 +18,9 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 12 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time.
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 18 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time.
 
-A Layer 1 multi-model orchestration system: **28 agents, 2 rounds, ensemble synthesis, persistent ELO**. Two markdown files with zero lines of code.
+A Layer 1 multi-model orchestration system: **up to 46 agents, 2 rounds, ensemble synthesis, persistent ELO**. Two markdown files with zero lines of code.
 
 ### 💬 The Problem
 
@@ -28,7 +28,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
-- 🏟️ **Tournament mode** – all available models compete in elimination heats, not just 3
+- 🏟️ **Tournament mode** – up to 18 models compete in elimination heats, not just 3
 - 🧬 **Evolution between rounds** – Round 2 finalists learn what won Round 1
 - 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
@@ -220,6 +220,8 @@ GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be g
 
 </details>
 
+📼 **See a [full real-world run transcript](docs/EXAMPLE-RUN.md)** from a Premium tier hackathon where 3 models competed to design a CLI Skills Marketplace.
+
 ---
 
 ## 🔧 How It Works
@@ -308,10 +310,16 @@ havoc-hackathon/
 | Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
+| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
+| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
+| Claude Haiku 4.5 | `claude-haiku-4.5` | Fast |
+| Codex Mini (GPT-5.1) | `gpt-5.1-codex-mini` | Fast |
+| GPT-5 mini | `gpt-5-mini` | Fast |
+| GPT-4.1 | `gpt-4.1` | Fast |
 
 **Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2
 **Default contestants (Premium 👑):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro
@@ -324,13 +332,13 @@ havoc-hackathon/
 
 ## 🚑 Grid-Medic: Recursive Self-Improvement
 
-Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  28 agents compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
+Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 46 agents compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
 
 ```
 Grid-Medic diagnoses agent fleet
     ├── Score > 5/10 → surgical fix (validate + apply)
     └── Score ≤ 5/10 → 🚨 ESCALATE
-            → Havoc Hackathon: 28 agents compete to rewrite it
+            → Havoc Hackathon: up to 46 agents compete to rewrite it
             → Ensemble synthesis merges best parts
             → Grid-Medic re-diagnoses → confirms improvement
 ```

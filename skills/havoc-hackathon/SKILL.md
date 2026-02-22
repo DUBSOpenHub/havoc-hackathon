@@ -89,8 +89,9 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) Build or review mode
 
 - **Classic Mode** ("quick"/"fast"): 3 contestants, no heats  -  same as original behavior.
 - **Tournament Mode** (default): All available models enter elimination heats. Elastic brackets auto-size based on model count (N):
-  - N ≥ 12: 4 heats × 3 → 4 finalists
-  - N = 9-11: 3 heats × 3 → 3 finalists
+  - N ≥ 16: 6 heats × 3 → 6 finalists
+  - N = 12-15: 4 heats × 3-4 → 4 finalists
+  - N = 9-11: 3 heats × 3-4 → 3 finalists
   - N = 7-8: 2 heats × 3-4 → 2 finalists
   - N = 5-6: 2 heats × 2-3 → 2 finalists
   - N ≤ 4: Classic mode (no heats, direct competition)
@@ -103,8 +104,8 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) Build or review mode
 > "⚡ Model tier? Standard models work great for most tasks. Premium brings the heavy hitters."
 > Choices: **Standard (Recommended)**, **Premium**
 
-- **Standard tier** (default): Contestants = all Standard + Fast tier models. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
-- **Premium tier**: Contestants = all available models (Premium + Standard + Fast). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
+- **Standard tier** (default): Contestants = all Standard + Fast tier models (14 models). Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
+- **Premium tier**: Contestants = all available models  -  Premium + Standard + Fast (18 models). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
 - **Classic Mode** overrides tier selection: Standard = Claude Sonnet 4.6, Codex Max GPT-5.1, GPT-5.2. Premium = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro.
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly in Classic Mode. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
@@ -250,10 +251,16 @@ Close: `"GG WP! Scores logged. ELOs updated. May your diffs be clean and your bu
 | Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
+| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
+| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
+| Claude Haiku 4.5 | `claude-haiku-4.5` | Fast |
+| Codex Mini (GPT-5.1) | `gpt-5.1-codex-mini` | Fast |
+| GPT-5 mini | `gpt-5-mini` | Fast |
+| GPT-4.1 | `gpt-4.1` | Fast |
 
 **Default contestants (Standard):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2 ← STANDARD ⚡
 **Default contestants (Premium):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro ← PREMIUM 👑
