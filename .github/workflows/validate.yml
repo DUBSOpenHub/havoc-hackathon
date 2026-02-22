@@ -41,3 +41,6 @@ jobs:
 
       - name: Preflight checks (SQL + bracket math)
         run: python3 tests/preflight.py
+
+      - name: Full dry-run simulation (9-phase walkthrough)
+        run: python3 tests/dry_run_sim.py

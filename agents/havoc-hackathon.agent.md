@@ -412,29 +412,73 @@ CREATE TABLE IF NOT EXISTS hackathon_tournament (
 
 ## Dry-Run / Preflight Mode
 
-If the user says "dry run", "preflight", or "test run", execute a non-destructive validation instead of a real hackathon:
+If the user says "dry run", "preflight", or "test run", execute a **full 9-phase simulation** with mock data — validating the entire hackathon pipeline without burning tokens on a real competition.
 
-1. **Model availability:** For each model in the selected tier, dispatch a trivial test prompt ("respond with OK") via `task` with `mode: "background"`. Report which models respond and which timeout/fail.
-2. **SQL readiness:** Run all CREATE TABLE statements above. Verify tables exist with `SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'hackathon_%'`.
-3. **Bracket math:** Show the bracket distribution for the current model count (from the table above). Confirm heat sizes and finalist count.
-4. **ELO persistence:** Check if `~/.copilot/hackathon-elo.json` exists. If yes, show current leaderboard. If no, report "Fresh start — no history."
-5. **Judge separation:** Verify that the selected judge models are NOT in the contestant list. Report any conflicts and show fallback plan.
+### Quick Preflight (infrastructure only)
+
+Run these 6 checks first — fast, no model calls:
+
+1. **SQL readiness:** Run all CREATE TABLE statements above. Verify tables exist with `SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'hackathon_%'`.
+2. **Bracket math:** Show the bracket distribution for the current model count (from the table above). Confirm heat sizes and finalist count.
+3. **ELO persistence:** Check if `~/.copilot/hackathon-elo.json` exists. If yes, show current leaderboard. If no, report "Fresh start — no history."
+4. **Judge separation:** Verify that the selected judge models are NOT in the contestant list. Report any conflicts and show fallback plan.
+5. **Smart mode detection:** Show which mode would be selected for the user's task (Classic vs Tournament) and why.
 6. **Tool check:** Confirm `task`, `read_agent`, `list_agents`, `sql`, `ask_user`, and `bash` tools are available.
 
-**Output format:**
+### Full Simulation (9-phase walkthrough)
+
+After infrastructure checks pass, walk through each phase with mock data:
+
+| Phase | Simulation | What It Validates |
+|-------|-----------|-------------------|
+| 0 — Meta-Learning | Create SQL tables, seed mock ELO, render leaderboard | Table schemas, serpentine draft ordering, leaderboard format |
+| 1 — Challenge | Classify 3 sample tasks (trivial/medium/complex), show bracket | Smart mode detection, bracket math, model count handling |
+| 2 — Scoring | Generate rubric for detected task type | Rubric categories, scoring range (1-10, /50), adaptive rules |
+| 3 — Deploy | Show dispatch plan: which models to which heats | Model roster completeness, parallel dispatch structure, Evolution Brief format |
+| 4 — Judge | Simulate 3-judge panel with mock scores | Judge-contestant separation, provider diversity, anti-gaming rules, median calculation, stddev flagging |
+| 5 — Winner | Rank mock scores, test rematch threshold | Score totals, ranking logic, margin ≤2 rematch trigger, Phase 6 mandate |
+| 6 — Merge | Vote on 3 mock decisions with 4 finalists | CONSENSUS (3+ agree) / MAJORITY (2 agree) / UNIQUE (all differ) classification |
+| 7 — ELO | Calculate K=32 updates for mock results | Pairwise expected scores, zero-sum property, JSON persistence format |
+| 8 — Closing | Verify ceremony elements exist | Victory Lap, replay export format, post-match analytics, all 9 phases present |
+
+### Model Availability (live check)
+
+After simulation passes, dispatch a trivial test prompt ("respond with OK") to each model in the selected tier via `task` with `mode: "background"`. Report which models respond and which timeout/fail.
+
+### Output Format
 
 ```
-🔧 PREFLIGHT CHECK — Havoc Hackathon
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ Models responding:     {N}/{total} ({list})
-❌ Models unavailable:    {list or "none"}
-✅ SQL tables:            {N}/10 created
-✅ Bracket:               {N} models → {H} heats × {S} → {F} finalists
-✅ ELO file:              {status}
-✅ Judge separation:      {status}
-✅ Tools available:       {N}/{total}
+╔══════════════════════════════════════════════════════════════╗
+║        🏟️  HAVOC HACKATHON — DRY-RUN SIMULATION  🏟️         ║
+║        Full 9-Phase Walkthrough with Mock Data              ║
+╚══════════════════════════════════════════════════════════════╝
 
-RESULT: {✅ READY | ⚠️ DEGRADED (details) | ❌ NOT READY (details)}
+  ✅ Phase 0 — Meta-Learning (5/5)
+      ✅ SQL tables created, ELO seeded, serpentine verified
+  ✅ Phase 1 — Challenge Understanding (7/7)
+      ✅ Smart mode: "haiku" → Classic, "build API" → Tournament
+  ✅ Phase 2 — Scoring Criteria (7/7)
+      ✅ All 4 rubric types, adaptive rules present
+  ✅ Phase 3 — Fleet Deployment (9/9)
+      ✅ 10 Standard + 4 Premium, no duplicates
+  ✅ Phase 4 — Sealed Judging (12/12)
+      ✅ Judge separation clean, anti-gaming concrete
+  ✅ Phase 5 — Winner Declaration (7/7)
+      ✅ Ranking + rematch logic validated
+  ✅ Phase 6 — Intelligent Merge (10/10)
+      ✅ CONSENSUS/MAJORITY/UNIQUE voting correct
+  ✅ Phase 7 — ELO Update (6/6)
+      ✅ K=32, zero-sum, JSON format valid
+  ✅ Phase 8 — Closing Ceremony (6/6)
+      ✅ All ceremony elements present
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Results: 69/69 checks passed
+
+  ✅ Models responding:     {N}/{total}
+  ❌ Models unavailable:    {list or "none"}
+
+  RESULT: {✅ READY | ⚠️ DEGRADED (details) | ❌ NOT READY (details)}
 ```
 
 If DEGRADED: show what will work differently (e.g., "2 models unavailable — will run with {N} models, {H-1} heats").
