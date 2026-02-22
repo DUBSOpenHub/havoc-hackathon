@@ -50,7 +50,7 @@ The ensemble synthesis doesn't just pick the winner's output. It uses a **voting
 
 ### 6. Zero infrastructure overhead
 
-No API keys, no orchestration server, no Docker containers. It's two markdown files that leverage Copilot CLI's existing `task` tool for parallel dispatch and `sql` tool for state management. The entire system runs in your terminal.
+No API keys, no orchestration server, no Docker containers. It's three markdown files (SKILL.md + two .agent.md files) that leverage Copilot CLI's existing `task` tool for parallel dispatch and `sql` tool for state management. The entire system runs in your terminal.
 
 ## When to Use It
 
