@@ -1,6 +1,6 @@
 # 🏟️ Havoc Hackathon
 
-**Pit AI models against each other. Score them sealed. Crown a winner. All built using the GitHub Copilot CLI. ⚡**
+**Pit AI models against each other. Score them sealed. Crown a winner. Two markdown files, zero code. All built using the GitHub Copilot CLI. ⚡**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Copilot_CLI-blue?logo=github)](https://github.com/features/copilot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
