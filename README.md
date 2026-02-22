@@ -14,9 +14,9 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 12 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, and synthesizes the final output from collective intelligence across all finalists.
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 12 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time.
 
-A Layer 1 multi-model orchestration system: **28 agents, 2 rounds, ensemble synthesis**. Two markdown files with zero lines of code.
+A Layer 1 multi-model orchestration system: **28 agents, 2 rounds, ensemble synthesis, persistent ELO**. Two markdown files with zero lines of code.
 
 ### 💬 The Problem
 
