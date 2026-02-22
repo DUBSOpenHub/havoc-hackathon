@@ -132,7 +132,7 @@ def p2_task():
     out()
     divider()
     out()
-    typer("  🎯 TASK: Write a Mass Effect motivational quote",
+    typer("  🎯 TASK: Build a terminal demo animation",
           delay=0.018, col=WHT)
     sl(0.2)
     out()
