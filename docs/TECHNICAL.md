@@ -6,24 +6,31 @@ When you ask one LLM to review code, write a function, or analyze a PR, you get 
 
 ## The Solution
 
-Havoc Hackathon implements **multi-model consensus with sealed evaluation**  -  a pattern borrowed from academic peer review and applied to AI-assisted development.
+Havoc Hackathon implements **Layer 1 multi-model consensus with tournament elimination, evolutionary pressure, and ensemble synthesis**  -  a pattern borrowed from academic peer review and tournament theory, applied to AI-assisted development.
 
 **Architecture:**
 
 ```
-User prompt → Identical dispatch to N models (parallel)
-           → Outputs normalized + anonymized
-           → M judge models score sealed (no model attribution)
-           → Median consensus scoring (reduces judge bias)
-           → Winner + ensemble merge of best components
-           → ELO update for long-term model tracking
+User prompt → Tournament Mode (default): all available models enter
+           → Round 1: Elastic heats (auto-sized by model count)
+           → Per-heat judge panels score sealed (3 judges × N heats, parallel)
+           → Heat winners advance
+           → Evolution Brief: orchestrator summarizes winning strategies
+           → Round 2: Finalists compete with Evolution Brief prepended
+           → Finals judge panel scores sealed
+           → Ensemble synthesis: CONSENSUS/MAJORITY/UNIQUE voting merge
+           → ELO update (per-round, per-heat) for long-term model tracking
 ```
 
 ## Why This Is Technically Valuable
 
 ### 1. Reduces single-model failure modes
 
-Every model has blind spots. GPT models tend toward verbosity. Claude models can over-qualify. Gemini handles structured data differently. By running 3+ models on the same task, you get **coverage across failure modes**. If two models catch a bug and one misses it, the ensemble surfaces it.
+Every model has blind spots. GPT models tend toward verbosity. Claude models can over-qualify. Gemini handles structured data differently. By running **all available models** in tournament heats, you get **maximum coverage across failure modes**. The elimination tournament ensures only the strongest approaches survive to the finals.
+
+### 2. Evolution between rounds compounds quality
+
+Round 2 finalists receive an Evolution Brief  -  a structured summary of what strategies won each heat, which scoring categories drove the wins, and key differentiators. Finalists can incorporate or beat those ideas. This means Round 2 output is strictly better than Round 1, creating evolutionary pressure that a single-round competition can't match.
 
 ### 2. Sealed judging eliminates brand bias
 
@@ -37,9 +44,9 @@ Three judges score independently. Final score = median, not mean. This makes the
 
 After multiple hackathons, you build empirical data: "Claude Opus wins 70% of review tasks but only 40% of code generation tasks." This turns model selection from vibes into evidence. The data persists across sessions via `~/.copilot/hackathon-elo.json`.
 
-### 5. Component-level merging > winner-take-all
+### 5. Ensemble synthesis > winner-take-all
 
-The smart merge doesn't just pick the winner's output. It cherry-picks at the component level  -  maybe Model A had better error handling but Model B had a cleaner API design. You get the best of each.
+The ensemble synthesis doesn't just pick the winner's output. It uses a **voting merge across ALL finalists**: if 3+ models solved something the same way (CONSENSUS), that approach auto-wins. If 2 agree (MAJORITY), that's accepted with the alternative noted. If all differ (UNIQUE), the highest scorer's approach wins. Unique innovations from any finalist are preserved and flagged for review. The result is collective intelligence no single model could produce.
 
 ### 6. Zero infrastructure overhead
 
