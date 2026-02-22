@@ -103,8 +103,8 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) Build or review mode
 > "⚡ Model tier? Standard models work great for most tasks. Premium brings the heavy hitters."
 > Choices: **Standard (Recommended)**, **Premium**
 
-- **Standard tier** (default): Contestants = all Standard + Fast tier models. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
-- **Premium tier**: Contestants = all available models (Premium + Standard + Fast). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
+- **Standard tier** (default): Contestants = all Standard tier models (10 models). Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
+- **Premium tier**: Contestants = all available models  -  Premium + Standard (14 models). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
 - **Classic Mode** overrides tier selection: Standard = Claude Sonnet 4.6, Codex Max GPT-5.1, GPT-5.2. Premium = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro.
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly in Classic Mode. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
@@ -250,8 +250,10 @@ Close: `"GG WP! Scores logged. ELOs updated. May your diffs be clean and your bu
 | Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
+| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
+| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
 

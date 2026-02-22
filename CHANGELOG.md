@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2026-02-22
 
 ### Added
-- 🏟️ **Layer 1: Tournament Mode (default)**  -  All available models (up to 12) compete in elimination heats instead of just 3. Elastic brackets auto-size based on model count (12→4×3, 9→3×3, 6→2×3, ≤4→classic). Serpentine ELO-based seeding spreads top models across heats.
+- 🏟️ **Layer 1: Tournament Mode (default)**  -  All available models (up to 14) compete in elimination heats instead of just 3. Elastic brackets auto-size based on model count (12→4×3, 9→3×3, 6→2×3, ≤4→classic). Serpentine ELO-based seeding spreads top models across heats.
 - 🧬 **Evolution Brief**  -  After Round 1 judging, orchestrator generates a structured brief from judge scores: winning strategies, top categories, key differentiators. Prepended to Round 2 prompt so finalists can incorporate or beat Round 1's best ideas. Zero extra LLM calls.
 - 🗳️ **Ensemble Synthesis**  -  Replaces cherry-pick-from-winner with voting merge across ALL finalists. CONSENSUS (3+ agree, auto-accept), MAJORITY (2 agree, note alternative), UNIQUE (highest scorer wins, flag others). Integrator agent gets explicit merge rules with provenance annotations.
 - ⚖️ **Per-heat judge panels**  -  3 judges × N heats dispatched in parallel (up to 12 judge agents in Round 1). Judge model assignments rotate across heats for diverse perspectives.
