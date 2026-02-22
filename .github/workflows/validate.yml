@@ -35,3 +35,9 @@ jobs:
               exit(1)
           print('✅ All required catalog fields present')
           "
+
+      - name: Structural validation (SKILL.md + agent.md)
+        run: python3 tests/validate_skill.py
+
+      - name: Preflight checks (SQL + bracket math)
+        run: python3 tests/preflight.py
