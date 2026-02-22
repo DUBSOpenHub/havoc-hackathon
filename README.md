@@ -291,7 +291,8 @@ havoc-hackathon/
 │       └── catalog.yml               ← 📋 Catalog metadata
 ├── tests/
 │   ├── validate_skill.py            ← 🧪 Structural validation (60 checks)
-│   └── preflight.py                 ← 🔧 Offline preflight validator
+│   ├── preflight.py                 ← 🔧 Offline preflight validator
+│   └── dry_run_sim.py               ← 🏟️ Full 9-phase dry-run simulator (69 checks)
 ├── .gitignore
 ├── CHANGELOG.md                      ← 📋 Version history
 ├── CODE_OF_CONDUCT.md                ← 🤝 Contributor Covenant
@@ -366,13 +367,14 @@ Not sure if everything is set up correctly? Run a dry-run before your first hack
 > dry run
 ```
 
-This validates model availability, SQL tables, bracket math, ELO file, and judge separation — without burning tokens on a real competition. See [TESTING.md](TESTING.md) for the full QA guide.
+This runs a **full 9-phase simulation** with mock data — validating SQL tables, bracket math, ELO calculations, judge separation, smart mode detection, scoring logic, ensemble voting, and more — all without burning tokens on a real competition. Then it pings each model to confirm availability.
 
-You can also run the offline structural validator locally:
+You can also run the offline validators locally:
 
 ```bash
 python3 tests/validate_skill.py   # 60 structural checks
 python3 tests/preflight.py        # SQL, bracket math, file structure
+python3 tests/dry_run_sim.py      # Full 9-phase simulation (69 checks)
 ```
 
 ---
