@@ -6,8 +6,8 @@ Output docs/demo/demo.gif
 
 Set Shell bash
 Set FontSize 14
-Set Width 700
-Set Height 500
+Set Width 780
+Set Height 900
 Set Padding 20
 Set Theme "Catppuccin Mocha"
 Set TypingSpeed 0ms
