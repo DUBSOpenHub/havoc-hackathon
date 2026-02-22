@@ -53,6 +53,8 @@ mkdir -p ~/.copilot/skills/havoc-hackathon ~/.copilot/agents && \
     -o ~/.copilot/skills/havoc-hackathon/SKILL.md && \
   curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/agents/havoc-hackathon.agent.md \
     -o ~/.copilot/agents/havoc-hackathon.agent.md && \
+  curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/agents/grid-medic.agent.md \
+    -o ~/.copilot/agents/grid-medic.agent.md && \
   echo "✅ Installed! Run /skills reload in Copilot CLI, then say: run hackathon"
 ```
 
@@ -62,7 +64,7 @@ mkdir -p ~/.copilot/skills/havoc-hackathon ~/.copilot/agents && \
 git clone https://github.com/DUBSOpenHub/havoc-hackathon.git && \
   mkdir -p ~/.copilot/skills ~/.copilot/agents && \
   cp -r havoc-hackathon/skills/havoc-hackathon ~/.copilot/skills/ && \
-  cp havoc-hackathon/agents/havoc-hackathon.agent.md ~/.copilot/agents/ && \
+  cp havoc-hackathon/agents/*.agent.md ~/.copilot/agents/ && \
   echo "✅ Havoc Hackathon installed! Run /skills reload in Copilot CLI."
 ```
 
@@ -264,7 +266,8 @@ havoc-hackathon/
 │       └── havoc-hackathon/
 │           └── SKILL.md              ← 🏟️ Auto-discovered skill
 ├── agents/
-│   └── havoc-hackathon.agent.md      ← 🤖 Agent config (for task tool)
+│   ├── havoc-hackathon.agent.md      ← 🤖 Agent config (tournament orchestrator)
+│   └── grid-medic.agent.md           ← 🚑 Self-healing agent (recursive improvement loop)
 ├── docs/
 │   ├── TECHNICAL.md                  ← 🔬 Technical deep-dive
 │   └── images/                       ← 📷 Screenshots
@@ -307,6 +310,23 @@ havoc-hackathon/
 **Default judges (Premium 👑):** Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1)
 
 > 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
+
+---
+
+## 🚑 Grid-Medic: Recursive Self-Improvement
+
+Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  28 agents compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
+
+```
+Grid-Medic diagnoses agent fleet
+    ├── Score > 5/10 → surgical fix (validate + apply)
+    └── Score ≤ 5/10 → 🚨 ESCALATE
+            → Havoc Hackathon: 28 agents compete to rewrite it
+            → Ensemble synthesis merges best parts
+            → Grid-Medic re-diagnoses → confirms improvement
+```
+
+Install: `cp agents/grid-medic.agent.md ~/.copilot/agents/`
 
 ---
 

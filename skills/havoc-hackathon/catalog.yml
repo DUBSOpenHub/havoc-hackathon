@@ -2,13 +2,14 @@ schema_version: "1"
 id: havoc-hackathon
 name: Havoc Hackathon
 description: >
-  Pit AI models against each other on any task - code, design, review, or
-  analysis. Just say "run hackathon".
+  Layer 1 multi-model tournament orchestrator. Up to 28 agents compete in
+  elimination heats with evolution between rounds and ensemble synthesis.
+  Just say "run hackathon".
 emoji: "🏟️"
 codename: The Arena
 category: specialist
-version: "1.3.0"
-tags: [hackathon, multi-model, competition, ai, elo, copilot-cli, orchestrator, replay, analytics]
+version: "2.0.0"
+tags: [hackathon, multi-model, competition, ai, elo, copilot-cli, orchestrator, replay, analytics, tournament, ensemble, layer-1]
 platforms: [copilot-cli]
 input_format: free-text
 links:
