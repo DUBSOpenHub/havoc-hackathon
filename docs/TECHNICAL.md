@@ -6,7 +6,7 @@ When you ask one LLM to review code, write a function, or analyze a PR, you get 
 
 ## The Solution
 
-Havoc Hackathon implements **Layer 1 multi-model consensus with tournament elimination, evolutionary pressure, and ensemble synthesis**  -  a pattern borrowed from academic peer review and tournament theory, applied to AI-assisted development.
+Havoc Hackathon implements **Layer 2 multi-model consensus with tournament elimination, evolutionary pressure, and ensemble synthesis**  -  a pattern borrowed from academic peer review and tournament theory, applied to AI-assisted development.
 
 **Architecture:**
 
