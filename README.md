@@ -14,9 +14,9 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches multiple AI models to race head-to-head, scores them with a sealed panel of judges, and declares a winner with full ceremony.
+**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 12 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, and synthesizes the final output from collective intelligence across all finalists.
 
-A CLI-first adversarial AI orchestration pattern designed to stress-test ideas through parallel multi-agent competition and double-blind evaluation. Two markdown files with zero lines of code.
+A Layer 1 multi-model orchestration system: **28 agents, 2 rounds, ensemble synthesis**. Two markdown files with zero lines of code.
 
 ### 💬 The Problem
 
@@ -24,10 +24,12 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
+- 🏟️ **Tournament mode** – all available models compete in elimination heats, not just 3
+- 🧬 **Evolution between rounds** – Round 2 finalists learn what won Round 1
+- 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
+- ⚖️ **Per-heat judge panels** – 3 judges × N heats running in parallel
 - 🔄 **Self-correcting scores** – rubrics adapt when judges disagree
-- ⚖️ **Cross-provider judges** – no all-Claude or all-GPT panels
-- 🧬 **Smart merge** – cherry-picks the best pieces from every submission
 - 📈 **Persistent leaderboard** – tracks which models actually deliver over time
 - 🏆 **Full ceremony** – podiums, drumrolls, and dramatic reveals in your terminal
 - 📄 **Two markdown files** – no servers, no API keys, no code
@@ -99,20 +101,22 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 
 ### What Happens
 
-1. **🎬 Opening Ceremony**  -  Arena banner, model tier selection (⚡ Standard or 👑 Premium), contestant lineup, scoring rubric
-2. **🏁 The Race**  -  Models dispatched in parallel with live progress commentary
-3. **⚖️ Sealed Panel**  -  3 judges score anonymized submissions on 5 criteria (1-10 each)
-4. **🏆 Winner Reveal**  -  Drumroll → fireworks → ASCII podium → detailed scoreboard
-5. **🧬 Smart Merge**  -  Cherry-pick the best pieces from each submission
-6. **📈 ELO Update**  -  Leaderboard changes with commentary
-7. **🫡 Closing Ceremony**  -  Final stats, optional report export
+1. **🎬 Opening Ceremony**  -  Arena banner, mode selection (Tournament or Classic), model tier (⚡ Standard or 👑 Premium), contestant lineup, scoring rubric
+2. **🏁 Round 1  -  Heats**  -  All models dispatched in parallel across elimination heats with live commentary
+3. **⚖️ Per-Heat Judging**  -  3-judge sealed panels score each heat independently (12 judge agents in parallel)
+4. **🧬 Evolution Brief**  -  Orchestrator summarizes what strategies won each heat (zero extra LLM calls)
+5. **🏁 Round 2  -  Finals**  -  Heat winners compete with Evolution Brief prepended to their prompt
+6. **🏆 Winner Reveal**  -  Drumroll → fireworks → ASCII podium → detailed scoreboard
+7. **🗳️ Ensemble Synthesis**  -  Voting merge across ALL finalists (CONSENSUS/MAJORITY/UNIQUE)
+8. **📈 ELO Update**  -  Per-round leaderboard changes with commentary
+9. **🫡 Closing Ceremony**  -  Tournament bracket recap, final stats, optional replay export
 
 ### Customize
 
 - Choose model tier: `"run hackathon with premium models"` or `"run hackathon with standard models"`
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
+- Classic mode (3 models, no heats): `"run hackathon quick"` or `"run hackathon fast"`
 - Set custom rubric: `"judge on security, performance, and readability"`
-- Tournament mode: `"bracket tournament with 6 models"`
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
@@ -217,23 +221,28 @@ GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be g
 ```mermaid
 flowchart TD
     USER["👤 User"] --> SKILL["🏟️ SKILL.md<br/>Orchestration rules"]
-    SKILL --> DISPATCH["⚡ Parallel Dispatch<br/>task tool + background mode"]
-    DISPATCH --> M1["🤖 Model A"]
-    DISPATCH --> M2["🤖 Model B"]
-    DISPATCH --> M3["🤖 Model C"]
-    M1 --> COLLECT["📦 Collect & Normalize"]
-    M2 --> COLLECT
-    M3 --> COLLECT
-    COLLECT --> ANONYMIZE["🔒 Anonymize"]
-    ANONYMIZE --> J1["⚖️ Judge 1"]
-    ANONYMIZE --> J2["⚖️ Judge 2"]
-    ANONYMIZE --> J3["⚖️ Judge 3"]
-    J1 --> CONSENSUS["🧑‍⚖️ Median Consensus"]
-    J2 --> CONSENSUS
-    J3 --> CONSENSUS
-    CONSENSUS --> REVEAL["🏆 Winner Reveal"]
-    REVEAL --> MERGE["🧬 Smart Merge"]
-    MERGE --> ELO["📈 ELO Update"]
+    SKILL --> MODE{"Mode?"}
+    MODE -->|Tournament default| HEATS["⚡ Round 1: Elastic Heats<br/>All models dispatched in parallel"]
+    MODE -->|Classic quick/fast| CLASSIC["⚡ Classic: 3 models<br/>Single round"]
+    HEATS --> H1["Heat 1: 3 models"]
+    HEATS --> H2["Heat 2: 3 models"]
+    HEATS --> H3["Heat 3: 3 models"]
+    HEATS --> H4["Heat 4: 3 models"]
+    H1 --> JP1["⚖️ Judge Panel 1"]
+    H2 --> JP2["⚖️ Judge Panel 2"]
+    H3 --> JP3["⚖️ Judge Panel 3"]
+    H4 --> JP4["⚖️ Judge Panel 4"]
+    JP1 --> EVOLUTION["🧬 Evolution Brief<br/>Winning strategies summarized"]
+    JP2 --> EVOLUTION
+    JP3 --> EVOLUTION
+    JP4 --> EVOLUTION
+    EVOLUTION --> FINALS["🏁 Round 2: Finals<br/>Heat winners + Evolution Brief"]
+    FINALS --> FJUDGE["⚖️ Finals Judge Panel"]
+    CLASSIC --> CJUDGE["⚖️ Judge Panel"]
+    FJUDGE --> ENSEMBLE["🗳️ Ensemble Synthesis<br/>CONSENSUS / MAJORITY / UNIQUE"]
+    CJUDGE --> MERGE["🧬 Smart Merge"]
+    ENSEMBLE --> ELO["📈 ELO Update"]
+    MERGE --> ELO
     ELO --> CLOSING["🏟️ Closing Ceremony"]
     SKILL --> SQL["🗄️ SQL<br/>ELO & history"]
 ```

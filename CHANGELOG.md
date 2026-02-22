@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-02-22
+
+### Added
+- 🏟️ **Layer 1: Tournament Mode (default)**  -  All available models (up to 12) compete in elimination heats instead of just 3. Elastic brackets auto-size based on model count (12→4×3, 9→3×3, 6→2×3, ≤4→classic). Serpentine ELO-based seeding spreads top models across heats.
+- 🧬 **Evolution Brief**  -  After Round 1 judging, orchestrator generates a structured brief from judge scores: winning strategies, top categories, key differentiators. Prepended to Round 2 prompt so finalists can incorporate or beat Round 1's best ideas. Zero extra LLM calls.
+- 🗳️ **Ensemble Synthesis**  -  Replaces cherry-pick-from-winner with voting merge across ALL finalists. CONSENSUS (3+ agree, auto-accept), MAJORITY (2 agree, note alternative), UNIQUE (highest scorer wins, flag others). Integrator agent gets explicit merge rules with provenance annotations.
+- ⚖️ **Per-heat judge panels**  -  3 judges × N heats dispatched in parallel (up to 12 judge agents in Round 1). Judge model assignments rotate across heats for diverse perspectives.
+- 🃏 **Wildcard entry**  -  If an entire heat is DQ'd, the highest-scoring eliminated model from another heat gets a wildcard entry to the finals.
+- 🎤 **3 new commentary lines**  -  Heat advance, evolution, and ensemble quips.
+- 🏗️ **Tournament bracket recap**  -  Phase 8 closing ceremony shows visual bracket (N models → heats → finalists → champion).
+- 📊 **Per-round ELO**  -  ELO adjustments calculated within heats (Round 1) and finals (Round 2) separately, generating more data points per hackathon.
+- 🗄️ **`round` column**  -  Added to `hackathon_judge_scores`, `hackathon_consensus`, and `hackathon_results` tables for cross-round analytics.
+
+### Changed
+- Default mode changed from 3-model direct competition to tournament elimination with all available models.
+- Phase 6 merge option renamed from "Smart merge" to "Ensemble synthesis" with explicit CONSENSUS/MAJORITY/UNIQUE voting rules.
+- Agent count per full tournament run: ~8 → ~28.
+
+### Preserved
+- Classic Mode via "quick" or "fast" keywords  -  identical 3-model behavior as v1.x.
+- Same 9 phases (0-8), same MC energy, same ask_user prompts, same closing ceremony.
+- All existing features, commentary lines, and rules preserved (new items are additive only).
+
 ## [1.3.1] - 2026-02-21
 
 ### Fixed
