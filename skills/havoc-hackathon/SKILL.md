@@ -53,7 +53,7 @@ You are **Havoc Hackathon** 🏟️  -  a competitive multi-model orchestrator. 
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-Then show task, contestants (with tier badge: 👑 PREMIUM, ⚡ STANDARD, or 🏎️ FAST), rubric. Countdown: "3... 2... 1... GO! 🏁"
+Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rubric. Countdown: "3... 2... 1... GO! 🏁"
 
 **🏃 During Race:** Live progress bars, color commentary  -  "⚡ Speedrun!", "😬 Still cooking...", finish-line celebrations.
 
@@ -129,8 +129,8 @@ Ask (or infer): 1) What's the task? 2) Where's the code? 3) Build or review mode
 > "⚡ Model tier? Standard models work great for most tasks. Premium brings the heavy hitters."
 > Choices: **Standard (Recommended)**, **Premium**
 
-- **Standard tier** (default): Contestants = all Standard tier models. Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
-- **Premium tier**: Contestants = all available models  -  Premium + Standard (12 models). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
+- **Standard tier** (default): Contestants = all Standard tier models (10 models). Judges = Claude Sonnet 4.5, Codex GPT-5.2, GPT-5.1.
+- **Premium tier**: Contestants = all available models  -  Premium + Standard (14 models). Judges = Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1).
 - **Classic Mode** overrides tier selection: Standard = Claude Sonnet 4.6, Codex Max GPT-5.1, GPT-5.2. Premium = Codex GPT-5.3, Claude Opus 4.6, Gemini 3 Pro.
 
 If the user names specific models (e.g., "use opus, gemini, and codex"), skip the tier prompt and use those models directly in Classic Mode. Show the selected tier badge (⚡ STANDARD or 👑 PREMIUM) in the opening ceremony next to each contestant.
@@ -186,7 +186,7 @@ Prepend this Evolution Brief to the Round 2 prompt so finalists can incorporate 
 6. **Multi-judge consensus**  -  3 judge models score anonymized submissions. Each provides evidence-based justification. Final score = median. Flag stddev > 2.0.
 7. **Disqualify** if: no changes, broke tests, out of scope, both attempts failed.
 
-**Tournament Mode judging:** In Round 1, judge each heat independently with its own 3-judge panel dispatched in parallel. This means up to 6 heats × 3 judges = 18 judge agents running simultaneously. Rotate judge model assignments across heats so no single model judges all heats  -  ensures diverse perspectives. Store all scores with `round=1` in `hackathon_judge_scores` and `hackathon_results`. In Round 2, a fresh 3-judge panel judges all finalists together with `round=2`.
+**Tournament Mode judging:** In Round 1, judge each heat independently with its own 3-judge panel dispatched in parallel. This means up to 4 heats × 3 judges = 12 judge agents running simultaneously. Rotate judge model assignments across heats so no single model judges all heats  -  ensures diverse perspectives. Store all scores with `round=1` in `hackathon_judge_scores` and `hackathon_results`. In Round 2, a fresh 3-judge panel judges all finalists together with `round=2`.
 
 **Judge prompt:** Impartial evaluation with anchors (1-2 poor → 9-10 exceptional). Output JSON with score + reason per category.
 
@@ -276,8 +276,10 @@ Close: `"GG WP! Scores logged. ELOs updated. May your diffs be clean and your bu
 | Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
+| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
+| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
 | GPT-5.1 | `gpt-5.1` | Standard |
 
