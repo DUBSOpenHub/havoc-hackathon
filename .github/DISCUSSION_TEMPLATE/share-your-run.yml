@@ -1,0 +1,74 @@
+title: "🏆 [Your Task Here] — Hackathon Replay"
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📼 Share Your Hackathon Run!
+
+        Paste the highlights from your hackathon replay below. Great submissions get featured in [GALLERY.md](../GALLERY.md)!
+
+  - type: input
+    id: task
+    attributes:
+      label: "🎯 Task"
+      description: "What did you ask the models to do?"
+      placeholder: "e.g., Design a REST API for a todo app"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tier
+    attributes:
+      label: "⚡ Model Tier"
+      options:
+        - Standard ⚡
+        - Premium 👑
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "🏟️ Mode"
+      options:
+        - Tournament (default)
+        - Classic (quick/fast)
+    validations:
+      required: true
+
+  - type: input
+    id: winner
+    attributes:
+      label: "🥇 Winner"
+      description: "Which model won?"
+      placeholder: "e.g., Claude Opus 4.6 (43/50)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: podium
+    attributes:
+      label: "🏅 Podium & Scores"
+      description: "Paste the ASCII podium and scoreboard from your run."
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: highlights
+    attributes:
+      label: "✨ Highlights"
+      description: "What was interesting? Close race? Surprising winner? Great ensemble merge?"
+      placeholder: "The tiebreaker round was wild — only 1 point separated 1st and 2nd..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: full_replay
+    attributes:
+      label: "📼 Full Replay (optional)"
+      description: "Paste the full replay markdown if you saved it."
+      render: markdown
+    validations:
+      required: false

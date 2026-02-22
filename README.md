@@ -123,6 +123,7 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 - Choose specific models: `"hackathon with opus, gemini, and codex"`
 - Classic mode (3 models, no heats): `"run hackathon quick"` or `"run hackathon fast"`
 - Set custom rubric: `"judge on security, performance, and readability"`
+- Preflight check: `"dry run"` or `"preflight"` to validate setup without running a real hackathon
 - Show stats: `"show leaderboard"` or `"show stats"` anytime
 
 <details>
@@ -267,7 +268,9 @@ havoc-hackathon/
 │   ├── PULL_REQUEST_TEMPLATE.md      ← 📝 PR checklist
 │   ├── dependabot.yml                ← 🤖 Automated dependency updates
 │   ├── workflows/
-│   │   └── validate.yml              ← ✅ CI: SKILL.md sync + YAML check
+│   │   └── validate.yml              ← ✅ CI: structural validation + YAML check
+│   ├── DISCUSSION_TEMPLATE/
+│   │   └── share-your-run.yml       ← 📼 Share your hackathon results
 │   └── skills/
 │       └── havoc-hackathon/
 │           └── SKILL.md              ← 🏟️ Auto-discovered skill
@@ -286,10 +289,14 @@ havoc-hackathon/
 │   └── havoc-hackathon/
 │       ├── SKILL.md                  ← 🏟️ Canonical skill source
 │       └── catalog.yml               ← 📋 Catalog metadata
+├── tests/
+│   ├── validate_skill.py            ← 🧪 Structural validation (60 checks)
+│   └── preflight.py                 ← 🔧 Offline preflight validator
 ├── .gitignore
 ├── CHANGELOG.md                      ← 📋 Version history
 ├── CODE_OF_CONDUCT.md                ← 🤝 Contributor Covenant
 ├── CONTRIBUTING.md                   ← 🛠️ How to contribute
+├── GALLERY.md                        ← 🏆 Best hackathon runs showcase
 ├── LICENSE                           ← 📄 MIT
 ├── SECURITY.md                       ← 🔒 Security policy
 ├── TESTING.md                        ← 🧪 Conversation playbooks & QA
@@ -343,6 +350,33 @@ Install: `cp agents/grid-medic.agent.md ~/.copilot/agents/`
 
 ---
 
+## 🏆 Gallery
+
+See the best hackathon runs from the community in [GALLERY.md](GALLERY.md).
+
+**Share your own run!** After a hackathon, choose "Save replay" and post it in [Discussions](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run).
+
+---
+
+## 🔧 Preflight Check
+
+Not sure if everything is set up correctly? Run a dry-run before your first hackathon:
+
+```
+> dry run
+```
+
+This validates model availability, SQL tables, bracket math, ELO file, and judge separation — without burning tokens on a real competition. See [TESTING.md](TESTING.md) for the full QA guide.
+
+You can also run the offline structural validator locally:
+
+```bash
+python3 tests/validate_skill.py   # 60 structural checks
+python3 tests/preflight.py        # SQL, bracket math, file structure
+```
+
+---
+
 ## 🔒 Security
 
 See [SECURITY.md](SECURITY.md) for our security policy and how to report vulnerabilities.
@@ -356,6 +390,7 @@ Got ideas to make the arena even better? 🎨 See [CONTRIBUTING.md](CONTRIBUTING
 **Quick ways to help:**
 - 🐛 [Report a bug](https://github.com/DUBSOpenHub/havoc-hackathon/issues/new?template=bug_report.md)
 - 💡 [Suggest a feature](https://github.com/DUBSOpenHub/havoc-hackathon/issues/new?template=feature_request.md)
+- 📼 [Share a hackathon run](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run)
 
 See [TESTING.md](TESTING.md) for conversation playbooks and QA checklists.
 
