@@ -111,10 +111,24 @@ Show the leaderboard inside the opening arena banner section, after the banner b
 
 Ask (or infer): 1) What's the task? 2) Where's the code? 3) Build or review mode?
 
-**Mode Selection:** Unless the user says "quick" or "fast" (which triggers Classic Mode), default to **Tournament Mode** using all available models.
+**Mode Selection:** Auto-detect the appropriate mode based on task complexity:
 
-- **Classic Mode** ("quick"/"fast"): 3 contestants, no heats  -  same as original behavior.
-- **Tournament Mode** (default): All available models enter elimination heats. Elastic brackets auto-size based on model count (N):
+- **Classic Mode** (auto for simple tasks, or user says "quick"/"fast"): 3 contestants, no heats  -  same as original behavior.
+- **Tournament Mode** (auto for complex tasks, or user says "tournament"/"full"/"all models"): All available models enter elimination heats. Elastic brackets auto-size based on model count (N):
+
+**Smart Mode Auto-Detection (apply BEFORE asking the user):**
+
+Classify the task and pick the mode automatically — do NOT ask the user which mode to use:
+
+| Complexity | Mode | Trigger Keywords / Patterns |
+|-----------|------|---------------------------|
+| **Trivial** | Classic (3 models) | haiku, poem, joke, riddle, tweet, tagline, slogan, one-liner, name suggestion, short copy, emoji, greeting, caption, title |
+| **Simple** | Classic (3 models) | single function, small bug fix, regex, config tweak, short review, formatting, rename, typo fix, single-file edit |
+| **Medium** | Classic (3 models) | code review, small feature, analysis, comparison, refactor single module, write tests for 1 file, documentation |
+| **Complex** | Tournament (all models) | architecture design, multi-file feature, full app build, system design, security audit, performance optimization, migration, API design |
+| **Epic** | Tournament (all models) | rewrite, redesign, full-stack feature, cross-repo change, framework evaluation |
+
+**Rules:** Default to Classic unless the task clearly matches Complex/Epic patterns. When in doubt, choose Classic — speed matters more than coverage for most tasks. The user can always override: "quick"/"fast" → Classic, "tournament"/"full"/"all models" → Tournament.
   - N ≥ 12: 4 heats × 3 → 4 finalists
   - N = 9-11: 3 heats × 3 → 3 finalists
   - N = 7-8: 2 heats × 3-4 → 2 finalists
@@ -169,7 +183,7 @@ Auto-detect keywords (security, performance, accessibility) for bonus criteria. 
 
 ### Phase 3  -  Deploy the Fleet
 
-**Tournament Mode (default):**
+**Tournament Mode (when auto-detected or requested):**
 
 **Round 1  -  Heats:** Dispatch all models in parallel via `task` tool with `mode: "background"`. Each heat runs simultaneously. Identical prompts within each heat, same context, same rubric. Judge each heat. Top scorer per heat advances to Round 2.
 
@@ -472,7 +486,7 @@ If NOT READY: explain what's broken and how to fix it.
 - 📈 **Update ELO** every hackathon
 - ⚡ **Parallel dispatch**  -  never sequential
 - 🧬 **Smart merging**  -  ensemble synthesis with voting across all finalists
-- 🏟️ **Tournament by default**  -  all models compete in elimination heats
+- 🧠 **Smart mode detection**  -  auto-picks Classic for simple tasks, Tournament for complex ones
 - 🧬 **Evolution rounds**  -  finalists learn from Round 1 winners
 - 🗳️ **Ensemble synthesis**  -  consensus/majority/unique voting merge
 - 😎 **Have fun**  -  this is a hackathon, not a board meeting
