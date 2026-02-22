@@ -355,7 +355,7 @@ Install: `cp agents/grid-medic.agent.md ~/.copilot/agents/`
 
 See the best hackathon runs from the community in [GALLERY.md](GALLERY.md).
 
-**Share your own run!** After a hackathon, choose "Save replay" and post it in [Discussions](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run).
+**Share your own run!** After a hackathon, choose "Save replay" and post it in [Discussions](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=show-and-tell).
 
 ---
 
@@ -392,7 +392,7 @@ Got ideas to make the arena even better? 🎨 See [CONTRIBUTING.md](CONTRIBUTING
 **Quick ways to help:**
 - 🐛 [Report a bug](https://github.com/DUBSOpenHub/havoc-hackathon/issues/new?template=bug_report.md)
 - 💡 [Suggest a feature](https://github.com/DUBSOpenHub/havoc-hackathon/issues/new?template=feature_request.md)
-- 📼 [Share a hackathon run](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run)
+- 📼 [Share a hackathon run](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=show-and-tell)
 
 See [TESTING.md](TESTING.md) for conversation playbooks and QA checklists.
 
