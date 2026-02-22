@@ -2,7 +2,7 @@
 
 **The best runs from the arena.** Real hackathon results showcasing what happens when AI models compete head-to-head.
 
-> 📼 Got a great run? [Share it!](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run)
+> 📼 Got a great run? [Share it!](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=show-and-tell)
 
 ---
 
@@ -42,7 +42,7 @@ Had a great hackathon? Share it with the community!
 
 1. Run a hackathon: `run hackathon — your task here`
 2. When prompted, choose **Save replay** at the end
-3. Open a [Share Your Run discussion](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=share-your-run) and paste the highlights
+3. Open a [Show and Tell discussion](https://github.com/DUBSOpenHub/havoc-hackathon/discussions/new?category=show-and-tell) and paste the highlights
 
 **What makes a great gallery submission:**
 - Interesting or creative task
