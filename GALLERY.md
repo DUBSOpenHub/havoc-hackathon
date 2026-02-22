@@ -36,6 +36,26 @@
 
 ---
 
+### 🎯 Mass Effect Quote for Copilot CLI Users — Standard Tier
+
+**Task:** Write the most epic Mass Effect themed motivational quote for GitHub Copilot CLI users.
+
+| Place | Model | Score | Standout |
+|-------|-------|-------|----------|
+| 🥇 | Claude Sonnet 4.6 | 41/50 | "Hold the line" closer + CLI wordplay ("you *command* it") — all 3 judges agreed |
+| 🥈 | GPT-5.2 | 39/50 | "Make the impossible compile" — dev-specific genius. Only 2 pts behind! |
+| 🥉 | Codex Max GPT-5.1 | 28/50 | Energy but overstuffed — run-on sentence with too many metaphors |
+
+**🔥 Closest race yet — only 2 points separated 1st and 2nd!**
+
+**Ensemble result:** Sonnet's winning structure + GPT-5.2's "N7" and "make the impossible compile" closer:
+
+> *"Every cycle, civilizations fell because they faced the void alone — but not us. With Copilot CLI at your side, you don't just write code, you command it. Ship like an N7, make the impossible compile — this is where we hold the line."*
+
+**[Full replay →](docs/replays/mass-effect-copilot-cli-20260222.md)**
+
+---
+
 ## Submit Your Run
 
 Had a great hackathon? Share it with the community!
