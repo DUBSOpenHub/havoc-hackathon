@@ -121,6 +121,50 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 4 | *(model stalls again)* | Auto-DQ with commentary: "💀 {Model} went AFK. No mercy in this arena." |
 | 5 | *(alternative: select "DQ and continue")* | Model DQ'd immediately, hackathon continues with remaining contestants |
 
+### Playbook 13: Tournament Mode (Default)
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | `run hackathon  -  refactor this module` | Tournament mode activates by default, all available models enter |
+| 2 | *(Round 1)* | Models grouped into heats (elastic brackets based on count). Each heat runs in parallel. |
+| 3 | *(heat judging)* | Per-heat judge panels (3 judges each) score independently in parallel |
+| 4 | *(heat results)* | Mini-ceremony per heat winner: "🏅 {Model} takes Heat {N}!" |
+| 5 | *(Round 2)* | Finalists dispatched with Evolution Brief prepended |
+| 6 | *(finals judging + results)* | Full ceremony, tournament bracket recap in closing |
+
+### Playbook 14: Evolution Brief
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Complete Round 1 of a tournament hackathon | Evolution Brief generated from judge scores |
+| 2 | *(verify)* | Brief includes: winning strategies per heat, top scoring categories, key differentiators |
+| 3 | *(Round 2)* | Finalists receive the brief — commentary: "🧬 Finalists have studied the playbook." |
+
+### Playbook 15: Ensemble Synthesis
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Complete a tournament hackathon (build mode) | Merge options presented with "Ensemble synthesis" as recommended |
+| 2 | Select "Ensemble synthesis" | Integrator agent analyzes ALL finalist submissions |
+| 3 | *(verify)* | Output shows CONSENSUS/MAJORITY/UNIQUE classifications with provenance annotations |
+
+### Playbook 16: Classic Mode Fallback
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | `run hackathon quick  -  write a haiku` | Classic mode: 3 contestants, no heats, single round |
+| 2 | *(verify)* | Identical behavior to v1.x — no tournament, no evolution brief |
+| 3 | `run hackathon fast  -  name this variable` | Same classic mode behavior |
+
+### Playbook 17: Grid-Medic Escalation
+
+| Step | You Say | Expected Behavior |
+|------|---------|-------------------|
+| 1 | Run grid-medic `diagnose` on an agent scoring ≤5/10 | Grid-medic detects critical underperformance |
+| 2 | *(escalation prompt)* | "🚨 {agent} is critically underperforming. Escalate to Havoc Hackathon?" |
+| 3 | Select "Escalate to Hackathon" | Havoc Hackathon triggered to competitively rewrite the agent |
+| 4 | *(after hackathon completes)* | Grid-medic re-diagnoses the upgraded agent, logs score delta |
+
 ---
 
 ## ✅ QA Checklist
@@ -146,6 +190,14 @@ Before submitting a PR, verify:
 - [ ] 🏷️ Tier badges (⚡/👑) shown in opening ceremony
 - [ ] ⏳ Stall detection prompts user after 180s of no output
 - [ ] 💀 Auto-DQ on second stall after user-granted extension
+- [ ] 🏟️ Tournament mode activates by default (not just 3 models)
+- [ ] 🔥 Elastic brackets size heats correctly for model count
+- [ ] 🏅 Per-heat judge panels run in parallel (3 judges × N heats)
+- [ ] 🧬 Evolution Brief generated between rounds from judge scores
+- [ ] 🏁 Round 2 finalists receive Evolution Brief in their prompt
+- [ ] 🗳️ Ensemble synthesis shows CONSENSUS/MAJORITY/UNIQUE classifications
+- [ ] ⚡ Classic mode ("quick"/"fast") produces same 3-model experience
+- [ ] 🚑 Grid-medic escalation triggers hackathon for weak agents
 
 ---
 
@@ -187,3 +239,8 @@ print('✅ All required fields present' if not missing else f'❌ Missing: {miss
 | Stall detection | 12 | 🧪 |
 | Tournament bracket |  -  | 🧪 |
 | Adaptive rubrics |  -  | 🧪 |
+| Tournament mode (default) | 13 | 🧪 |
+| Evolution brief | 14 | 🧪 |
+| Ensemble synthesis | 15 | 🧪 |
+| Classic mode fallback | 16 | 🧪 |
+| Grid-medic escalation | 17 | 🧪 |
