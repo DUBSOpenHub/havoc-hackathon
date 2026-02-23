@@ -18,9 +18,7 @@
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a [Copilot CLI skill](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task  -  code, copy, design, architecture, naming, anything  -  and it dispatches **up to 14 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time.
-
-A multi-model orchestration system: **up to 32 agents, 5 rounds, ensemble synthesis, persistent ELO**. Three markdown files, no servers, no API keys.
+**Havoc Hackathon** is a multi-model orchestration skill for the [Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task, code, copy, design, architecture, naming, anything, and it dispatches up to **14 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time. No servers, no API keys, just a skill file and your terminal.
 
 ### 💬 The Problem
 
@@ -36,7 +34,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 - 🔄 **Self-correcting scores** – rubrics adapt when judges disagree
 - 📈 **Persistent leaderboard** – tracks which models actually deliver over time
 - 🏆 **Full ceremony** – podiums, drumrolls, and dramatic reveals in your terminal
-- 📄 **Three markdown files** – no servers, no API keys, no build step
+- 📄 **Zero infrastructure** – no servers, no API keys, no build step
 
 ---
 
@@ -336,13 +334,13 @@ havoc-hackathon/
 
 ## 🚑 Grid-Medic: Recursive Self-Improvement
 
-Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 32 agents compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
+Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 14 models compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
 
 ```
 Grid-Medic diagnoses agent fleet
     ├── Score > 5/10 → surgical fix (validate + apply)
     └── Score ≤ 5/10 → 🚨 ESCALATE
-            → Havoc Hackathon: up to 32 agents compete to rewrite it
+            → Havoc Hackathon: up to 14 models compete to rewrite it
             → Ensemble synthesis merges best parts
             → Grid-Medic re-diagnoses → confirms improvement
 ```
