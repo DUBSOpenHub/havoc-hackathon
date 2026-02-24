@@ -1,0 +1,50 @@
+name: havoc-hackathon
+description: Evaluation suite for the Havoc Hackathon multi-model orchestration skill
+version: "1.0"
+
+tasks:
+  - id: classic-mode-trigger
+    description: Verify the skill activates in Classic Mode for a simple task
+    prompt: "run hackathon: write a haiku about coding"
+    expected:
+      - contains: "Phase"
+      - contains: "contestant"
+      - matches: "Classic|classic"
+
+  - id: tournament-mode-trigger
+    description: Verify Tournament Mode activates for complex tasks
+    prompt: "run hackathon tournament: design a REST API for a task management app"
+    expected:
+      - contains: "Tournament"
+      - contains: "Heat"
+      - matches: "bracket|heat|elimination"
+
+  - id: sealed-judging
+    description: Verify judges don't see model names during scoring
+    prompt: "run hackathon quick: write a tagline for a coffee shop"
+    expected:
+      - contains: "sealed"
+      - matches: "judge|judging|panel"
+      - matches: "score|scoring"
+
+  - id: ensemble-synthesis
+    description: Verify ensemble synthesis produces merged output
+    prompt: "run hackathon: name a developer productivity tool"
+    expected:
+      - matches: "CONSENSUS|MAJORITY|UNIQUE"
+      - matches: "ensemble|synthesis|merge"
+
+  - id: elo-tracking
+    description: Verify ELO ratings are referenced
+    prompt: "run hackathon quick: explain recursion in one sentence"
+    expected:
+      - matches: "ELO|elo|Elo"
+      - matches: "leaderboard|ranking|rating"
+
+  - id: phase-completion
+    description: Verify all 9 phases execute (0-8)
+    prompt: "run hackathon: write a function to reverse a string"
+    expected:
+      - matches: "Phase [0-8]|phase [0-8]"
+      - matches: "winner|Winner|WINNER"
+      - matches: "ensemble|Ensemble|merge|Merge"
