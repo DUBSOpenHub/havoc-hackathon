@@ -20,7 +20,7 @@ flowchart TD
 
     subgraph HACKATHON["🏟️ HAVOC HACKATHON — The Arena"]
         direction TB
-        HEATS["⚡ Round 1: Heats\n12 models in parallel"]
+        HEATS["⚡ Round 1: Heats\n14 models in parallel"]
         EVOLUTION["🧬 Evolution Brief\nWinning strategies extracted"]
         FINALS["🏁 Round 2: Finals\nHeat winners compete"]
         ENSEMBLE["🗳️ Ensemble Synthesis\nCONSENSUS / MAJORITY / UNIQUE"]

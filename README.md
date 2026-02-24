@@ -11,7 +11,7 @@
 <p align="center">
   <img src="docs/demo/demo.gif" alt="Havoc Hackathon Demo — 20-second terminal preview showing ELO leaderboard, tournament heats, and winner reveal" width="700" />
   <br />
-  <sub>▲ 20-second preview of a 12-model tournament: ELO leaderboard → 4 heats → finals → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
+  <sub>▲ 20-second preview of a 14-model tournament: ELO leaderboard → 4 heats → finals → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
 </p>
 
 ---
@@ -26,7 +26,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
-- 🏟️ **Tournament mode** – up to 12 models compete in elimination heats, not just 3
+- 🏟️ **Tournament mode** – up to 14 models compete in elimination heats, not just 3
 - 🧬 **Evolution between rounds** – Round 2 finalists learn what won Round 1
 - 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
