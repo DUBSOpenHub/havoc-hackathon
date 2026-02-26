@@ -6,6 +6,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-brightgreen?logo=github)](SECURITY.md)
 
+> ⚡ **Get started fast!** Copy this right into the [Copilot CLI](https://github.com/github/copilot-cli):
+> ```
+> /skills add DUBSOpenHub/havoc-hackathon
+> ```
+
 ---
 
 <p align="center">
