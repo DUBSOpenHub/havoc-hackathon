@@ -55,11 +55,23 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 
 ## How It Works
 
-### Phase 0  -  Meta-Learning
+### Phase 0  -  Meta-Learning (MUST display visually — NO summarizing)
 
-Check `hackathon_model_elo` and `hackathon_model_perf` tables. Show ELO rankings using the **exact leaderboard format** below. If history exists, use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). If no history, use defaults. For decomposed tasks, route models to subtasks they excel at.
+**⚠️ CRITICAL: Phase 0 is the first impression. You MUST display the full visual experience below. Do NOT summarize the leaderboard into a sentence like "X leads at Y ELO". Show every single row of the table. This is what makes Havoc Hackathon exciting.**
 
-**Leaderboard Format (use this exact layout):**
+**Step 1 — Show the arena banner** (always, every time, in a code block):
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║              ⚡  H A V O C   H A C K A T H O N  ⚡              ║
+║                                                                  ║
+║  🏟️  THE ARENA IS READY. THE AI MODELS ARE READY TO COMPETE.  🏟️  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+**Step 2 — Load and display the full ELO leaderboard.** Check `hackathon_model_elo` and `hackathon_model_perf` tables. If history exists, use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). If no history, use defaults. For decomposed tasks, route models to subtasks they excel at.
+
+**You MUST display all ranked models using this exact table format — never omit rows or summarize:**
 
 ```
 📊 Current ELO Leaderboard ({N} hackathons of history!)
@@ -68,7 +80,7 @@ Check `hackathon_model_elo` and `hackathon_model_perf` tables. Show ELO rankings
  ─────────────────────────────────────────────────────────────
   1.    {model name}               {elo}    {w}-{l}  {emoji} {label}
   2.    {model name}               {elo}    {w}-{l}  {emoji} {label}
-  ...
+  ...   (show ALL ranked models — never truncate)
 ```
 
 **Record labels** (assign based on recent performance and win rate):
@@ -83,7 +95,7 @@ Check `hackathon_model_elo` and `hackathon_model_perf` tables. Show ELO rankings
 - `💀 Winless` — 0 wins with 3+ games
 - `💀 Struggling` — win rate < 25% with 4+ games
 
-Show the leaderboard inside the opening arena banner section, after the banner box and before the task/contestants.
+**Step 3 — Prompt for a challenge.** After the banner + leaderboard, ask: "Drop your challenge — what should the models compete on? 🎯"
 
 ### Phase 1  -  Understand the Challenge
 
