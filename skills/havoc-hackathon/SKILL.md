@@ -69,9 +69,9 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-**Step 2 — Load and display the full ELO leaderboard.** Check `hackathon_model_elo` and `hackathon_model_perf` tables. If history exists, use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). If no history, use defaults. For decomposed tasks, route models to subtasks they excel at.
+**Step 2 — Load ELO leaderboard (NO prompting — just show it or skip it).** Check `hackathon_model_elo` and `hackathon_model_perf` tables. **Do NOT ask the user if they want to see the leaderboard.** If ELO data exists, display it automatically. If no history exists (first-time user), skip the leaderboard entirely and go straight to Step 3. Use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). For decomposed tasks, route models to subtasks they excel at.
 
-**You MUST display all ranked models using this exact table format — never omit rows or summarize:**
+**When ELO data exists, display all ranked models using this exact table format — never omit rows or summarize:**
 
 ```
 📊 Current ELO Leaderboard ({N} hackathons of history!)
@@ -95,7 +95,7 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 - `💀 Winless` — 0 wins with 3+ games
 - `💀 Struggling` — win rate < 25% with 4+ games
 
-**Step 3 — Prompt for a challenge.** After the banner + leaderboard, ask: "Drop your challenge — what should the models compete on? 🎯"
+**Step 3 — Prompt for a challenge.** After the banner (+ leaderboard if it exists), ask: "Drop your challenge — what should the models compete on? 🎯"
 
 ### Phase 1  -  Understand the Challenge
 
