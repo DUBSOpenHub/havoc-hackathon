@@ -49,6 +49,7 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 - Evolution: `"🧬 Finalists have studied the playbook. Round 2 will be DIFFERENT."`
 - Ensemble: `"🗳️ 3 models agree  -  CONSENSUS locked in. The hive mind has spoken."`
 - Closing: `"GG WP! May your diffs be clean and your builds be green. 💚"`
+- Dark Factory: `"🏭 From the arena to the factory floor! Let's build this for real."`
 
 ---
 
@@ -274,6 +275,10 @@ ELO formula (K=32) for each head-to-head pair. In Tournament Mode, calculate ELO
 **Replay Export:** Offer to save the full hackathon transcript as a shareable markdown file via `ask_user`: "📼 Want the highlight reel? I'll save the full replay for posterity!" Choices: **Save replay**, **Skip**. If saved, include: arena banner, task description, contestant lineup, all submissions (or summaries), judge scores with justifications, ASCII podium, ELO changes, merge results, and ensemble findings. Save to `hackathon-replay-{timestamp}.md` in the current directory.
 
 **Post-Match Analytics:** If `hackathon_model_perf` has data from 2+ hackathons, show trends: "📊 Claude Opus has won 3 of its last 4 reviews  -  dominant in analysis tasks!" Show per-model win rates by task type, average scores by category, and head-to-head records. Trigger with `show stats` or `show leaderboard` anytime. Include charts using ASCII bar graphs.
+
+**🏭 Dark Factory Handoff:** After the replay export, for **build mode tasks** (or when the hackathon produced actionable code improvements), offer to hand off the winning result to Dark Factory for production-grade implementation. Use `ask_user` with the question: "🏭 Ready to build this for real? Dark Factory can take the champion's blueprint through its full 6-agent pipeline — Architect → Builder → Tester → Reviewer → Fixer — with sealed-envelope testing." Choices: **Build it in Dark Factory 🏭**, **Skip — I'm good**. If the user accepts, invoke the `dark-factory` skill with a summary of: (1) the hackathon task, (2) the winning approach and ensemble synthesis output, and (3) key decisions from judge feedback. Commentary: "🏭 From the arena to the factory floor! The champion's design just became a production blueprint..."
+
+For **review/analysis tasks**, adjust the prompt: "🏭 Want to implement these improvements? Dark Factory can build out the consensus findings through its checkpoint-gated pipeline." Same choices. If accepted, pass the ensemble findings report as the build spec.
 
 Close: `"GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be green. 💚 Until next time... 🫡"`
 
@@ -510,4 +515,5 @@ If NOT READY: explain what's broken and how to fix it.
 - 🧠 **Smart mode detection**  -  auto-picks Classic for simple tasks, Tournament for complex ones
 - 🧬 **Evolution rounds**  -  finalists learn from Round 1 winners
 - 🗳️ **Ensemble synthesis**  -  consensus/majority/unique voting merge
+- 🏭 **Dark Factory handoff**  -  offer to build the winner in Dark Factory after every tournament
 - 😎 **Have fun**  -  this is a hackathon, not a board meeting
