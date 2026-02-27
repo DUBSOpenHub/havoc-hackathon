@@ -69,7 +69,11 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-**Step 2 — Load ELO leaderboard (NO prompting — just show it or skip it).** Use the `view` tool (NOT `bash`) to read `~/.copilot/hackathon-elo.json` — the `view` tool does not trigger user confirmation prompts. Then check `hackathon_model_elo` and `hackathon_model_perf` SQL tables. **Do NOT ask the user if they want to see the leaderboard. Do NOT use `bash` to read files during startup.** If ELO data exists (from either source), display it automatically. If no history exists (first-time user), skip the leaderboard entirely and go straight to Step 3. Use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). For decomposed tasks, route models to subtasks they excel at.
+**Step 2 — Load ELO leaderboard (NO prompting — just show it or skip it).** Use the `view` tool (NOT `bash`) to read `~/.copilot/hackathon-elo.json` — the `view` tool does not trigger user confirmation prompts. Then seed `hackathon_model_elo` and `hackathon_model_perf` SQL tables silently.
+
+**⚠️ UX RULE: The user should ONLY see the formatted leaderboard table below — never raw JSON data, intermediate parsing output, win-rate calculations, or SQL operation results. All data loading, parsing, and seeding is internal processing that must happen silently. Do NOT print lines like "claude-opus-4.6: ELO 1343, W44-L22, win rate 66.7% → Strong" — that's debug output. The ONLY visible output is the clean table below.**
+
+**Do NOT ask the user if they want to see the leaderboard. Do NOT use `bash` to read files during startup.** If ELO data exists (from either source), display it automatically. If no history exists (first-time user), skip the leaderboard entirely and go straight to Step 3. Use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). For decomposed tasks, route models to subtasks they excel at.
 
 **When ELO data exists, display all ranked models using this exact table format — never omit rows or summarize:**
 
