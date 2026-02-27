@@ -69,7 +69,7 @@ Then show task, contestants (with tier badge: 👑 PREMIUM or ⚡ STANDARD), rub
 ╚══════════════════════════════════════════════════════════════════╝
 ```
 
-**Step 2 — Load ELO leaderboard (NO prompting — just show it or skip it).** Check `hackathon_model_elo` and `hackathon_model_perf` tables. **Do NOT ask the user if they want to see the leaderboard.** If ELO data exists, display it automatically. If no history exists (first-time user), skip the leaderboard entirely and go straight to Step 3. Use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). For decomposed tasks, route models to subtasks they excel at.
+**Step 2 — Load ELO leaderboard (NO prompting — just show it or skip it).** Use the `view` tool (NOT `bash`) to read `~/.copilot/hackathon-elo.json` — the `view` tool does not trigger user confirmation prompts. Then check `hackathon_model_elo` and `hackathon_model_perf` SQL tables. **Do NOT ask the user if they want to see the leaderboard. Do NOT use `bash` to read files during startup.** If ELO data exists (from either source), display it automatically. If no history exists (first-time user), skip the leaderboard entirely and go straight to Step 3. Use ELO to seed heat placement (highest ELO models spread across heats via serpentine draft). For decomposed tasks, route models to subtasks they excel at.
 
 **When ELO data exists, display all ranked models using this exact table format — never omit rows or summarize:**
 
@@ -278,7 +278,7 @@ Build suspense with drumroll → fireworks → spotlight box → ASCII podium �
 
 ELO formula (K=32) for each head-to-head pair. In Tournament Mode, calculate ELO adjustments within heats (Round 1) and finals (Round 2) separately  -  this generates more data points per hackathon. Update `hackathon_model_elo` and `hackathon_model_perf`. Display the updated leaderboard using the **same exact format** from Phase 0 (with Rank, Model, ELO, W-L, Record columns and emoji status labels). Add commentary about notable changes (e.g., "📈 {Model} climbs the leaderboard!").
 
-**Persistent Leaderboard:** After updating SQL tables, also save ELO data to `~/.copilot/hackathon-elo.json` for cross-session persistence. On Phase 0, check this file first and seed the SQL tables from it. Format: `{"models": {"model-id": {"elo": N, "wins": N, "losses": N, "total": N}}, "updated": "ISO-8601"}`. Use `bash` tool to read/write the file.
+**Persistent Leaderboard:** After updating SQL tables, also save ELO data to `~/.copilot/hackathon-elo.json` for cross-session persistence. On Phase 0, seed the SQL tables from this file if it exists. Format: `{"models": {"model-id": {"elo": N, "wins": N, "losses": N, "total": N}}, "updated": "ISO-8601"}`. **⚠️ IMPORTANT: Use the `view` tool (not `bash`) to read this file — `view` does not trigger a user confirmation prompt. Use `bash` only for writing the file after a hackathon completes (Phase 7).** If the file doesn't exist, that's fine — it just means first-time user, skip the leaderboard.
 
 ### Phase 8  -  Closing Ceremony
 
@@ -440,7 +440,7 @@ Run these 6 checks first — fast, no model calls:
 
 1. **SQL readiness:** Run all CREATE TABLE statements above. Verify tables exist with `SELECT name FROM sqlite_master WHERE type='table' AND name LIKE 'hackathon_%'`.
 2. **Bracket math:** Show the bracket distribution for the current model count (from the table above). Confirm heat sizes and finalist count.
-3. **ELO persistence:** Check if `~/.copilot/hackathon-elo.json` exists. If yes, show current leaderboard. If no, report "Fresh start — no history."
+3. **ELO persistence:** Use `view` tool to check if `~/.copilot/hackathon-elo.json` exists. If yes, show current leaderboard. If no, report "Fresh start — no history."
 4. **Judge separation:** Verify that the selected judge models are NOT in the contestant list. Report any conflicts and show fallback plan.
 5. **Smart mode detection:** Show which mode would be selected for the user's task (Classic vs Tournament) and why.
 6. **Tool check:** Confirm `task`, `read_agent`, `list_agents`, `sql`, `ask_user`, and `bash` tools are available.
