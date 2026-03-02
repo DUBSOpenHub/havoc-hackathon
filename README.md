@@ -409,6 +409,6 @@ See [TESTING.md](TESTING.md) for conversation playbooks and QA checklists.
 
 ## 🐙 Built with Love
 
-🐙 Built with Love
+Created with 💜 by @DUBSOpenHub with the GitHub Copilot CLI.
 
-**Let's build!** 🚀✨
+Let's build! 🚀✨
