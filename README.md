@@ -14,9 +14,9 @@
 ---
 
 <p align="center">
-  <img src="docs/demo/demo.gif" alt="Havoc Hackathon Demo — 20-second terminal preview showing ELO leaderboard, tournament heats, and winner reveal" width="700" />
+  <img src="docs/demo/demo.gif" alt="Havoc Hackathon Demo — terminal preview showing ELO leaderboard, tournament heats, ensemble synthesis, and winner reveal" width="700" />
   <br />
-  <sub>▲ 20-second preview of a 14-model tournament: ELO leaderboard → 4 heats → finals → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
+  <sub>▲ Preview of a 14-model tournament: ELO leaderboard → 4 heats → finals → ensemble synthesis → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
 </p>
 
 ---
@@ -409,6 +409,6 @@ See [TESTING.md](TESTING.md) for conversation playbooks and QA checklists.
 
 ## 🐙 Built with Love
 
-Created with 💜 by [DUBSOpenHub](https://github.com/DUBSOpenHub) to help more people discover the joy of GitHub Copilot CLI.
+🐙 Built with Love
 
 **Let's build!** 🚀✨
