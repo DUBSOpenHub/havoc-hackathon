@@ -17,4 +17,4 @@ Hide
 Type "python3 docs/demo/demo.py"
 Show
 Enter
-Sleep 22s
+Sleep 25s

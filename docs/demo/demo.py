@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Havoc Hackathon — 20-second terminal demo animation.
+"""Havoc Hackathon — 22-second terminal demo animation.
 
 Matches actual CLI output style: sequential text, emoji, no ANSI art.
 github.com/DUBSOpenHub/havoc-hackathon
@@ -244,9 +244,38 @@ def p6_winner():
 
 
 # ══════════════════════════════════════════════════════════
-# PHASE 7 — ELO UPDATE + CLOSING                    ~2.5 s
+# PHASE 7 — ENSEMBLE SYNTHESIS                      ~2.0 s
 # ══════════════════════════════════════════════════════════
-def p7_elo():
+def p7_ensemble():
+    out()
+    out(f"{BOLD}🗳️  ENSEMBLE SYNTHESIS{RST}")
+    sl(0.15)
+    out()
+    out("🧬 How would you like to merge the results?")
+    sl(0.12)
+    out(f"  > {BOLD}Ensemble synthesis ⭐ (voting merge across all finalists){RST} ← SELECTED")
+    sl(0.1)
+    out(f"  {DIM}> Winner only (apply winner's changes){RST}")
+    sl(0.08)
+    out(f"  {DIM}> Custom pick (choose per-file){RST}")
+    sl(0.08)
+    out(f"  {DIM}> Discard all{RST}")
+    sl(0.25)
+    out()
+    out("✅ Merged! Here's what changed:")
+    sl(0.1)
+    out("  ✅ CONSENSUS: 3/4 finalists used same architecture — auto-accepted")
+    sl(0.1)
+    out("  🟡 MAJORITY: 2/4 agreed on naming convention — accepted")
+    sl(0.1)
+    out(f"  ⚠️  UNIQUE: Opus 4.6 added animation easing — preserved for review")
+    sl(0.2)
+
+
+# ══════════════════════════════════════════════════════════
+# PHASE 8 — ELO UPDATE + CLOSING                    ~2.5 s
+# ══════════════════════════════════════════════════════════
+def p8_elo():
     out()
     out(f"{BOLD}📈 ELO UPDATE{RST}")
     out()
@@ -271,15 +300,26 @@ def p7_elo():
     out("╚══════════════════════════════════════════════════════════════════╝")
     sl(0.3)
     out()
+    out()
+    out("📼 Want the highlight reel?")
+    sl(0.12)
+    out(f"  > {BOLD}Save replay{RST} ← SELECTED")
+    sl(0.08)
+    out(f"  {DIM}> Skip{RST}")
+    sl(0.2)
+    out()
+    out("📼 Saved → hackathon-replay-20260301.md")
+    sl(0.15)
+    out()
     out("GG WP! Scores logged. ELOs updated.")
     out("May your diffs be clean and your builds be green. 💚 Until next time... 🫡")
-    sl(0.5)
+    sl(0.3)
 
 
 # ══════════════════════════════════════════════════════════
 def main():
     start = time.monotonic()
-    target = 19.8
+    target = 22.0
     try:
         p1_banner()
         p2_leaderboard()
@@ -287,7 +327,8 @@ def main():
         p4_heats()
         p5_finals()
         p6_winner()
-        p7_elo()
+        p7_ensemble()
+        p8_elo()
         remaining = target - (time.monotonic() - start)
         if remaining > 0:
             sl(remaining)
