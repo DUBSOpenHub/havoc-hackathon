@@ -219,8 +219,8 @@ Reply with: APPROVE, REJECT, or REVISE (with specific revision).
 
 Use the `task` tool to send each improvement to multiple models in parallel:
 - Claude Sonnet (via general-purpose agent with default model)
-- GPT-5.1 Codex (via general-purpose agent with model gpt-5.1-codex)
-- Gemini 3 Pro (via general-purpose agent with model gemini-3-pro-preview)
+- GPT-5.5 (via general-purpose agent with model gpt-5.5)
+- GPT-5.4 (via general-purpose agent with model gpt-5.4)
 
 **Decision rules:**
 - **3/3 APPROVE** → Auto-apply immediately

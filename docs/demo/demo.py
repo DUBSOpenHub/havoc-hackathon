@@ -75,7 +75,7 @@ def p1_banner():
 # ══════════════════════════════════════════════════════════
 def p2_leaderboard():
     out()
-    out("📊 Current ELO Leaderboard (12 hackathons of history!)")
+    out("📊 Current ELO Leaderboard (13 hackathons of history!)")
     out()
     sl(0.15)
 
@@ -84,18 +84,19 @@ def p2_leaderboard():
     sl(0.1)
 
     rows = [
-        (" 1.",  "Claude Opus 4.6",        "1355", "19-6",  "🔥 Hot streak"),
-        (" 2.",  "Claude Sonnet 4.6",      "1286",  "9-4",  "📈 Rising"),
-        (" 3.",  "Claude Opus 4.6 (1M)",   "1262",  "6-2",  "💪 Strong"),
-        (" 4.",  "GPT-5.1",               "1254",  "8-3",  "📈 Rising"),
-        (" 5.",  "GPT-5.2",               "1251",  "8-5",  "⚡ Solid"),
-        (" 6.",  "Claude Opus 4.6 (Fast)", "1248",  "7-5",  "⚡ Solid"),
-        (" 7.",  "Claude Sonnet 4.5",      "1197",  "8-8",  "😐 .500"),
-        (" 8.",  "Claude Opus 4.5",        "1193",  "2-3",  "🆕 New"),
-        (" 9.",  "Codex GPT-5.3",         "1153", "6-11",  "📉 Slumping"),
-        ("10.",  "Codex GPT-5.2",         "1116",  "1-7",  "🥶 Cold"),
-        ("11.",  "Codex Max GPT-5.1",     "1069",  "0-9",  "💀 Winless"),
-        ("12.",  "Gemini 3 Pro",          "1017", "3-17",  "💀 Struggling"),
+        (" 1.",  "GPT-5.5",               "1387",  "7-2",  "🔥 Hot streak"),
+        (" 2.",  "Claude Opus 4.7",       "1355", "19-6",  "🔥 Hot streak"),
+        (" 3.",  "Claude Sonnet 4.6",     "1286",  "9-4",  "📈 Rising"),
+        (" 4.",  "Claude Opus 4.6",       "1262",  "6-2",  "💪 Strong"),
+        (" 5.",  "GPT-5.4",               "1254",  "8-3",  "📈 Rising"),
+        (" 6.",  "GPT-5.2",               "1251",  "8-5",  "⚡ Solid"),
+        (" 7.",  "Claude Opus 4.6 (1M)",  "1248",  "7-5",  "⚡ Solid"),
+        (" 8.",  "Claude Opus 4.7 (1M)",  "1210",  "4-2",  "🆕 New"),
+        (" 9.",  "Claude Sonnet 4.5",     "1197",  "8-8",  "😐 .500"),
+        ("10.",  "Claude Opus 4.5",       "1193",  "2-3",  "🆕 New"),
+        ("11.",  "Codex GPT-5.3",         "1153", "6-11",  "📉 Slumping"),
+        ("12.",  "Codex GPT-5.2",         "1116",  "1-7",  "🥶 Cold"),
+        ("13.",  "Claude Sonnet 4",       "1069",  "0-9",  "💀 Winless"),
     ]
 
     for rank, model, elo, wl, record in rows:
@@ -115,15 +116,15 @@ def p3_tournament():
     out(f"{DIM}Rubric: creativity · accuracy · style · wow · impact  (50 pts){RST}")
     sl(0.15)
     out()
-    out(f"{BOLD}🏟️  TOURNAMENT MODE{RST} — 12 models → 4 heats → 4 finalists → 1 champion")
+    out(f"{BOLD}🏟️  TOURNAMENT MODE{RST} — 13 models → 4 heats → 4 finalists → 1 champion")
     sl(0.3)
     out()
 
     heats = [
-        ("Heat 1", "Claude Opus 4.6, GPT-5.2, Codex Max GPT-5.1"),
-        ("Heat 2", "Claude Sonnet 4.6, GPT-5.1, Codex GPT-5.2"),
-        ("Heat 3", "Claude Opus 4.6 (1M), Claude Sonnet 4.5, Gemini 3 Pro"),
-        ("Heat 4", "Claude Opus 4.6 (Fast), Claude Opus 4.5, Codex GPT-5.3"),
+        ("Heat 1", "Claude Opus 4.7, GPT-5.2, Codex GPT-5.2, Claude Sonnet 4"),
+        ("Heat 2", "GPT-5.5, GPT-5.4, Claude Opus 4.5"),
+        ("Heat 3", "Claude Opus 4.6, Claude Sonnet 4.5, Codex GPT-5.3"),
+        ("Heat 4", "Claude Sonnet 4.6, Claude Opus 4.6 (1M), Claude Opus 4.7 (1M)"),
     ]
     for heat_name, models in heats:
         out(f"  {BOLD}{heat_name}:{RST} {models}")
@@ -145,24 +146,25 @@ def p4_heats():
 
     heat_results = [
         ("Heat 1", [
-            ("🔵 Claude Opus 4.6",     "✅  4s", "⚡ Speedrun!"),
+            ("🔵 Claude Opus 4.7",     "✅  4s", "⚡ Speedrun!"),
             ("🟠 GPT-5.2",             "✅  7s", ""),
-            ("🔴 Codex Max GPT-5.1",   "✅ 12s", ""),
+            ("🔴 Codex GPT-5.2",       "✅ 12s", ""),
+            ("🔴 Claude Sonnet 4",     "✅ 15s", ""),
         ]),
         ("Heat 2", [
-            ("🟢 Claude Sonnet 4.6",   "✅  5s", "⚡"),
-            ("🟠 GPT-5.1",             "✅  8s", ""),
-            ("🔴 Codex GPT-5.2",       "✅ 14s", ""),
+            ("🟢 GPT-5.5",             "✅  3s", "⚡"),
+            ("🟠 GPT-5.4",             "✅  8s", ""),
+            ("🔴 Claude Opus 4.5",     "✅ 14s", ""),
         ]),
         ("Heat 3", [
-            ("🟡 Claude Opus 4.6 (1M)","✅  6s", ""),
+            ("🟡 Claude Opus 4.6",     "✅  6s", ""),
             ("🟠 Claude Sonnet 4.5",   "✅  9s", ""),
-            ("🔴 Gemini 3 Pro",        "✅ 11s", "😬 Still cooking..."),
+            ("🔴 Codex GPT-5.3",       "✅ 11s", "😬 Still cooking..."),
         ]),
         ("Heat 4", [
-            ("🟣 Opus 4.6 (Fast)",     "✅  3s", "⚡ Speedrun!"),
-            ("🟠 Claude Opus 4.5",     "✅  8s", ""),
-            ("🔴 Codex GPT-5.3",       "✅ 15s", ""),
+            ("🟣 Claude Sonnet 4.6",   "✅  5s", "⚡ Speedrun!"),
+            ("🟠 Claude Opus 4.6 (1M)","✅  8s", ""),
+            ("🔴 Claude Opus 4.7 (1M)","✅ 15s", ""),
         ]),
     ]
 
@@ -191,18 +193,18 @@ def p5_finals():
     sl(0.2)
     out(f"{BOLD}🏁 ROUND 2 — FINALS{RST}")
     sl(0.15)
-    out("  🔵 Claude Opus 4.6         ✅  5s")
+    out("  🔵 Claude Opus 4.7         ✅  5s")
     sl(0.1)
-    out("  🟢 Claude Sonnet 4.6       ✅  6s")
+    out("  🟢 GPT-5.5                 ✅  4s  ⚡")
     sl(0.1)
-    out("  🟡 Claude Opus 4.6 (1M)    ✅  7s")
+    out("  🟡 Claude Opus 4.6         ✅  7s")
     sl(0.1)
-    out("  🟣 Claude Opus 4.6 (Fast)  ✅  4s  ⚡")
+    out("  🟣 Claude Sonnet 4.6       ✅  6s")
     sl(0.15)
     out()
     out("⚖️  The panel convenes... 🔒 Submissions anonymized. No favoritism. No mercy.")
     sl(0.2)
-    out("   👨‍⚖️ Judges: Claude Sonnet 4.5 · GPT-5.2 · Codex Max")
+    out("   👨‍⚖️ Judges: Claude Opus 4.5 · GPT-5.4 · Codex GPT-5.2")
     sl(0.15)
     out()
     out("🥁 ... 🥁🥁 ... 🥁🥁🥁")
@@ -218,7 +220,7 @@ def p6_winner():
     sl(0.6)
     out()
     out("╔══════════════════════════════════════════════════════════════════╗")
-    out("║   🏆  CHAMPION:  Claude Opus 4.6                                ║")
+    out("║   🏆  CHAMPION:  GPT-5.5                                         ║")
     out("║   SCORE: 46/50  ·  CONSENSUS: STRONG  ·  ALL JUDGES AGREED     ║")
     out("╚══════════════════════════════════════════════════════════════════╝")
     sl(0.35)
@@ -228,12 +230,12 @@ def p6_winner():
     podium = [
         "                🥇",
         "             ┌──────┐",
-        "             │ OPUS │",
-        "             │ 4.6  │",
+        "             │ GPT  │",
+        "             │ 5.5  │",
         "      🥈     │  46  │     🥉",
         "   ┌──────┐  │      │  ┌──────┐",
-        "   │SON   │  │      │  │OPUS  │",
-        "   │ 4.6  │  │      │  │ 1M   │",
+        "   │OPUS  │  │      │  │OPUS  │",
+        "   │ 4.7  │  │      │  │ 4.6  │",
         "   │  43  │  │      │  │  41  │",
         "   └──────┘  └──────┘  └──────┘",
     ]
@@ -268,7 +270,7 @@ def p7_ensemble():
     sl(0.1)
     out("  🟡 MAJORITY: 2/4 agreed on naming convention — accepted")
     sl(0.1)
-    out(f"  ⚠️  UNIQUE: Opus 4.6 added animation easing — preserved for review")
+    out(f"  ⚠️  UNIQUE: GPT-5.5 added animation easing — preserved for review")
     sl(0.2)
 
 
@@ -280,10 +282,10 @@ def p8_elo():
     out(f"{BOLD}📈 ELO UPDATE{RST}")
     out()
     elo = [
-        "  📈 Claude Opus 4.6       1355 → 1387  (+32)  🔥 Hot streak",
-        "  📈 Claude Sonnet 4.6     1286 → 1302  (+16)  📈 Rising",
-        "  ➡️  Claude Opus 4.6 (1M)  1262 → 1262  ( ±0)  💪 Strong",
-        "  📉 Opus 4.6 (Fast)       1248 → 1232  (-16)  ⚡ Solid",
+        "  📈 GPT-5.5               1387 → 1419  (+32)  🔥 Hot streak",
+        "  📈 Claude Opus 4.7       1355 → 1371  (+16)  📈 Rising",
+        "  ➡️  Claude Opus 4.6      1262 → 1262  ( ±0)  💪 Strong",
+        "  📉 Claude Sonnet 4.6     1286 → 1270  (-16)  ⚡ Solid",
     ]
     for e in elo:
         out(e)
@@ -294,9 +296,9 @@ def p8_elo():
     out("║                    🏟️  HACKATHON COMPLETE  🏟️                    ║")
     out("╠══════════════════════════════════════════════════════════════════╣")
     out("║  📋 Task:    Terminal demo animation                            ║")
-    out("║  🏆 Winner:  Claude Opus 4.6 (46/50)                            ║")
+    out("║  🏆 Winner:  GPT-5.5 (46/50)                                    ║")
     out("║  🧬 Merged:  Ensemble synthesis — best of all 4 finalists       ║")
-    out("║  📈 ELO:     Opus climbs to 1387                                ║")
+    out("║  📈 ELO:     GPT-5.5 climbs to 1419                             ║")
     out("╚══════════════════════════════════════════════════════════════════╝")
     sl(0.3)
     out()

@@ -32,14 +32,14 @@
 <p align="center">
   <img src="docs/demo/demo.gif" alt="Havoc Hackathon Demo — terminal preview showing ELO leaderboard, tournament heats, ensemble synthesis, and winner reveal" width="700" />
   <br />
-  <sub>▲ Preview of a 14-model tournament: ELO leaderboard → 4 heats → finals → ensemble synthesis → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
+  <sub>▲ Preview of a 13-model tournament: ELO leaderboard → 4 heats → finals → ensemble synthesis → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
 </p>
 
 ---
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a multi-model orchestration skill for the [Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task, code, copy, design, architecture, naming, anything, and it dispatches up to **14 AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time. No servers, no API keys, just a skill file and your terminal.
+**Havoc Hackathon** is a multi-model orchestration skill for the [Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task, code, copy, design, architecture, naming, anything, and it dispatches up to **13 current full-size AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time. No servers, no API keys, just a skill file and your terminal.
 
 ### 💬 The Problem
 
@@ -47,7 +47,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
-- 🏟️ **Tournament mode** – up to 14 models compete in elimination heats, not just 3
+- 🏟️ **Tournament mode** – up to 13 current full-size models compete in elimination heats, not just 3
 - 🧬 **Evolution between rounds** – Round 2 finalists learn what won Round 1
 - 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
@@ -160,58 +160,58 @@ The skill at `.github/skills/havoc-hackathon/` is automatically discovered  -  n
 🎯 TASK: Write a Mass Effect themed motivational quote for open source developers
 
 👑 CONTESTANTS:
+  🔵 GPT-5.5               (Premium)
+  🟣 Claude Opus 4.7       (Premium)
   🔵 Claude Opus 4.6       (Premium)
-  🟢 Codex (GPT-5.3)       (Premium)
-  🟡 Gemini 3 Pro          (Premium)
 
 ⚖️ RUBRIC: Clarity · Simplicity · Relevance · Inspiration · Memorability (each /10)
 
 3... 2... 1... GO! 🏁
 
 🏁 ALL MODELS CROSSED THE FINISH LINE!
-  🔵 Claude Opus 4.6     ✅ 4s ⚡
-  🟢 Codex (GPT-5.3)     ✅ 3s ⚡ Speedrun!
-  🟡 Gemini 3 Pro        ✅ 10s
+  🔵 GPT-5.5             ✅ 3s ⚡ Speedrun!
+  🟣 Claude Opus 4.7     ✅ 4s ⚡
+  🔵 Claude Opus 4.6     ✅ 7s
 
 ⚖️ The panel convenes... 🔒 Submissions anonymized. No favoritism. No mercy.
-   👨‍⚖️ Judges: Claude Opus 4.5 · GPT-5.2 · Codex Max (GPT-5.1)
+   👨‍⚖️ Judges: Claude Opus 4.5 · GPT-5.4 · Codex GPT-5.2
 
 🥁 ... 🥁🥁 ... 🥁🥁🥁
 
 🎆🎆🎆 AND THE WINNER IS... 🎆🎆🎆
 
 ╔══════════════════════════════════════════════════════════════════╗
-║   🏆  CHAMPION:  Claude Opus 4.6                                ║
-║   SCORE: 43/50  ·  CONSENSUS: STRONG  ·  ALL JUDGES AGREED     ║
+║   🏆  CHAMPION:  GPT-5.5                                         ║
+║   SCORE: 44/50  ·  CONSENSUS: STRONG  ·  ALL JUDGES AGREED     ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 🏅 THE PODIUM
 
                     🥇
                  ┌──────┐
-                 │CLAUDE│
-                 │ OPUS │
-                 │ 4.6  │
-          🥈     │  43  │     🥉
-       ┌──────┐ │      │ ┌──────┐
-       │CODEX │ │      │ │GEMINI│
-       │ 5.3  │ │      │ │3 PRO │
-       │  37  │ │      │ │  35  │
-       └──────┘ └──────┘ └──────┘
+                 │ GPT  │
+                 │ 5.5  │
+                 │      │
+           🥈     │  44  │     🥉
+        ┌──────┐ │      │ ┌──────┐
+        │ OPUS │ │      │ │ OPUS │
+        │ 4.7  │ │      │ │ 4.6  │
+        │  42  │ │      │ │  40  │
+        └──────┘ └──────┘ └──────┘
 
 📊 DETAILED SCOREBOARD
-  Category      🥇 Claude Opus  🥈 Codex 5.3  🥉 Gemini 3 Pro
-  Clarity            9              8              7
-  Simplicity         8              7              5
-  Relevance          9              8              8
-  Inspiration        9              7              8
-  Memorability       8              7              7
-  TOTAL           43/50          37/50          35/50
+  Category      🥇 GPT-5.5     🥈 Opus 4.7   🥉 Opus 4.6
+  Clarity            9              9              8
+  Simplicity         8              8              8
+  Relevance          9              9              8
+  Inspiration        9              8              8
+  Memorability       9              8              8
+  TOTAL           44/50          42/50          40/50
 
 📈 ELO UPDATE
-  📈 Claude Opus 4.6   1532  (+32) ⬆️
-  ➡️  Codex (GPT-5.3)   1500  (±0)
-  📉 Gemini 3 Pro      1468  (-32) ⬇️
+  📈 GPT-5.5           1532  (+32) ⬆️
+  ➡️  Claude Opus 4.7  1500  (±0)
+  📉 Claude Opus 4.6   1468  (-32) ⬇️
 
 🧬 How would you like to apply the improvements?
   > Smart merge ⭐ (apply high-confidence improvements) ← SELECTED
@@ -329,25 +329,28 @@ havoc-hackathon/
 
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
+| Claude Opus 4.7 | `claude-opus-4.7` | Premium |
+| Claude Opus 4.7 (1M) | `claude-opus-4.7-1m-internal` | Premium |
 | Claude Opus 4.6 | `claude-opus-4.6` | Premium |
-| Claude Opus 4.6 (Fast) | `claude-opus-4.6-fast` | Premium |
 | Claude Opus 4.6 (1M) | `claude-opus-4.6-1m` | Premium |
 | Claude Opus 4.5 | `claude-opus-4.5` | Premium |
-| Codex Max (GPT-5.1) | `gpt-5.1-codex-max` | Standard |
-| Gemini 3 Pro | `gemini-3-pro-preview` | Standard |
+| GPT-5.5 | `gpt-5.5` | Premium |
 | Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
 | Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
 | Claude Sonnet 4 | `claude-sonnet-4` | Standard |
+| GPT-5.4 | `gpt-5.4` | Standard |
 | Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
 | Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
-| Codex (GPT-5.1) | `gpt-5.1-codex` | Standard |
 | GPT-5.2 | `gpt-5.2` | Standard |
-| GPT-5.1 | `gpt-5.1` | Standard |
+| Claude Haiku 4.5 | `claude-haiku-4.5` | Fast/Cheap |
+| GPT-5.4 Mini | `gpt-5.4-mini` | Fast/Cheap |
+| GPT-5 Mini | `gpt-5-mini` | Fast/Cheap |
+| GPT-4.1 | `gpt-4.1` | Fast/Cheap |
 
-**Default contestants (Standard ⚡):** Claude Sonnet 4.6, Codex Max (GPT-5.1), GPT-5.2
-**Default contestants (Premium 👑):** Codex (GPT-5.3), Claude Opus 4.6, Gemini 3 Pro
-**Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.2), GPT-5.1
-**Default judges (Premium 👑):** Claude Opus 4.5, GPT-5.2, Codex Max (GPT-5.1)
+**Default contestants (Standard ⚡):** Claude Sonnet 4.6, GPT-5.4, GPT-5.2
+**Default contestants (Premium 👑):** GPT-5.5, Claude Opus 4.7, Claude Opus 4.6
+**Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.3), Codex (GPT-5.2)
+**Default judges (Premium 👑):** Claude Opus 4.5, GPT-5.4, Codex (GPT-5.2)
 
 > 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
 
@@ -355,13 +358,13 @@ havoc-hackathon/
 
 ## 🚑 Grid-Medic: Recursive Self-Improvement
 
-Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 14 models compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
+Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 13 current full-size models compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
 
 ```
 Grid-Medic diagnoses agent fleet
     ├── Score > 5/10 → surgical fix (validate + apply)
     └── Score ≤ 5/10 → 🚨 ESCALATE
-            → Havoc Hackathon: up to 14 models compete to rewrite it
+            → Havoc Hackathon: up to 13 current full-size models compete to rewrite it
             → Ensemble synthesis merges best parts
             → Grid-Medic re-diagnoses → confirms improvement
 ```

@@ -1,7 +1,7 @@
 # Demo Animation — Hackathon Prompt
 
 > **Competition prompt used in a Havoc Hackathon to generate `docs/demo/demo.py`.**
-> 12 AI models competed in a full tournament (4 heats → finals) to build the best terminal demo animation.
+> 13 current full-size AI models competed in a full tournament (4 heats → finals) to build the best terminal demo animation.
 
 ## Task
 
@@ -10,8 +10,8 @@ Build `docs/demo/demo.py` — a self-contained Python 3 script (stdlib only, zer
 ## Required Phases (~20s total)
 
 1. **BANNER** (~1.5s) — Clear screen. Render the exact Havoc Hackathon banner from SKILL.md using box-drawing characters (╔═╗║╚╝).
-2. **ELO LEADERBOARD** (~3.5s) — Show 14-model leaderboard with columns: Rank, Model, ELO, W-L, Record. Record column uses emoji status labels (🔥 Hot streak, 📈 Rising, 💪 Strong, ⚡ Solid, 😐 .500, 🆕 New, 📉 Slumping, 🥶 Cold, 💀 Winless/Struggling).
-3. **TOURNAMENT SETUP** (~2.5s) — Task description, rubric, "TOURNAMENT MODE — 14 models → 4 heats → 4 finalists → 1 champion", heat assignments, countdown "3... 2... 1... GO! 🏁"
+2. **ELO LEADERBOARD** (~3.5s) — Show 13-model leaderboard with columns: Rank, Model, ELO, W-L, Record. Record column uses emoji status labels (🔥 Hot streak, 📈 Rising, 💪 Strong, ⚡ Solid, 😐 .500, 🆕 New, 📉 Slumping, 🥶 Cold, 💀 Winless/Struggling).
+3. **TOURNAMENT SETUP** (~2.5s) — Task description, rubric, "TOURNAMENT MODE — 13 models → 4 heats → 4 finalists → 1 champion", heat assignments, countdown "3... 2... 1... GO! 🏁"
 4. **HEAT RACES** (~3s) — Show 4 heats with sequential finish-line results per model (✅ time ⚡ commentary). Announce each heat winner with 🏅.
 5. **FINALS + JUDGING** (~2s) — Evolution Brief dispatch, Round 2 finalists with finish times, sealed judging announcement with judge names, drumroll 🥁
 6. **WINNER + PODIUM** (~2.5s) — "🎆🎆🎆 AND THE WINNER IS..." with champion box, then ASCII podium using ┌──────┐ style with 🥇🥈🥉 and scores.

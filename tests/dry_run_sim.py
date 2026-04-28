@@ -32,24 +32,24 @@ SKILL_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "SKILL.md"
 
 # ─── MODEL ROSTER (mirrors SKILL.md) ────────────────────────────────
 STANDARD_MODELS = [
-    "gpt-5.1-codex-max", "gemini-3-pro-preview",
     "claude-sonnet-4.6", "claude-sonnet-4.5", "claude-sonnet-4",
-    "gpt-5.3-codex", "gpt-5.2-codex", "gpt-5.1-codex",
-    "gpt-5.2", "gpt-5.1",
+    "gpt-5.4", "gpt-5.3-codex", "gpt-5.2-codex", "gpt-5.2",
 ]
 PREMIUM_MODELS = [
-    "claude-opus-4.6", "claude-opus-4.6-fast",
-    "claude-opus-4.6-1m", "claude-opus-4.5",
+    "claude-opus-4.7", "claude-opus-4.7-1m-internal",
+    "claude-opus-4.6", "claude-opus-4.6-1m",
+    "claude-opus-4.5", "gpt-5.5",
 ]
 ALL_MODELS = PREMIUM_MODELS + STANDARD_MODELS
 
-DEFAULT_JUDGES_STD = ["claude-sonnet-4.5", "gpt-5.2-codex", "gpt-5.1"]
-DEFAULT_JUDGES_PREM = ["claude-opus-4.5", "gpt-5.2", "gpt-5.1-codex-max"]
-DEFAULT_CONTESTANTS_STD = ["claude-sonnet-4.6", "gpt-5.1-codex-max", "gpt-5.2"]
-DEFAULT_CONTESTANTS_PREM = ["gpt-5.3-codex", "claude-opus-4.6", "gemini-3-pro-preview"]
+DEFAULT_JUDGES_STD = ["claude-sonnet-4.5", "gpt-5.3-codex", "gpt-5.2-codex"]
+DEFAULT_JUDGES_PREM = ["claude-opus-4.5", "gpt-5.4", "gpt-5.2-codex"]
+DEFAULT_CONTESTANTS_STD = ["claude-sonnet-4.6", "gpt-5.4", "gpt-5.2"]
+DEFAULT_CONTESTANTS_PREM = ["gpt-5.5", "claude-opus-4.7", "claude-opus-4.6"]
 
 BRACKET_RULES = {
     14: (4, [4, 4, 3, 3], 4),
+    13: (4, [4, 3, 3, 3], 4),
     12: (4, [3, 3, 3, 3], 4),
     11: (3, [4, 4, 3], 3),
     10: (3, [4, 3, 3], 3),
@@ -338,20 +338,20 @@ def sim_phase_3(r):
     r.phase_start(3, "Fleet Deployment")
 
     # Model roster completeness
-    if len(STANDARD_MODELS) == 10:
+    if len(STANDARD_MODELS) == 7:
         r.ok(3, f"Standard roster: {len(STANDARD_MODELS)} models")
     else:
-        r.fail(3, f"Standard roster: {len(STANDARD_MODELS)} (expected 10)")
+        r.fail(3, f"Standard roster: {len(STANDARD_MODELS)} (expected 7)")
 
-    if len(PREMIUM_MODELS) == 4:
+    if len(PREMIUM_MODELS) == 6:
         r.ok(3, f"Premium roster: {len(PREMIUM_MODELS)} models")
     else:
-        r.fail(3, f"Premium roster: {len(PREMIUM_MODELS)} (expected 4)")
+        r.fail(3, f"Premium roster: {len(PREMIUM_MODELS)} (expected 6)")
 
-    if len(ALL_MODELS) == 14:
+    if len(ALL_MODELS) == 13:
         r.ok(3, f"Full roster: {len(ALL_MODELS)} models total")
     else:
-        r.fail(3, f"Full roster: {len(ALL_MODELS)} (expected 14)")
+        r.fail(3, f"Full roster: {len(ALL_MODELS)} (expected 13)")
 
     # No duplicates
     if len(set(ALL_MODELS)) == len(ALL_MODELS):
@@ -360,7 +360,7 @@ def sim_phase_3(r):
         dupes = [m for m in ALL_MODELS if ALL_MODELS.count(m) > 1]
         r.fail(3, f"Duplicate model IDs: {set(dupes)}")
 
-    # Simulate Tournament dispatch plan for 10 Standard models
+    # Simulate Tournament dispatch plan for 7 Standard models
     n = len(STANDARD_MODELS)
     heats, dist, finalists = BRACKET_RULES[n]
     total_dispatched = sum(dist)
@@ -503,9 +503,9 @@ def sim_phase_5(r):
 
     # Simulate final scores and ranking
     contestants = {
-        "Claude Opus 4.6":  {"scores": [9, 8, 9, 9, 8], "total": 43},
-        "Codex (GPT-5.3)":  {"scores": [8, 7, 8, 7, 7], "total": 37},
-        "Gemini 3 Pro":     {"scores": [7, 5, 8, 8, 7], "total": 35},
+        "GPT-5.5":          {"scores": [9, 8, 9, 9, 9], "total": 44},
+        "Claude Opus 4.7":  {"scores": [9, 8, 9, 8, 8], "total": 42},
+        "Claude Opus 4.6":  {"scores": [8, 8, 8, 8, 8], "total": 40},
     }
 
     # Verify totals
@@ -518,10 +518,10 @@ def sim_phase_5(r):
 
     # Ranking
     ranked = sorted(contestants.items(), key=lambda x: -x[1]["total"])
-    if ranked[0][0] == "Claude Opus 4.6":
+    if ranked[0][0] == "GPT-5.5":
         r.ok(5, f"Ranking: 🥇 {ranked[0][0]} ({ranked[0][1]['total']}) > 🥈 {ranked[1][0]} ({ranked[1][1]['total']}) > 🥉 {ranked[2][0]} ({ranked[2][1]['total']})")
     else:
-        r.fail(5, f"Ranking error: expected Claude Opus 4.6 first, got {ranked[0][0]}")
+        r.fail(5, f"Ranking error: expected GPT-5.5 first, got {ranked[0][0]}")
 
     # Rematch threshold: margin ≤ 2 → offer rematch
     margin = ranked[0][1]["total"] - ranked[1][1]["total"]

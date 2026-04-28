@@ -8,7 +8,7 @@ Havoc Hackathon ships two Copilot CLI agents and one skill. The **skill** (`havo
 
 ### havoc-hackathon (Skill)
 
-- **Purpose**: Multi-model AI tournament orchestrator. Dispatches up to 14 AI models in elimination heats, scores them with sealed judge panels (judges never know which model wrote what), evolves the best ideas between rounds, synthesizes a final output from all finalists, and maintains persistent ELO ratings across sessions.
+- **Purpose**: Multi-model AI tournament orchestrator. Dispatches up to 13 current full-size AI models in elimination heats, scores them with sealed judge panels (judges never know which model wrote what), evolves the best ideas between rounds, synthesizes a final output from all finalists, and maintains persistent ELO ratings across sessions.
 - **Usage**: Install via Copilot CLI, then invoke with natural language:
   ```
   run hackathon                        # Full tournament on whatever you describe
