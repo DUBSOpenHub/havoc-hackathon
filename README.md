@@ -32,14 +32,14 @@
 <p align="center">
   <img src="docs/demo/demo.gif" alt="Havoc Hackathon Demo — terminal preview showing ELO leaderboard, tournament heats, ensemble synthesis, and winner reveal" width="700" />
   <br />
-  <sub>▲ Preview of a 13-model tournament: ELO leaderboard → 4 heats → finals → ensemble synthesis → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
+  <sub>▲ Preview of an elastic tournament: ELO leaderboard → heats → finals → ensemble synthesis → winner reveal · <code>python3 docs/demo/demo.py</code> to run locally</sub>
 </p>
 
 ---
 
 ## 🤔 What Is This?
 
-**Havoc Hackathon** is a multi-model orchestration skill for the [Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task, code, copy, design, architecture, naming, anything, and it dispatches up to **13 current full-size AI models** in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time. No servers, no API keys, just a skill file and your terminal.
+**Havoc Hackathon** is a multi-model orchestration skill for the [GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) that turns your terminal into a competitive arena. Give it any task, code, copy, design, architecture, naming, anything, and it dispatches the current selectable GitHub Copilot model roster in tournament elimination heats, scores them with sealed judge panels, evolves the best ideas between rounds, synthesizes the final output from collective intelligence across all finalists, and tracks persistent ELO ratings so it gets smarter over time. No servers, no API keys, just a skill file and your terminal.
 
 ### 💬 The Problem
 
@@ -47,7 +47,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 
 ### ⚡ What Makes It Different
 
-- 🏟️ **Tournament mode** – up to 13 current full-size models compete in elimination heats, not just 3
+- 🏟️ **Tournament mode** – the current selectable model roster competes in elastic elimination heats, not just 3
 - 🧬 **Evolution between rounds** – Round 2 finalists learn what won Round 1
 - 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
@@ -327,44 +327,64 @@ havoc-hackathon/
 
 ## 🤖 Models
 
+<!-- BEGIN GENERATED MODEL ROSTER -->
+_Automatically refreshed from GitHub Docs. Last refresh: 2026-09-15._
+
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
 | Claude Opus 4.7 | `claude-opus-4.7` | Premium |
-| Claude Opus 4.7 (1M) | `claude-opus-4.7-1m-internal` | Premium |
-| Claude Opus 4.6 | `claude-opus-4.6` | Premium |
-| Claude Opus 4.6 (1M) | `claude-opus-4.6-1m` | Premium |
-| Claude Opus 4.5 | `claude-opus-4.5` | Premium |
+| Claude Opus 4.8 | `claude-opus-4.8` | Premium |
+| Claude Opus 5 | `claude-opus-5` | Premium |
+| GPT-5.4 | `gpt-5.4` | Premium |
 | GPT-5.5 | `gpt-5.5` | Premium |
-| Claude Sonnet 4.6 | `claude-sonnet-4.6` | Standard |
-| Claude Sonnet 4.5 | `claude-sonnet-4.5` | Standard |
-| Claude Sonnet 4 | `claude-sonnet-4` | Standard |
-| GPT-5.4 | `gpt-5.4` | Standard |
-| Codex (GPT-5.3) | `gpt-5.3-codex` | Standard |
-| Codex (GPT-5.2) | `gpt-5.2-codex` | Standard |
-| GPT-5.2 | `gpt-5.2` | Standard |
-| Claude Haiku 4.5 | `claude-haiku-4.5` | Fast/Cheap |
-| GPT-5.4 Mini | `gpt-5.4-mini` | Fast/Cheap |
-| GPT-5 Mini | `gpt-5-mini` | Fast/Cheap |
-| GPT-4.1 | `gpt-4.1` | Fast/Cheap |
+| GPT-5.6 Terra | `gpt-5.6-terra` | Premium |
+| GPT-6 Astra | `gpt-6-astra` | Premium |
+| Grok 4.6 | `grok-4.6` | Premium |
+| Kimi K3 | `kimi-k3` | Premium |
+| Claude Haiku 4.5 | `claude-haiku-4.5` | Standard |
+| Claude Sonnet 5 | `claude-sonnet-5` | Standard |
+| GPT-5 mini | `gpt-5-mini` | Standard |
+| GPT-5.3-Codex | `gpt-5.3-codex` | Standard |
+| GPT-5.4 mini | `gpt-5.4-mini` | Standard |
+| GPT-5.6 Luna | `gpt-5.6-luna` | Standard |
+| GPT-5.6 Sol | `gpt-5.6-sol` | Standard |
+| Gemini 3.5 Flash | `gemini-3.5-flash` | Standard |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | Standard |
+| Gemini 3.7 Flash | `gemini-3.7-flash` | Standard |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | Standard |
+| Grok 4.5 | `grok-4.5` | Standard |
+| Kimi K2.7 Code | `kimi-k2.7-code` | Standard |
+| MAI-Code-1.1-Flash | `mai-code-1.1-flash` | Standard |
 
-**Default contestants (Standard ⚡):** Claude Sonnet 4.6, GPT-5.4, GPT-5.2
-**Default contestants (Premium 👑):** GPT-5.5, Claude Opus 4.7, Claude Opus 4.6
-**Default judges (Standard ⚡):** Claude Sonnet 4.5, Codex (GPT-5.3), Codex (GPT-5.2)
-**Default judges (Premium 👑):** Claude Opus 4.5, GPT-5.4, Codex (GPT-5.2)
+**Default contestants (Standard):** Claude Sonnet 5, GPT-5.6 Sol, Gemini 3.8 Flash ← STANDARD ⚡
+**Default contestants (Premium):** Claude Opus 5, GPT-6 Astra, GPT-5.6 Terra ← PREMIUM 👑
+**Default judges (Standard):** Claude Opus 5, GPT-5.6 Terra, Grok 4.6 ← STANDARD ⚡
+**Default judges (Premium):** Claude Sonnet 5, GPT-5.6 Luna, Gemini 3.8 Flash ← PREMIUM 👑
+<!-- END GENERATED MODEL ROSTER -->
 
 > 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
+
+### Monthly model refresh
+
+The model roster refreshes automatically from the official GitHub Copilot supported-model documentation on the first day of every month. The scheduled workflow removes retired models, adds newly supported models, regenerates the skill, agent, and README rosters, runs the full validation suite, and commits changes only when the catalog changed.
+
+Run the same refresh locally at any time:
+
+```bash
+python3 scripts/refresh_models.py --discover
+```
 
 ---
 
 ## 🚑 Grid-Medic: Recursive Self-Improvement
 
-Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  up to 13 current full-size models compete to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
+Havoc Hackathon ships with **Grid-Medic**, a self-healing agent that monitors your agent fleet. When it detects an underperforming agent (≤5/10 quality or 3+ critical errors), it **automatically escalates to a Havoc Hackathon**  -  the current model roster competes to rewrite the broken agent, the best version is merged, and Grid-Medic re-diagnoses to confirm the fix.
 
 ```
 Grid-Medic diagnoses agent fleet
     ├── Score > 5/10 → surgical fix (validate + apply)
     └── Score ≤ 5/10 → 🚨 ESCALATE
-            → Havoc Hackathon: up to 13 current full-size models compete to rewrite it
+            → Havoc Hackathon: the current model roster competes to rewrite it
             → Ensemble synthesis merges best parts
             → Grid-Medic re-diagnoses → confirms improvement
 ```

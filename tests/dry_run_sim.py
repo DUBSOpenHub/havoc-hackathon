@@ -29,25 +29,22 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILL_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "SKILL.md"
+MODEL_CONFIG = json.loads((REPO_ROOT / "config" / "models.json").read_text(encoding="utf-8"))
 
 # ─── MODEL ROSTER (mirrors SKILL.md) ────────────────────────────────
-STANDARD_MODELS = [
-    "claude-sonnet-4.6", "claude-sonnet-4.5", "claude-sonnet-4",
-    "gpt-5.4", "gpt-5.3-codex", "gpt-5.2-codex", "gpt-5.2",
-]
-PREMIUM_MODELS = [
-    "claude-opus-4.7", "claude-opus-4.7-1m-internal",
-    "claude-opus-4.6", "claude-opus-4.6-1m",
-    "claude-opus-4.5", "gpt-5.5",
-]
+STANDARD_MODELS = [model["id"] for model in MODEL_CONFIG["models"] if model["tier"] == "Standard"]
+PREMIUM_MODELS = [model["id"] for model in MODEL_CONFIG["models"] if model["tier"] == "Premium"]
 ALL_MODELS = PREMIUM_MODELS + STANDARD_MODELS
 
-DEFAULT_JUDGES_STD = ["claude-sonnet-4.5", "gpt-5.3-codex", "gpt-5.2-codex"]
-DEFAULT_JUDGES_PREM = ["claude-opus-4.5", "gpt-5.4", "gpt-5.2-codex"]
-DEFAULT_CONTESTANTS_STD = ["claude-sonnet-4.6", "gpt-5.4", "gpt-5.2"]
-DEFAULT_CONTESTANTS_PREM = ["gpt-5.5", "claude-opus-4.7", "claude-opus-4.6"]
+DEFAULT_JUDGES_STD = MODEL_CONFIG["defaults"]["standard_judges"]
+DEFAULT_JUDGES_PREM = MODEL_CONFIG["defaults"]["premium_judges"]
+DEFAULT_CONTESTANTS_STD = MODEL_CONFIG["defaults"]["standard_contestants"]
+DEFAULT_CONTESTANTS_PREM = MODEL_CONFIG["defaults"]["premium_contestants"]
 
 BRACKET_RULES = {
+    24: (6, [4, 4, 4, 4, 4, 4], 6),
+    20: (5, [4, 4, 4, 4, 4], 5),
+    16: (4, [4, 4, 4, 4], 4),
     14: (4, [4, 4, 3, 3], 4),
     13: (4, [4, 3, 3, 3], 4),
     12: (4, [3, 3, 3, 3], 4),
@@ -282,7 +279,7 @@ def sim_phase_1(r):
                 errors.append(f"N={n}: heat size {d} out of range [2,4]")
 
     if not errors:
-        r.ok(1, f"Bracket math: all {len(BRACKET_RULES)} model counts (5–14) validated")
+        r.ok(1, f"Bracket math: all {len(BRACKET_RULES)} representative model counts validated")
     else:
         r.fail(1, f"Bracket math errors: {'; '.join(errors)}")
 
@@ -338,20 +335,22 @@ def sim_phase_3(r):
     r.phase_start(3, "Fleet Deployment")
 
     # Model roster completeness
-    if len(STANDARD_MODELS) == 7:
+    expected_standard = sum(1 for model in MODEL_CONFIG["models"] if model["tier"] == "Standard")
+    if len(STANDARD_MODELS) == expected_standard:
         r.ok(3, f"Standard roster: {len(STANDARD_MODELS)} models")
     else:
-        r.fail(3, f"Standard roster: {len(STANDARD_MODELS)} (expected 7)")
+        r.fail(3, f"Standard roster: {len(STANDARD_MODELS)} (expected {expected_standard})")
 
-    if len(PREMIUM_MODELS) == 6:
+    expected_premium = sum(1 for model in MODEL_CONFIG["models"] if model["tier"] == "Premium")
+    if len(PREMIUM_MODELS) == expected_premium:
         r.ok(3, f"Premium roster: {len(PREMIUM_MODELS)} models")
     else:
-        r.fail(3, f"Premium roster: {len(PREMIUM_MODELS)} (expected 6)")
+        r.fail(3, f"Premium roster: {len(PREMIUM_MODELS)} (expected {expected_premium})")
 
-    if len(ALL_MODELS) == 13:
+    if len(ALL_MODELS) == len(MODEL_CONFIG["models"]):
         r.ok(3, f"Full roster: {len(ALL_MODELS)} models total")
     else:
-        r.fail(3, f"Full roster: {len(ALL_MODELS)} (expected 13)")
+        r.fail(3, f"Full roster: {len(ALL_MODELS)} (expected {len(MODEL_CONFIG['models'])})")
 
     # No duplicates
     if len(set(ALL_MODELS)) == len(ALL_MODELS):
@@ -360,9 +359,12 @@ def sim_phase_3(r):
         dupes = [m for m in ALL_MODELS if ALL_MODELS.count(m) > 1]
         r.fail(3, f"Duplicate model IDs: {set(dupes)}")
 
-    # Simulate Tournament dispatch plan for 7 Standard models
+    # Simulate Tournament dispatch plan for the current Standard roster
     n = len(STANDARD_MODELS)
-    heats, dist, finalists = BRACKET_RULES[n]
+    heats = math.ceil(n / 4)
+    base, remainder = divmod(n, heats)
+    dist = [base + (1 if index < remainder else 0) for index in range(heats)]
+    finalists = heats
     total_dispatched = sum(dist)
     if total_dispatched == n:
         r.ok(3, f"Tournament dispatch: {n} models → {heats} heats ({dist}) → {finalists} finalists")

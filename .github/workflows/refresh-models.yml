@@ -1,0 +1,38 @@
+name: Refresh model roster
+
+on:
+  schedule:
+    - cron: "17 9 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Refresh models from GitHub Docs
+        run: python3 scripts/refresh_models.py --discover
+
+      - name: Validate generated roster
+        run: |
+          python3 tests/validate_skill.py
+          python3 tests/preflight.py
+          python3 tests/dry_run_sim.py
+
+      - name: Commit refreshed roster
+        run: |
+          if git diff --quiet; then
+            echo "Model roster is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add config/models.json skills/havoc-hackathon/SKILL.md \
+            .github/skills/havoc-hackathon/SKILL.md \
+            agents/havoc-hackathon.agent.md README.md
+          git commit -m "Refresh GitHub Copilot model roster"
+          git push

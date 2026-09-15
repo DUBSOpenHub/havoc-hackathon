@@ -26,6 +26,7 @@ AGENT_PATH = REPO_ROOT / "agents" / "havoc-hackathon.agent.md"
 SKILL_COPY_PATH = REPO_ROOT / ".github" / "skills" / "havoc-hackathon" / "SKILL.md"
 README_PATH = REPO_ROOT / "README.md"
 CATALOG_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "catalog.yml"
+MODEL_CONFIG_PATH = REPO_ROOT / "config" / "models.json"
 
 REQUIRED_PHASES = [
     "Phase 0", "Phase 1", "Phase 2", "Phase 3",
@@ -162,7 +163,7 @@ def check_anti_gaming_concrete(content, filename, result):
 
 def check_model_roster(content, filename, result):
     """Verify model roster is present and has expected model count."""
-    model_ids = re.findall(r"`(claude-[a-z0-9.-]+|gpt-[a-z0-9.-]+|gemini-[a-z0-9.-]+)`", content)
+    model_ids = re.findall(r"`((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)`", content)
     unique_models = set(model_ids)
 
     if len(unique_models) >= 10:
@@ -210,9 +211,9 @@ def check_readme_model_table(result):
         result.warn("README.md not found")
         return
 
-    readme_models = re.findall(r"\| .+ \| `(claude-[a-z0-9.-]+|gpt-[a-z0-9.-]+|gemini-[a-z0-9.-]+)` \|", readme)
+    readme_models = re.findall(r"\| .+ \| `((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)` \|", readme)
     skill = read_file(SKILL_PATH)
-    skill_models = re.findall(r"\| .+ \| `(claude-[a-z0-9.-]+|gpt-[a-z0-9.-]+|gemini-[a-z0-9.-]+)` \|", skill) if skill else []
+    skill_models = re.findall(r"\| .+ \| `((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)` \|", skill) if skill else []
 
     if set(readme_models) == set(skill_models):
         result.ok(f"README and SKILL.md model tables match ({len(readme_models)} models)")

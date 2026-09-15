@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- Monthly model-roster refresh on the first day of each month using the official GitHub Copilot supported-model documentation.
+- Generated `config/models.json` catalog shared by the skill, agent, README, and dry-run validation.
+
+### Changed
+- Replaced retired models with the September 15, 2026 GitHub Copilot roster, including Claude Opus 5, Claude Sonnet 5, GPT-6 Astra, GPT-5.6, Gemini 3.8 Flash, Kimi K3, and Grok 4.6.
+- Expanded tournament bracket sizing to support the full current roster with approximately four contestants per heat.
+
 ## [2.0.0] - 2026-02-22
 
 ### Added

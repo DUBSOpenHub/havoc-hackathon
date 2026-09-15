@@ -1,0 +1,143 @@
+{
+  "source": "https://docs.github.com/en/copilot/reference/ai-models/supported-models",
+  "updated": "2026-09-15",
+  "models": [
+    {
+      "name": "Claude Opus 4.7",
+      "id": "claude-opus-4.7",
+      "tier": "Premium"
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "id": "claude-opus-4.8",
+      "tier": "Premium"
+    },
+    {
+      "name": "Claude Opus 5",
+      "id": "claude-opus-5",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-5.4",
+      "id": "gpt-5.4",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-5.5",
+      "id": "gpt-5.5",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "id": "gpt-5.6-terra",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "id": "gpt-6-astra",
+      "tier": "Premium"
+    },
+    {
+      "name": "Grok 4.6",
+      "id": "grok-4.6",
+      "tier": "Premium"
+    },
+    {
+      "name": "Kimi K3",
+      "id": "kimi-k3",
+      "tier": "Premium"
+    },
+    {
+      "name": "Claude Haiku 4.5",
+      "id": "claude-haiku-4.5",
+      "tier": "Standard"
+    },
+    {
+      "name": "Claude Sonnet 5",
+      "id": "claude-sonnet-5",
+      "tier": "Standard"
+    },
+    {
+      "name": "GPT-5 mini",
+      "id": "gpt-5-mini",
+      "tier": "Standard"
+    },
+    {
+      "name": "GPT-5.3-Codex",
+      "id": "gpt-5.3-codex",
+      "tier": "Standard"
+    },
+    {
+      "name": "GPT-5.4 mini",
+      "id": "gpt-5.4-mini",
+      "tier": "Standard"
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "id": "gpt-5.6-luna",
+      "tier": "Standard"
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "id": "gpt-5.6-sol",
+      "tier": "Standard"
+    },
+    {
+      "name": "Gemini 3.5 Flash",
+      "id": "gemini-3.5-flash",
+      "tier": "Standard"
+    },
+    {
+      "name": "Gemini 3.6 Flash",
+      "id": "gemini-3.6-flash",
+      "tier": "Standard"
+    },
+    {
+      "name": "Gemini 3.7 Flash",
+      "id": "gemini-3.7-flash",
+      "tier": "Standard"
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "id": "gemini-3.8-flash",
+      "tier": "Standard"
+    },
+    {
+      "name": "Grok 4.5",
+      "id": "grok-4.5",
+      "tier": "Standard"
+    },
+    {
+      "name": "Kimi K2.7 Code",
+      "id": "kimi-k2.7-code",
+      "tier": "Standard"
+    },
+    {
+      "name": "MAI-Code-1.1-Flash",
+      "id": "mai-code-1.1-flash",
+      "tier": "Standard"
+    }
+  ],
+  "defaults": {
+    "standard_contestants": [
+      "claude-sonnet-5",
+      "gpt-5.6-sol",
+      "gemini-3.8-flash"
+    ],
+    "premium_contestants": [
+      "claude-opus-5",
+      "gpt-6-astra",
+      "gpt-5.6-terra"
+    ],
+    "standard_judges": [
+      "claude-opus-5",
+      "gpt-5.6-terra",
+      "grok-4.6"
+    ],
+    "premium_judges": [
+      "claude-sonnet-5",
+      "gpt-5.6-luna",
+      "gemini-3.8-flash"
+    ]
+  }
+}

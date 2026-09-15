@@ -71,7 +71,7 @@ flowchart LR
         G1["🚑 Grid-Medic monitors 24/7"] --> G2["🔍 Detects issues automatically"]
         G2 --> G3["💊 Prescribes minimal fixes"]
         G3 --> G4["🚨 Escalates critical failures\nto Havoc Hackathon"]
-        G4 --> G5["🏟️ up to 13 models compete\nto rewrite broken agent"]
+        G4 --> G5["🏟️ current model roster competes\nto rewrite broken agent"]
         G5 --> G6["✅ Best version auto-merged"]
         G6 --> G7["📈 Fleet improves forever"]
         G7 --> G1
@@ -96,7 +96,7 @@ mindmap
     🚨 Hackathon Escalation
       Score ≤ 5/10 triggers rewrite
       3+ critical errors triggers rewrite
-      up to 13 models compete to fix it
+      the current model roster competes to fix it
       Ensemble synthesis merges best parts
     ✅ Multi-Model Validation
       Every fix validated by 3 models
@@ -136,7 +136,7 @@ sequenceDiagram
         Medic->>Fleet: Apply fix → agent improved
     else Score ≤ 5/10 🚨
         Medic->>Arena: ESCALATE — agent critically broken
-        Arena->>Models: up to 13 models compete to rewrite it
+        Arena->>Models: current model roster competes to rewrite it
         Models-->>Arena: Submissions judged, ensemble merged
         Arena-->>Medic: Winning rewrite delivered
         Medic->>Medic: Re-diagnose → confirm improvement
