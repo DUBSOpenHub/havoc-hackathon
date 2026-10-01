@@ -1,6 +1,6 @@
 {
   "source": "https://docs.github.com/en/copilot/reference/ai-models/supported-models",
-  "updated": "2026-09-15",
+  "updated": "2026-10-01",
   "models": [
     {
       "name": "Claude Opus 4.7",
@@ -15,6 +15,11 @@
     {
       "name": "Claude Opus 5",
       "id": "claude-opus-5",
+      "tier": "Premium"
+    },
+    {
+      "name": "Claude Opus 5.5",
+      "id": "claude-opus-5.5",
       "tier": "Premium"
     },
     {
@@ -38,6 +43,21 @@
       "tier": "Premium"
     },
     {
+      "name": "GPT-6 Luna",
+      "id": "gpt-6-luna",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-6 Sol",
+      "id": "gpt-6-sol",
+      "tier": "Premium"
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "id": "gpt-6.1-sol",
+      "tier": "Premium"
+    },
+    {
       "name": "Grok 4.6",
       "id": "grok-4.6",
       "tier": "Premium"
@@ -55,6 +75,11 @@
     {
       "name": "Claude Sonnet 5",
       "id": "claude-sonnet-5",
+      "tier": "Standard"
+    },
+    {
+      "name": "Claude Sonnet 5.5",
+      "id": "claude-sonnet-5.5",
       "tier": "Standard"
     },
     {
@@ -105,6 +130,11 @@
     {
       "name": "Grok 4.5",
       "id": "grok-4.5",
+      "tier": "Standard"
+    },
+    {
+      "name": "Grok 4.7",
+      "id": "grok-4.7",
       "tier": "Standard"
     },
     {

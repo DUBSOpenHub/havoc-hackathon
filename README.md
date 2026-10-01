@@ -328,21 +328,26 @@ havoc-hackathon/
 ## 🤖 Models
 
 <!-- BEGIN GENERATED MODEL ROSTER -->
-_Automatically refreshed from GitHub Docs. Last refresh: 2026-09-15._
+_Automatically refreshed from GitHub Docs. Last refresh: 2026-10-01._
 
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
 | Claude Opus 4.7 | `claude-opus-4.7` | Premium |
 | Claude Opus 4.8 | `claude-opus-4.8` | Premium |
 | Claude Opus 5 | `claude-opus-5` | Premium |
+| Claude Opus 5.5 | `claude-opus-5.5` | Premium |
 | GPT-5.4 | `gpt-5.4` | Premium |
 | GPT-5.5 | `gpt-5.5` | Premium |
 | GPT-5.6 Terra | `gpt-5.6-terra` | Premium |
 | GPT-6 Astra | `gpt-6-astra` | Premium |
+| GPT-6 Luna | `gpt-6-luna` | Premium |
+| GPT-6 Sol | `gpt-6-sol` | Premium |
+| GPT-6.1 Sol | `gpt-6.1-sol` | Premium |
 | Grok 4.6 | `grok-4.6` | Premium |
 | Kimi K3 | `kimi-k3` | Premium |
 | Claude Haiku 4.5 | `claude-haiku-4.5` | Standard |
 | Claude Sonnet 5 | `claude-sonnet-5` | Standard |
+| Claude Sonnet 5.5 | `claude-sonnet-5.5` | Standard |
 | GPT-5 mini | `gpt-5-mini` | Standard |
 | GPT-5.3-Codex | `gpt-5.3-codex` | Standard |
 | GPT-5.4 mini | `gpt-5.4-mini` | Standard |
@@ -353,6 +358,7 @@ _Automatically refreshed from GitHub Docs. Last refresh: 2026-09-15._
 | Gemini 3.7 Flash | `gemini-3.7-flash` | Standard |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Standard |
 | Grok 4.5 | `grok-4.5` | Standard |
+| Grok 4.7 | `grok-4.7` | Standard |
 | Kimi K2.7 Code | `kimi-k2.7-code` | Standard |
 | MAI-Code-1.1-Flash | `mai-code-1.1-flash` | Standard |
 
