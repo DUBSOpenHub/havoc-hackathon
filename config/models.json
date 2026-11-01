@@ -1,12 +1,7 @@
 {
   "source": "https://docs.github.com/en/copilot/reference/ai-models/supported-models",
-  "updated": "2026-10-01",
+  "updated": "2026-11-01",
   "models": [
-    {
-      "name": "Claude Opus 4.7",
-      "id": "claude-opus-4.7",
-      "tier": "Premium"
-    },
     {
       "name": "Claude Opus 4.8",
       "id": "claude-opus-4.8",
@@ -20,16 +15,6 @@
     {
       "name": "Claude Opus 5.5",
       "id": "claude-opus-5.5",
-      "tier": "Premium"
-    },
-    {
-      "name": "GPT-5.4",
-      "id": "gpt-5.4",
-      "tier": "Premium"
-    },
-    {
-      "name": "GPT-5.5",
-      "id": "gpt-5.5",
       "tier": "Premium"
     },
     {
@@ -58,6 +43,11 @@
       "tier": "Premium"
     },
     {
+      "name": "GPT-6.1 Terra",
+      "id": "gpt-6.1-terra",
+      "tier": "Premium"
+    },
+    {
       "name": "Grok 4.6",
       "id": "grok-4.6",
       "tier": "Premium"
@@ -73,6 +63,11 @@
       "tier": "Standard"
     },
     {
+      "name": "Claude Haiku 5.5",
+      "id": "claude-haiku-5.5",
+      "tier": "Standard"
+    },
+    {
       "name": "Claude Sonnet 5",
       "id": "claude-sonnet-5",
       "tier": "Standard"
@@ -83,18 +78,8 @@
       "tier": "Standard"
     },
     {
-      "name": "GPT-5 mini",
-      "id": "gpt-5-mini",
-      "tier": "Standard"
-    },
-    {
       "name": "GPT-5.3-Codex",
       "id": "gpt-5.3-codex",
-      "tier": "Standard"
-    },
-    {
-      "name": "GPT-5.4 mini",
-      "id": "gpt-5.4-mini",
       "tier": "Standard"
     },
     {
@@ -108,23 +93,13 @@
       "tier": "Standard"
     },
     {
-      "name": "Gemini 3.5 Flash",
-      "id": "gemini-3.5-flash",
-      "tier": "Standard"
-    },
-    {
-      "name": "Gemini 3.6 Flash",
-      "id": "gemini-3.6-flash",
-      "tier": "Standard"
-    },
-    {
-      "name": "Gemini 3.7 Flash",
-      "id": "gemini-3.7-flash",
-      "tier": "Standard"
-    },
-    {
       "name": "Gemini 3.8 Flash",
       "id": "gemini-3.8-flash",
+      "tier": "Standard"
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "id": "gemini-4-argon",
       "tier": "Standard"
     },
     {
@@ -135,11 +110,6 @@
     {
       "name": "Grok 4.7",
       "id": "grok-4.7",
-      "tier": "Standard"
-    },
-    {
-      "name": "Kimi K2.7 Code",
-      "id": "kimi-k2.7-code",
       "tier": "Standard"
     },
     {
