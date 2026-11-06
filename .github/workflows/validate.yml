@@ -46,6 +46,11 @@ jobs:
       - name: Structural validation (SKILL.md + agent.md)
         run: python3 tests/validate_skill.py
 
+      - name: Model and policy regression tests
+        run: |
+          python3 -B -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/refresh_models.py --check
+
       - name: Preflight checks (SQL + bracket math)
         run: python3 tests/preflight.py
 

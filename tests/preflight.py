@@ -11,6 +11,7 @@ Validates everything that can be checked without live model access:
 Run with: python3 tests/preflight.py
 """
 
+import argparse
 import json
 import re
 import sqlite3
@@ -19,20 +20,19 @@ import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SKILL_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "SKILL.md"
-ELO_PATH = Path.home() / ".copilot" / "hackathon-elo.json"
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+from hackathon_rules import bracket_sizes, validate_elo_data
 
-BRACKET_RULES = {
-    14: (4, [4, 4, 3, 3], 4),
-    12: (4, [3, 3, 3, 3], 4),
-    11: (3, [4, 4, 3], 3),
-    10: (3, [4, 3, 3], 3),
-    9:  (3, [3, 3, 3], 3),
-    8:  (2, [4, 4], 2),
-    7:  (2, [4, 3], 2),
-    6:  (2, [3, 3], 2),
-    5:  (2, [3, 2], 2),
-}
+SKILL_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "SKILL.md"
+
+def documented_brackets(content):
+    return {
+        int(count): (int(heats), [int(n) for n in distribution.split("-")], int(finalists))
+        for count, heats, distribution, finalists in re.findall(
+            r"^\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([\d-]+)\s*\|\s*(\d+)\s*\|",
+            content, re.MULTILINE
+        )
+    }
 
 REQUIRED_FILES = [
     "skills/havoc-hackathon/SKILL.md",
@@ -77,10 +77,11 @@ def check_sql_statements():
             cursor = conn.execute(
                 "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
             )
-            tables = [row[0] for row in cursor.fetchall()]
+            tables = [row[0] for row in cursor.fetchall() if row[0].startswith("hackathon_")]
             conn.close()
 
-            if len(tables) >= 10:
+            expected = re.findall(r"CREATE TABLE IF NOT EXISTS (hackathon_\w+)", content)
+            if set(tables) == set(expected) and len(tables) == len(expected):
                 return True, f"All {len(tables)} tables created successfully: {', '.join(tables)}"
             else:
                 return False, f"Only {len(tables)} tables created: {', '.join(tables)}"
@@ -91,17 +92,22 @@ def check_sql_statements():
 def check_bracket_math():
     """Verify bracket distribution math is consistent."""
     errors = []
-    for n, (heats, dist, finalists) in BRACKET_RULES.items():
+    rules = documented_brackets(SKILL_PATH.read_text(encoding="utf-8"))
+    if not rules:
+        return False, "No documented brackets found"
+    for n, (heats, dist, finalists) in rules.items():
         if sum(dist) != n:
             errors.append(f"N={n}: distribution {dist} sums to {sum(dist)}, expected {n}")
         if len(dist) != heats:
             errors.append(f"N={n}: {len(dist)} distributions but {heats} heats declared")
         if finalists != heats:
             errors.append(f"N={n}: {finalists} finalists but {heats} heats (expect 1 per heat)")
+        if dist != bracket_sizes(n):
+            errors.append(f"N={n}: documented distribution differs from ceil(N/4) rule")
 
     if errors:
         return False, "; ".join(errors)
-    return True, f"Bracket math verified for {len(BRACKET_RULES)} model counts (5-14)"
+    return True, f"Bracket math verified against the skill for {len(rules)} model counts"
 
 
 def check_file_structure():
@@ -117,30 +123,23 @@ def check_file_structure():
     return True, f"All {len(REQUIRED_FILES)} required files present"
 
 
-def check_elo_file():
-    """Validate ELO persistence file format if it exists."""
-    if not ELO_PATH.exists():
-        return True, "No ELO file yet (fresh start) — OK"
-
+def check_elo_file(path=None):
+    """Use a legacy mock by default; real ratings inspection is explicit."""
     try:
-        data = json.loads(ELO_PATH.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as e:
-        return False, f"ELO file is invalid JSON: {e}"
-
-    if "models" not in data:
-        return False, "ELO file missing 'models' key"
-    if "updated" not in data:
-        return False, "ELO file missing 'updated' key"
-
-    for model_id, stats in data["models"].items():
-        for key in ("elo", "wins", "losses", "total"):
-            if key not in stats:
-                return False, f"Model '{model_id}' missing '{key}' in ELO file"
-
-    return True, f"ELO file valid with {len(data['models'])} models tracked"
+        data = json.loads(path.read_text(encoding="utf-8")) if path else {
+            "models": {"historical-model": {"elo": 1500, "wins": 2, "losses": 1, "total": 2}},
+            "updated": "2026-11-05T00:00:00Z",
+        }
+        validate_elo_data(data)
+    except (ValueError, OSError) as error:
+        return False, f"Invalid ELO data: {error}"
+    return True, f"{'Explicit read-only file' if path else 'Legacy mock'} valid; real ratings unchanged"
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Offline Havoc Hackathon preflight")
+    parser.add_argument("--elo-file", type=Path, help="Explicit read-only inspection; defaults to a mock")
+    args = parser.parse_args()
     print("\n🔧 PREFLIGHT CHECK — Havoc Hackathon (Offline)")
     print("=" * 50)
 
@@ -148,7 +147,7 @@ def main():
         ("File structure", check_file_structure),
         ("SQL statements", check_sql_statements),
         ("Bracket math", check_bracket_math),
-        ("ELO persistence", check_elo_file),
+        ("ELO persistence", lambda: check_elo_file(args.elo_file)),
     ]
 
     all_pass = True
@@ -165,7 +164,7 @@ def main():
 
     print()
     if all_pass:
-        print("  RESULT: ✅ READY — all offline checks passed")
+        print("  RESULT: ✅ OFFLINE CHECKS PASSED — live model availability not checked")
     else:
         print("  RESULT: ❌ ISSUES FOUND — see above")
 

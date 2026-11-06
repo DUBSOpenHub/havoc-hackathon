@@ -2,20 +2,20 @@
 
 ## Overview
 
-Havoc Hackathon ships two Copilot CLI agents and one skill. The **skill** (`havoc-hackathon`) is the primary entry point — it orchestrates full multi-model tournaments. The **havoc-hackathon agent** is a standalone agent version of the same capability. The **grid-medic agent** is bundled as a companion for keeping the tournament infrastructure healthy.
+Havoc Hackathon ships two GitHub Copilot CLI agents and one skill. The **skill** (`havoc-hackathon`) is the primary entry point — it orchestrates multi-model tournaments. The **havoc-hackathon agent** is a tracked alias of the same capability. The **grid-medic agent** is bundled as a companion for keeping the tournament infrastructure healthy.
 
 ## Available Agents
 
 ### havoc-hackathon (Skill)
 
 - **Purpose**: Multi-model AI tournament orchestrator. Dispatches the current selectable GitHub Copilot model roster in elimination heats, scores them with sealed judge panels (judges never know which model wrote what), evolves the best ideas between rounds, synthesizes a final output from all finalists, and maintains persistent ELO ratings across sessions.
-- **Usage**: Install via Copilot CLI, then invoke with natural language:
+- **Usage**: Install via GitHub Copilot CLI, then invoke with natural language:
   ```
   run hackathon                        # Full tournament on whatever you describe
   run hackathon express                # Quick single-round version
   /skills add DUBSOpenHub/havoc-hackathon  # Instant install
   ```
-- **Model**: Dispatches to all available models in your Copilot CLI session
+- **Model**: Filters the selected lineup against the current GitHub Copilot CLI task schema and account policy
 - **Install**:
   ```bash
   mkdir -p ~/.copilot/skills/havoc-hackathon ~/.copilot/agents && \
@@ -46,5 +46,8 @@ Havoc Hackathon ships two Copilot CLI agents and one skill. The **skill** (`havo
 - **No servers or infrastructure** — tournament state lives in memory during the session
 - **Persistent ELO ratings** — stored locally; each tournament updates model rankings
 - **Judge panels**: 3 judges × N heats run in parallel; judges are isolated from model identity
-- **Sealed judging**: judges never see which model produced which output — scores are unbiased
+- **Sealed judging**: explicit identity metadata is removed from judge packets; this reduces identity bias but does not prove scores are unbiased
 - **Evolution between rounds**: Round 2 finalists receive the winning patterns from Round 1
+- **Maintenance/preflight**: no tournament, paid probes, telemetry or rating writes
+- **Sideline reporting**: observed per-contestant state and phase handoffs, including pending scores and merge outcomes
+- **Extended modes**: Kiloagent/Metaswarm require external runtimes, explicit mode requests and bounded launch plans

@@ -28,6 +28,10 @@ import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT / "scripts"))
+from hackathon_rules import bracket_sizes, classify_votes, elo_updates, select_mode
+from preflight import documented_brackets
+
 SKILL_PATH = REPO_ROOT / "skills" / "havoc-hackathon" / "SKILL.md"
 MODEL_CONFIG = json.loads((REPO_ROOT / "config" / "models.json").read_text(encoding="utf-8"))
 
@@ -41,21 +45,7 @@ DEFAULT_JUDGES_PREM = MODEL_CONFIG["defaults"]["premium_judges"]
 DEFAULT_CONTESTANTS_STD = MODEL_CONFIG["defaults"]["standard_contestants"]
 DEFAULT_CONTESTANTS_PREM = MODEL_CONFIG["defaults"]["premium_contestants"]
 
-BRACKET_RULES = {
-    24: (6, [4, 4, 4, 4, 4, 4], 6),
-    20: (5, [4, 4, 4, 4, 4], 5),
-    16: (4, [4, 4, 4, 4], 4),
-    14: (4, [4, 4, 3, 3], 4),
-    13: (4, [4, 3, 3, 3], 4),
-    12: (4, [3, 3, 3, 3], 4),
-    11: (3, [4, 4, 3], 3),
-    10: (3, [4, 3, 3], 3),
-    9:  (3, [3, 3, 3], 3),
-    8:  (2, [4, 4], 2),
-    7:  (2, [4, 3], 2),
-    6:  (2, [3, 3], 2),
-    5:  (2, [3, 2], 2),
-}
+BRACKET_RULES = documented_brackets(SKILL_PATH.read_text(encoding="utf-8"))
 
 # ─── SMART MODE DETECTION ───────────────────────────────────────────
 CLASSIC_TASKS = [
@@ -135,7 +125,7 @@ class SimResult:
         print(f"  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
         print(f"  Results: {self.total_pass}/{total} checks passed")
         if self.total_fail == 0:
-            print(f"  🎉 SIMULATION PASSED — All phases validated!")
+            print(f"  🎉 OFFLINE SIMULATION PASSED — live orchestration not tested")
         else:
             print(f"  💥 {self.total_fail} check(s) FAILED")
         print()
@@ -164,12 +154,13 @@ def sim_phase_0(r):
 
             tables = [row[0] for row in conn.execute(
                 "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
-            ).fetchall()]
+            ).fetchall() if row[0].startswith("hackathon_")]
+            expected_tables = re.findall(r"CREATE TABLE IF NOT EXISTS (hackathon_\w+)", content)
 
-            if len(tables) >= 10:
-                r.ok(0, f"SQL: {len(tables)}/10 tables created")
+            if set(tables) == set(expected_tables) and len(tables) == len(expected_tables):
+                r.ok(0, f"SQL: {len(tables)}/{len(expected_tables)} documented tables created")
             else:
-                r.fail(0, f"SQL: only {len(tables)}/10 tables created")
+                r.fail(0, "SQL: created tables do not match every documented table")
 
             # Seed mock ELO data and verify leaderboard query
             conn.execute("INSERT INTO hackathon_model_elo (model, elo, wins, losses, total_hackathons) VALUES ('test-model', 1500, 3, 2, 5)")
@@ -254,15 +245,12 @@ def sim_phase_1(r):
         r.fail(1, f"Tournament mode triggers: only {found_tourn}/{len(tournament_keywords)}")
 
     # Simulate mode detection for Classic tasks
-    classic_correct = 0
-    for task, complexity in CLASSIC_TASKS:
-        # Trivial/Simple/Medium should all go Classic
-        classic_correct += 1  # (we trust SKILL.md instructions; test that categories exist)
-
-    r.ok(1, f"Mode detection: {len(CLASSIC_TASKS)} simple tasks → Classic ({len(CLASSIC_TASKS)}/{len(CLASSIC_TASKS)})")
-
-    # Tournament tasks
-    r.ok(1, f"Mode detection: {len(TOURNAMENT_TASKS)} complex tasks → Tournament ({len(TOURNAMENT_TASKS)}/{len(TOURNAMENT_TASKS)})")
+    for samples, expected in ((CLASSIC_TASKS, "classic"), (TOURNAMENT_TASKS, "tournament")):
+        wrong = [task for task, _ in samples if select_mode(task) != expected]
+        if wrong:
+            r.fail(1, f"Mode detection: expected {expected} for {wrong}")
+        else:
+            r.ok(1, f"Mode detection: {len(samples)} tasks classified as {expected}")
 
     # Bracket math for every model count 5–14
     errors = []
@@ -273,6 +261,8 @@ def sim_phase_1(r):
             errors.append(f"N={n}: {len(dist)} dists ≠ {heats} heats")
         if finalists != heats:
             errors.append(f"N={n}: {finalists} finalists ≠ {heats} heats")
+        if dist != bracket_sizes(n):
+            errors.append(f"N={n}: documented bracket disagrees with reference calculation")
         # Heat sizes should be 2–4
         for d in dist:
             if d < 2 or d > 4:
@@ -380,7 +370,7 @@ def sim_phase_3(r):
     # Stall detection documented
     content = SKILL_PATH.read_text(encoding="utf-8")
     if "Stall Detection" in content and "180 seconds" in content:
-        r.ok(3, "Stall detection: 180s timeout documented")
+        r.ok(3, "Stall detection: 180s observation window documented, not an automatic DQ")
     else:
         r.fail(3, "Stall detection missing or incomplete")
 
@@ -420,12 +410,8 @@ def sim_phase_4(r):
 
     # Judge provider diversity (at least 2 providers)
     def providers(models):
-        p = set()
-        for m in models:
-            if m.startswith("claude"): p.add("anthropic")
-            elif m.startswith("gpt") or m.startswith("o"): p.add("openai")
-            elif m.startswith("gemini"): p.add("google")
-        return p
+        by_id = {model["id"]: model["provider"] for model in MODEL_CONFIG["models"]}
+        return {by_id[model] for model in models}
 
     std_providers = providers(DEFAULT_JUDGES_STD)
     if len(std_providers) >= 2:
@@ -505,9 +491,9 @@ def sim_phase_5(r):
 
     # Simulate final scores and ranking
     contestants = {
-        "GPT-5.5":          {"scores": [9, 8, 9, 9, 9], "total": 44},
-        "Claude Opus 4.7":  {"scores": [9, 8, 9, 8, 8], "total": 42},
-        "Claude Opus 4.6":  {"scores": [8, 8, 8, 8, 8], "total": 40},
+        "Mock-A": {"scores": [9, 8, 9, 9, 9], "total": 44},
+        "Mock-B": {"scores": [9, 8, 9, 8, 8], "total": 42},
+        "Mock-C": {"scores": [8, 8, 8, 8, 8], "total": 40},
     }
 
     # Verify totals
@@ -520,10 +506,10 @@ def sim_phase_5(r):
 
     # Ranking
     ranked = sorted(contestants.items(), key=lambda x: -x[1]["total"])
-    if ranked[0][0] == "GPT-5.5":
+    if ranked[0][0] == "Mock-A":
         r.ok(5, f"Ranking: 🥇 {ranked[0][0]} ({ranked[0][1]['total']}) > 🥈 {ranked[1][0]} ({ranked[1][1]['total']}) > 🥉 {ranked[2][0]} ({ranked[2][1]['total']})")
     else:
-        r.fail(5, f"Ranking error: expected GPT-5.5 first, got {ranked[0][0]}")
+        r.fail(5, f"Ranking error: expected Mock-A first, got {ranked[0][0]}")
 
     # Rematch threshold: margin ≤ 2 → offer rematch
     margin = ranked[0][1]["total"] - ranked[1][1]["total"]
@@ -586,16 +572,11 @@ def sim_phase_6(r):
         max_votes = max(len(v) for v in approaches.values())
         total_finalists = len(votes)
 
-        if max_votes >= 3:
-            classification = "CONSENSUS"
-        elif max_votes >= 2:
-            classification = "MAJORITY"
-        else:
-            classification = "UNIQUE"
+        classification = classify_votes(list(votes.values()))
 
         expected = {
             "error_handling": "CONSENSUS",
-            "auth_method": "MAJORITY",
+            "auth_method": "PAIR AGREEMENT",
             "database": "UNIQUE",
         }
 
@@ -655,11 +636,7 @@ def sim_phase_7(r):
     elos = {"A": 1500.0, "B": 1500.0, "C": 1500.0}
     results = [("A", "B"), ("A", "C"), ("B", "C")]  # A>B, A>C, B>C
 
-    for winner, loser in results:
-        e_w = expected_score(elos[winner], elos[loser])
-        e_l = expected_score(elos[loser], elos[winner])
-        elos[winner] += K * (1.0 - e_w)
-        elos[loser] += K * (0.0 - e_l)
+    elos = elo_updates(elos, {"A": 44, "B": 42, "C": 40})
 
     # Winner should gain, loser should lose
     if elos["A"] > 1500 and elos["C"] < 1500:
