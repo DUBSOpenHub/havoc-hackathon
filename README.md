@@ -21,11 +21,11 @@
 > ```
 > *Already have the CLI? No worries — this detects it and skips straight to adding the skill.*
 >
-> **3. When Copilot opens, type:** `run hackathon`
+> **3. When GitHub Copilot opens, type:** `run hackathon`
 >
 > That's it — let the models compete! 🏟️
 >
-> *Requires an active [Copilot subscription](https://github.com/features/copilot/plans). [Get one here →](https://github.com/features/copilot/plans)*
+> *Requires an active [GitHub Copilot subscription](https://github.com/features/copilot/plans). [Get one here →](https://github.com/features/copilot/plans)*
 
 ---
 
@@ -52,7 +52,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 - 🗳️ **Ensemble synthesis** – voting merge across all finalists (CONSENSUS/MAJORITY/UNIQUE)
 - 🔒 **Sealed judging** – judges never see which model wrote what
 - ⚖️ **Per-heat judge panels** – 3 judges × N heats running in parallel
-- 🔄 **Self-correcting scores** – rubrics adapt when judges disagree
+- 🔄 **Evidence-based scores** – frozen rubrics, validated judge packets and explicit disagreement notes
 - 📈 **Persistent leaderboard** – tracks which models actually deliver over time
 - 🏆 **Full ceremony** – podiums, drumrolls, and dramatic reveals in your terminal
 - 📄 **Zero infrastructure** – no servers, no API keys, no build step
@@ -64,7 +64,7 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 ### Prerequisites
 
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) installed
-- An active [Copilot subscription](https://github.com/features/copilot/plans)
+- An active [GitHub Copilot subscription](https://github.com/features/copilot/plans)
 
 ### Add the Skill
 
@@ -74,11 +74,11 @@ You ask one AI model and hope for the best. But one model gives you one perspect
 mkdir -p ~/.copilot/skills/havoc-hackathon ~/.copilot/agents && \
   curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/skills/havoc-hackathon/SKILL.md \
     -o ~/.copilot/skills/havoc-hackathon/SKILL.md && \
-  curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/agents/havoc-hackathon.agent.md \
+  curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/skills/havoc-hackathon/SKILL.md \
     -o ~/.copilot/agents/havoc-hackathon.agent.md && \
   curl -sL https://raw.githubusercontent.com/DUBSOpenHub/havoc-hackathon/main/agents/grid-medic.agent.md \
     -o ~/.copilot/agents/grid-medic.agent.md && \
-  echo "✅ Installed! Run /skills reload in Copilot CLI, then say: run hackathon"
+  echo "✅ Installed! Restart GitHub Copilot CLI, then say: run hackathon"
 ```
 
 #### Full Install (clone the repo)
@@ -88,7 +88,7 @@ git clone https://github.com/DUBSOpenHub/havoc-hackathon.git && \
   mkdir -p ~/.copilot/skills ~/.copilot/agents && \
   cp -r havoc-hackathon/skills/havoc-hackathon ~/.copilot/skills/ && \
   cp havoc-hackathon/agents/*.agent.md ~/.copilot/agents/ && \
-  echo "✅ Havoc Hackathon installed! Run /skills reload in Copilot CLI."
+  echo "✅ Havoc Hackathon installed! Restart GitHub Copilot CLI."
 ```
 
 <details>
@@ -250,7 +250,7 @@ GG WP! Scores logged. ELOs updated. May your diffs be clean and your builds be g
 flowchart TD
     USER["👤 User"] --> SKILL["🏟️ SKILL.md<br/>Orchestration rules"]
     SKILL --> MODE{"Mode?"}
-    MODE -->|Tournament default| HEATS["⚡ Round 1: Elastic Heats<br/>All models dispatched in parallel"]
+    MODE -->|Complex or explicit Tournament| HEATS["⚡ Round 1: Elastic Heats<br/>Bounded parallel dispatch"]
     MODE -->|Classic quick/fast| CLASSIC["⚡ Classic: 3 models<br/>Single round"]
     HEATS --> H1["Heat 1: 3 models"]
     HEATS --> H2["Heat 2: 3 models"]
@@ -328,51 +328,91 @@ havoc-hackathon/
 ## 🤖 Models
 
 <!-- BEGIN GENERATED MODEL ROSTER -->
-_Automatically refreshed from GitHub Docs. Last refresh: 2026-11-01._
+_Runtime schema snapshot: 2026-11-05 (27 explicit models). Recheck the current task schema before dispatch; no live probes implied._
+
+_Standard/Premium are local lineup labels, not billing categories. Custom provider IDs are environment-specific._
 
 | Display Name | Model ID | Tier |
 |-------------|----------|------|
-| Claude Opus 4.8 | `claude-opus-4.8` | Premium |
 | Claude Opus 5 | `claude-opus-5` | Premium |
 | Claude Opus 5.5 | `claude-opus-5.5` | Premium |
 | GPT-5.6 Terra | `gpt-5.6-terra` | Premium |
 | GPT-6 Astra | `gpt-6-astra` | Premium |
-| GPT-6 Luna | `gpt-6-luna` | Premium |
 | GPT-6 Sol | `gpt-6-sol` | Premium |
 | GPT-6.1 Sol | `gpt-6.1-sol` | Premium |
 | GPT-6.1 Terra | `gpt-6.1-terra` | Premium |
 | Grok 4.6 | `grok-4.6` | Premium |
-| Kimi K3 | `kimi-k3` | Premium |
+| Grok 4.7 | `grok-4.7` | Premium |
 | Claude Haiku 4.5 | `claude-haiku-4.5` | Standard |
 | Claude Haiku 5.5 | `claude-haiku-5.5` | Standard |
 | Claude Sonnet 5 | `claude-sonnet-5` | Standard |
 | Claude Sonnet 5.5 | `claude-sonnet-5.5` | Standard |
+| DeepSeek V3.2 (Foundry) | `octodemo/Octodemo_Foundry/DeepSeek-V3.2` | Standard |
+| DeepSeek V4 Flash (Foundry) | `octodemo/Octodemo_Foundry/DeepSeek-V4-Flash` | Standard |
 | GPT-5.3-Codex | `gpt-5.3-codex` | Standard |
 | GPT-5.6 Luna | `gpt-5.6-luna` | Standard |
 | GPT-5.6 Sol | `gpt-5.6-sol` | Standard |
+| GPT-5.6 Sol Fast | `gpt-5.6-sol-fast` | Standard |
+| GPT-6 Luna | `gpt-6-luna` | Standard |
+| GPT-6.1 Sol Fast | `gpt-6.1-sol-fast` | Standard |
 | Gemini 3.8 Flash | `gemini-3.8-flash` | Standard |
 | Gemini 4 Argon | `gemini-4-argon` | Standard |
-| Grok 4.5 | `grok-4.5` | Standard |
-| Grok 4.7 | `grok-4.7` | Standard |
 | MAI-Code-1.1-Flash | `mai-code-1.1-flash` | Standard |
+| MAI-Code-2 | `mai-code-2` | Standard |
+| MAI-Code-2-Flash | `mai-code-2-flash` | Standard |
+| Mistral Small 2503 (custom) | `octodemo/test/mistral-small-2503` | Standard |
 
-**Default contestants (Standard):** Claude Sonnet 5, GPT-5.6 Sol, Gemini 3.8 Flash ← STANDARD ⚡
-**Default contestants (Premium):** Claude Opus 5, GPT-6 Astra, GPT-5.6 Terra ← PREMIUM 👑
-**Default judges (Standard):** Claude Opus 5, GPT-5.6 Terra, Grok 4.6 ← STANDARD ⚡
-**Default judges (Premium):** Claude Sonnet 5, GPT-5.6 Luna, Gemini 3.8 Flash ← PREMIUM 👑
+**Default contestants (Standard lineup):** Claude Sonnet 5.5, GPT-6.1 Sol Fast, Gemini 4 Argon
+
+**Default judges (Standard lineup):** Claude Opus 5.5, GPT-6.1 Terra, Grok 4.7
+
+**Default contestants (Premium lineup):** Claude Opus 5.5, GPT-6.1 Sol, GPT-6.1 Terra
+
+**Default judges (Premium lineup):** Claude Sonnet 5.5, GPT-6 Luna, Gemini 4 Argon
 <!-- END GENERATED MODEL ROSTER -->
 
 > 💡 **Tip:** Standard models are selected by default. Say `"run hackathon with premium models"` to use the heavy hitters.
 
 ### Monthly model refresh
 
-The model roster refreshes automatically from the official GitHub Copilot supported-model documentation on the first day of every month. The scheduled workflow removes retired models, adds newly supported models, regenerates the skill, agent, and README rosters, runs the full validation suite, and commits changes only when the catalog changed.
+The roster uses exact IDs and capabilities from a reviewed GitHub Copilot CLI
+`task` schema snapshot in `config/runtime-models.json`. The monthly workflow
+checks official GitHub Docs for discovery candidates, but never invents model
+IDs from display names or assumes a public model is available to this account.
+Refresh the runtime snapshot when the current session schema changes, then
+regenerate the skill/agent aliases and README. Unknown defaults or malformed
+inputs fail closed before generated files are written.
+
+The table below is a **November 5, 2026 runtime snapshot**, not a live response
+test. Standard/Premium are local lineup labels, not pricing guarantees.
+Custom-provider IDs may not exist outside the originating environment.
+Before a competition, filter against the current schema and account policy;
+capability overrides are opt-in and model-specific.
 
 Run the same refresh locally at any time:
 
 ```bash
 python3 scripts/refresh_models.py --discover
+python3 scripts/refresh_models.py --check
 ```
+
+### Sideline reporting
+
+Every phase handoff reports observed contestant statuses, finished/successful/
+remaining counts, validated scores (or pending), concrete strengths/weaknesses,
+advancement decisions and outstanding blockers. Tournament heats expose
+Evolution Brief highlights before finals. Classic, Kiloagent and Metaswarm have
+equivalent handoffs. Status requests get a current checkpoint; generic hype,
+invented ETAs and silent phase transitions are not substitutes.
+
+### Review and offline validation
+
+The full section-by-section review and limitations are in
+[docs/SKILL-REVIEW.md](docs/SKILL-REVIEW.md). Maintenance does not start a
+tournament. Preflight is offline: no paid model probes, telemetry or real ELO
+writes. Live probes require an explicit request. Kiloagent and Metaswarm require
+external orchestration support and an authorized, bounded launch plan; a skill
+file alone does not provide those runtimes.
 
 ---
 

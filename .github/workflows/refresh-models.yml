@@ -19,6 +19,8 @@ jobs:
 
       - name: Validate generated roster
         run: |
+          python3 -B -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/refresh_models.py --check
           python3 tests/validate_skill.py
           python3 tests/preflight.py
           python3 tests/dry_run_sim.py
@@ -31,7 +33,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add config/models.json skills/havoc-hackathon/SKILL.md \
+          git add config/models.json config/runtime-models.json skills/havoc-hackathon/SKILL.md \
             .github/skills/havoc-hackathon/SKILL.md \
             agents/havoc-hackathon.agent.md README.md
           git commit -m "Refresh GitHub Copilot model roster"

@@ -15,6 +15,7 @@ Parses SKILL.md and agent.md to verify structural integrity:
 Exit code 0 = all checks pass, 1 = failures found.
 """
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -53,6 +54,9 @@ REQUIRED_SECTIONS = [
     "Ensemble Synthesis",
     "Dry-Run",
     "Preflight",
+    "Execution boundaries",
+    "Sideline reporting contract",
+    "Metaswarm Mode",
 ]
 
 
@@ -163,13 +167,12 @@ def check_anti_gaming_concrete(content, filename, result):
 
 def check_model_roster(content, filename, result):
     """Verify model roster is present and has expected model count."""
-    model_ids = re.findall(r"`((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)`", content)
-    unique_models = set(model_ids)
-
-    if len(unique_models) >= 10:
-        result.ok(f"[{filename}] Model roster has {len(unique_models)} unique models")
+    model_ids = re.findall(r"^\| [^|\n]+ \| `([^`]+)` \| (?:Premium|Standard) \|", content, re.MULTILINE)
+    expected = {model["id"] for model in json.loads(MODEL_CONFIG_PATH.read_text())["models"]}
+    if set(model_ids) == expected and len(model_ids) == len(expected):
+        result.ok(f"[{filename}] Exact configured roster: {len(model_ids)} models, including custom IDs")
     else:
-        result.warn(f"[{filename}] Model roster has only {len(unique_models)} unique models (expected ≥10)")
+        result.fail(f"[{filename}] Model table differs from exact configured IDs")
 
 
 def check_model_count_claims(content, filename, result):
@@ -211,14 +214,12 @@ def check_readme_model_table(result):
         result.warn("README.md not found")
         return
 
-    readme_models = re.findall(r"\| .+ \| `((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)` \|", readme)
+    readme_models = re.findall(r"^\| [^|\n]+ \| `([^`]+)` \| (?:Premium|Standard) \|", readme, re.MULTILINE)
     skill = read_file(SKILL_PATH)
-    skill_models = re.findall(r"\| .+ \| `((?:claude|gpt|gemini|grok|kimi|mai)-[a-z0-9.-]+)` \|", skill) if skill else []
+    skill_models = re.findall(r"^\| [^|\n]+ \| `([^`]+)` \| (?:Premium|Standard) \|", skill, re.MULTILINE) if skill else []
 
     if set(readme_models) == set(skill_models):
         result.ok(f"README and SKILL.md model tables match ({len(readme_models)} models)")
-    elif abs(len(readme_models) - len(skill_models)) <= 1:
-        result.warn(f"README has {len(readme_models)} models, SKILL.md has {len(skill_models)} — close but not exact")
     else:
         result.fail(f"README has {len(readme_models)} models but SKILL.md has {len(skill_models)} — OUT OF SYNC")
 
@@ -236,6 +237,23 @@ def check_bracket_table(content, filename, result):
         result.ok(f"[{filename}] Bracket table covers {found}/{len(key_counts)} key model counts")
     else:
         result.fail(f"[{filename}] Bracket table only covers {found}/{len(key_counts)} key model counts")
+
+
+def check_sideline_reporting(content, filename, result):
+    heading = "#### Sideline reporting contract"
+    section = content.split(heading, 1)[-1].split("### Phase 4", 1)[0] if heading in content else ""
+    requirements = [
+        "Phase / round / heat", "Contestant status", "Counts", "Scores",
+        "Strengths / weaknesses", "Decision", "Outstanding work",
+        "Classic build", "Tournament every heat", "Kiloagent each",
+        "Metaswarm commander", "user status request", "60 seconds",
+        "applied/unchanged/failed integration", "Only report \"ELO updated\" if persisted",
+    ]
+    missing = [item for item in requirements if item not in section]
+    if missing:
+        result.fail(f"[{filename}] Sideline reporting missing: {', '.join(missing)}")
+    else:
+        result.ok(f"[{filename}] Sideline contract covers all modes, handoffs, pending evidence and final outcomes")
 
 
 def main():
@@ -265,6 +283,8 @@ def main():
     # Required sections
     check_required_sections(skill, "SKILL.md", result)
     check_required_sections(agent, "agent.md", result)
+    check_sideline_reporting(skill, "SKILL.md", result)
+    check_sideline_reporting(agent, "agent.md", result)
 
     # Anti-gaming concrete checks
     check_anti_gaming_concrete(skill, "SKILL.md", result)

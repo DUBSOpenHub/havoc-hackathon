@@ -2,13 +2,30 @@
 
 This document describes how to verify the Havoc Hackathon skill works correctly.
 
-Since this is a conversational AI skill (not traditional code), testing is done through **conversation playbooks**  -  scripted interactions that verify expected behavior.
+Offline regression tests validate the roster, formulas, schemas and instruction
+contracts. Conversation playbooks below still require observed live results;
+offline success is not proof of model availability or complete orchestration.
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_*.py'
+python3 -B scripts/refresh_models.py --check
+python3 -B tests/validate_skill.py
+python3 -B tests/preflight.py
+python3 -B tests/dry_run_sim.py
+bash -n quickstart.sh
+```
+
+Sideline regressions cover pending scores, failures versus successful work,
+evidence-backed scores, duplicate contestants and required handoffs in all modes.
+The structural validator rejects missing sideline fields or transitions.
+No live probes, telemetry, real rating writes or large-agent launches are part
+of these commands. See `docs/SKILL-REVIEW.md` for review scope and limitations.
 
 ---
 
 ## 🎮 How to Test Locally
 
-1. **Register the skill** in a Copilot CLI session:
+1. **Register the skill** in a GitHub Copilot CLI session:
    ```
    /skills add ./
    ```
@@ -29,7 +46,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | 2 | *(accept defaults or customize)* | 3 models dispatched in parallel with progress commentary |
 | 3 | *(wait for completion)* | All models finish, outputs normalized |
 | 4 | *(judging phase)* | Sealed panel scores anonymized submissions |
-| 5 | *(results)* | Drumroll → winner reveal → ASCII podium → ELO update |
+| 5 | *(results)* | Public scores → podium → approved synthesis/integration → ELO update |
 
 ### Playbook 2: Review Mode
 
@@ -75,8 +92,8 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
 | 1 | Run a hackathon that finishes close (≤2 pts margin) | Offered "🔥 Want a rematch with a tiebreaker?" |
-| 2 | Accept and pick a 6th criterion | Re-judging on new criterion only |
-| 3 | *(results)* | Combined scores reveal final winner |
+| 2 | Accept a separate rematch | Declare its rubric before launching; retain original /50 result |
+| 3 | *(results)* | Separate rematch result; no retroactive reweighting |
 
 ### Playbook 8: Replay Export
 
@@ -99,7 +116,7 @@ Since this is a conversational AI skill (not traditional code), testing is done 
 | Step | You Say | Expected Behavior |
 |------|---------|-------------------|
 | 1 | Run a hackathon | ELO saved to `~/.copilot/hackathon-elo.json` |
-| 2 | Start a new Copilot CLI session | ELO loaded from JSON file into SQL |
+| 2 | Start a new GitHub Copilot CLI session | Validated legacy ELO loaded without deleting historical models |
 | 3 | Run another hackathon | Previous ELO ratings shown in Phase 0 |
 
 ### Playbook 11: Model Tier Selection
@@ -190,7 +207,7 @@ Before submitting a PR, verify:
 - [ ] 🏷️ Tier badges (⚡/👑) shown in opening ceremony
 - [ ] ⏳ Stall detection prompts user after 180s of no output
 - [ ] 💀 Auto-DQ on second stall after user-granted extension
-- [ ] 🏟️ Tournament mode activates by default (not just 3 models)
+- [ ] 🏟️ Classic for simple tasks; Tournament for complex tasks or explicit mode request
 - [ ] 🔥 Elastic brackets size heats correctly for model count
 - [ ] 🏅 Per-heat judge panels run in parallel (3 judges × N heats)
 - [ ] 🧬 Evolution Brief generated between rounds from judge scores

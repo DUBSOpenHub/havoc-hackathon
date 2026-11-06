@@ -8,10 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Reviewed runtime-schema snapshot for 27 exact model IDs and per-model capabilities, including Fast variants, MAI-Code-2 and custom providers.
+- Offline regression checks for refresh failure cases, real mode detection, bracket math, tied voting, order-independent ELO and sideline reporting.
+- Full section review in `docs/SKILL-REVIEW.md`, including live-runtime limitations.
 - Monthly model-roster refresh on the first day of each month using the official GitHub Copilot supported-model documentation.
 - Generated `config/models.json` catalog shared by the skill, agent, README, and dry-run validation.
+- Mandatory public checkpoint reports between build, judging, rounds, and synthesis, with observed progress and no fabricated scores or percentages.
 
 ### Changed
+- Model refresh now reports public Docs candidates without guessing dispatch IDs; runtime defaults and generated-file drift are validated before writes.
+- Standard Classic lineup now uses Claude Sonnet 5.5, GPT-6.1 Sol Fast and Gemini 4 Argon; runtime capability overrides are opt-in, not blanket settings.
+- Reconciled installed-only Metaswarm contracts, isolated build worktrees, frozen scoring, three-judge replacement, bounded retries and approval-gated integration.
+- Sideline checkpoints now require observed statuses, finished/successful/remaining counts, evidence-backed scores, every mode's handoffs and honest final outcomes.
+- Preflight stays offline; telemetry defaults off; rating persistence requires validation, atomic publication and duplicate-run protection.
+- Refreshed the roster to the November 3, 2026 GitHub Copilot catalog: added Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, GPT-6 Sol, GPT-6 Luna, GPT-6.1 Sol, GPT-6.1 Terra, Gemini 4 Argon, and Grok 4.7; removed models retired in October 2026 (Claude Opus 4.7, GPT-5.4, GPT-5.5, GPT-5 mini, GPT-5.4 mini, Gemini 3.5/3.6/3.7 Flash, Kimi K2.7 Code).
+- Updated default contestants, judges, and Kiloagent role mappings to the newest models; Luna-line models now default to the Standard tier.
 - Replaced retired models with the September 15, 2026 GitHub Copilot roster, including Claude Opus 5, Claude Sonnet 5, GPT-6 Astra, GPT-5.6, Gemini 3.8 Flash, Kimi K3, and Grok 4.6.
 - Expanded tournament bracket sizing to support the full current roster with approximately four contestants per heat.
 

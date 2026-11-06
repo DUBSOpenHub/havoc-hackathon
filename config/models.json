@@ -1,143 +1,246 @@
 {
-  "source": "https://docs.github.com/en/copilot/reference/ai-models/supported-models",
-  "updated": "2026-11-01",
+  "source": "config/runtime-models.json",
+  "updated": "2026-11-05",
   "models": [
-    {
-      "name": "Claude Opus 4.8",
-      "id": "claude-opus-4.8",
-      "tier": "Premium"
-    },
     {
       "name": "Claude Opus 5",
       "id": "claude-opus-5",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "Anthropic",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "Claude Opus 5.5",
       "id": "claude-opus-5.5",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "Anthropic",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "GPT-5.6 Terra",
       "id": "gpt-5.6-terra",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "GPT-6 Astra",
       "id": "gpt-6-astra",
-      "tier": "Premium"
-    },
-    {
-      "name": "GPT-6 Luna",
-      "id": "gpt-6-luna",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "GPT-6 Sol",
       "id": "gpt-6-sol",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "GPT-6.1 Sol",
       "id": "gpt-6.1-sol",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "GPT-6.1 Terra",
       "id": "gpt-6.1-terra",
-      "tier": "Premium"
+      "tier": "Premium",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
     },
     {
       "name": "Grok 4.6",
       "id": "grok-4.6",
-      "tier": "Premium"
-    },
-    {
-      "name": "Kimi K3",
-      "id": "kimi-k3",
-      "tier": "Premium"
-    },
-    {
-      "name": "Claude Haiku 4.5",
-      "id": "claude-haiku-4.5",
-      "tier": "Standard"
-    },
-    {
-      "name": "Claude Haiku 5.5",
-      "id": "claude-haiku-5.5",
-      "tier": "Standard"
-    },
-    {
-      "name": "Claude Sonnet 5",
-      "id": "claude-sonnet-5",
-      "tier": "Standard"
-    },
-    {
-      "name": "Claude Sonnet 5.5",
-      "id": "claude-sonnet-5.5",
-      "tier": "Standard"
-    },
-    {
-      "name": "GPT-5.3-Codex",
-      "id": "gpt-5.3-codex",
-      "tier": "Standard"
-    },
-    {
-      "name": "GPT-5.6 Luna",
-      "id": "gpt-5.6-luna",
-      "tier": "Standard"
-    },
-    {
-      "name": "GPT-5.6 Sol",
-      "id": "gpt-5.6-sol",
-      "tier": "Standard"
-    },
-    {
-      "name": "Gemini 3.8 Flash",
-      "id": "gemini-3.8-flash",
-      "tier": "Standard"
-    },
-    {
-      "name": "Gemini 4 Argon",
-      "id": "gemini-4-argon",
-      "tier": "Standard"
-    },
-    {
-      "name": "Grok 4.5",
-      "id": "grok-4.5",
-      "tier": "Standard"
+      "tier": "Premium",
+      "provider": "xAI",
+      "max_reasoning": false,
+      "long_context": true
     },
     {
       "name": "Grok 4.7",
       "id": "grok-4.7",
-      "tier": "Standard"
+      "tier": "Premium",
+      "provider": "xAI",
+      "max_reasoning": false,
+      "long_context": true
+    },
+    {
+      "name": "Claude Haiku 4.5",
+      "id": "claude-haiku-4.5",
+      "tier": "Standard",
+      "provider": "Anthropic",
+      "max_reasoning": false,
+      "long_context": false
+    },
+    {
+      "name": "Claude Haiku 5.5",
+      "id": "claude-haiku-5.5",
+      "tier": "Standard",
+      "provider": "Anthropic",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "Claude Sonnet 5",
+      "id": "claude-sonnet-5",
+      "tier": "Standard",
+      "provider": "Anthropic",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "Claude Sonnet 5.5",
+      "id": "claude-sonnet-5.5",
+      "tier": "Standard",
+      "provider": "Anthropic",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "DeepSeek V3.2 (Foundry)",
+      "id": "octodemo/Octodemo_Foundry/DeepSeek-V3.2",
+      "tier": "Standard",
+      "provider": "DeepSeek",
+      "max_reasoning": false,
+      "long_context": false
+    },
+    {
+      "name": "DeepSeek V4 Flash (Foundry)",
+      "id": "octodemo/Octodemo_Foundry/DeepSeek-V4-Flash",
+      "tier": "Standard",
+      "provider": "DeepSeek",
+      "max_reasoning": false,
+      "long_context": false
+    },
+    {
+      "name": "GPT-5.3-Codex",
+      "id": "gpt-5.3-codex",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": false,
+      "long_context": false
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "id": "gpt-5.6-luna",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "id": "gpt-5.6-sol",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "GPT-5.6 Sol Fast",
+      "id": "gpt-5.6-sol-fast",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "GPT-6 Luna",
+      "id": "gpt-6-luna",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "GPT-6.1 Sol Fast",
+      "id": "gpt-6.1-sol-fast",
+      "tier": "Standard",
+      "provider": "OpenAI",
+      "max_reasoning": true,
+      "long_context": true
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "id": "gemini-3.8-flash",
+      "tier": "Standard",
+      "provider": "Google",
+      "max_reasoning": false,
+      "long_context": true
+    },
+    {
+      "name": "Gemini 4 Argon",
+      "id": "gemini-4-argon",
+      "tier": "Standard",
+      "provider": "Google",
+      "max_reasoning": false,
+      "long_context": true
     },
     {
       "name": "MAI-Code-1.1-Flash",
       "id": "mai-code-1.1-flash",
-      "tier": "Standard"
+      "tier": "Standard",
+      "provider": "Microsoft",
+      "max_reasoning": false,
+      "long_context": false
+    },
+    {
+      "name": "MAI-Code-2",
+      "id": "mai-code-2",
+      "tier": "Standard",
+      "provider": "Microsoft",
+      "max_reasoning": true,
+      "long_context": false
+    },
+    {
+      "name": "MAI-Code-2-Flash",
+      "id": "mai-code-2-flash",
+      "tier": "Standard",
+      "provider": "Microsoft",
+      "max_reasoning": true,
+      "long_context": false
+    },
+    {
+      "name": "Mistral Small 2503 (custom)",
+      "id": "octodemo/test/mistral-small-2503",
+      "tier": "Standard",
+      "provider": "Mistral",
+      "max_reasoning": false,
+      "long_context": false
     }
   ],
   "defaults": {
     "standard_contestants": [
-      "claude-sonnet-5",
-      "gpt-5.6-sol",
-      "gemini-3.8-flash"
+      "claude-sonnet-5.5",
+      "gpt-6.1-sol-fast",
+      "gemini-4-argon"
     ],
     "premium_contestants": [
-      "claude-opus-5",
-      "gpt-6-astra",
-      "gpt-5.6-terra"
+      "claude-opus-5.5",
+      "gpt-6.1-sol",
+      "gpt-6.1-terra"
     ],
     "standard_judges": [
-      "claude-opus-5",
-      "gpt-5.6-terra",
-      "grok-4.6"
+      "claude-opus-5.5",
+      "gpt-6.1-terra",
+      "grok-4.7"
     ],
     "premium_judges": [
-      "claude-sonnet-5",
-      "gpt-5.6-luna",
-      "gemini-3.8-flash"
+      "claude-sonnet-5.5",
+      "gpt-6-luna",
+      "gemini-4-argon"
     ]
-  }
+  },
+  "runtime_source": "GitHub Copilot CLI task tool schema, version 1.0.106",
+  "docs_source": "https://docs.github.com/en/copilot/reference/ai-models/supported-models"
 }
